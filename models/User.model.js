@@ -8,6 +8,12 @@ const userSchema = new Schema(
       // unique: true -> Ideally, should be unique, but its up to you
     },
     password: String,
+    email: String,
+    account: {
+      type: String,
+      enum:["League","Team","Player"],
+      default: "Player"
+    }
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
