@@ -19,7 +19,10 @@ router.get("/signup", isLoggedOut, (req, res) => {
 });
 
 router.post("/signup", isLoggedOut, (req, res) => {
-  const { username, password } = req.body;
+  const { username, password, email, account } = req.body;
+  console.log('User',{ username, password, email, account })
+  console.log('account',{account})
+  
 
   if (!username) {
     return res.status(400).render("auth/signup", {
@@ -63,13 +66,18 @@ router.post("/signup", isLoggedOut, (req, res) => {
         return User.create({
           username,
           password: hashedPassword,
+          email,
+          account
         });
       })
-      .then((user) => {
+      .then(()=>{
+        res.redirect('/auth/login')
+      })
+      /* .then((user) => {
         // Bind the user to the session object
         req.session.user = user;
         res.redirect("/");
-      })
+      }) */
       .catch((error) => {
         if (error instanceof mongoose.Error.ValidationError) {
           return res
@@ -95,7 +103,7 @@ router.get("/login", isLoggedOut, (req, res) => {
 
 router.post("/login", isLoggedOut, (req, res, next) => {
   const { username, password } = req.body;
-
+  
   if (!username) {
     return res.status(400).render("auth/login", {
       errorMessage: "Please provide your username.",
@@ -113,13 +121,13 @@ router.post("/login", isLoggedOut, (req, res, next) => {
   // Search the database for a user with the username submitted in the form
   User.findOne({ username })
     .then((user) => {
+      console.log('User',user)
       // If the user isn't found, send the message that user provided wrong credentials
       if (!user) {
         return res.status(400).render("auth/login", {
           errorMessage: "Wrong credentials.",
         });
       }
-
       // If user is found based on the username, check if the in putted password matches the one saved in the database
       bcrypt.compare(password, user.password).then((isSamePassword) => {
         if (!isSamePassword) {
@@ -129,7 +137,10 @@ router.post("/login", isLoggedOut, (req, res, next) => {
         }
         req.session.user = user;
         // req.session.user = user._id; // ! better and safer but in this case we saving the entire user object
-        return res.redirect("/");
+        /* return res.redirect("/"); */
+      if(user.account === 'League') res.redirect('/league/mainLeague');
+      if(user.account === 'Player') res.redirect('/player/mainPlayer');
+      if(user.account === 'Team') res.redirect('/team/mainTeam');
       });
     })
 
