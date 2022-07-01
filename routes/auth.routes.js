@@ -70,14 +70,21 @@ router.post("/signup", isLoggedOut, (req, res) => {
           account
         });
       })
-      .then(()=>{
-        res.redirect('/auth/login')
+      .then((user)=>{
+        /* res.redirect('/auth/login') */
+        if(user.account === 'League') {
+          req.session.user = user;
+          res.redirect('/league/mainLeague');
+        };
+        if(user.account === 'Player') {
+          req.session.user = user;
+          res.redirect('/player/mainPlayer');
+        };
+        if(user.account === 'Team') {
+          req.session.user = user;
+          res.redirect('/team/mainTeam');
+        };
       })
-      /* .then((user) => {
-        // Bind the user to the session object
-        req.session.user = user;
-        res.redirect("/");
-      }) */
       .catch((error) => {
         if (error instanceof mongoose.Error.ValidationError) {
           return res
