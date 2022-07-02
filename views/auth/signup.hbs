@@ -1,19 +1,20 @@
 <form action="/auth/signup" method="POST">
-   <label> Username
-      <input type="text" name="username">
+   <label> Name
+      <input type="text" name="name">
+   </label>
+   <label> Surname
+      <input type="text" name="surname">
+   </label>
+   <label> Email
+      <input type="email" name="email">
    </label>
    <label> Password
       <input type="password" name="password">
    </label>
-
-   <label> Email
-      <input type="email" name="email">
-   </label>
-
-   <label for="account">
-      <select name="account" id="type">
-         <option value="League">League</option>
-         <option value="Team">Team</option>
+   <label for="role">
+      <select name="role">
+         <option value="Admin">Admin/League</option>
+         <option value="Coach">Coach/Team</option>
          <option value="Player">Player</option>
       </select>
    </label>
