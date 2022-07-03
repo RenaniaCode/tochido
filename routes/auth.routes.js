@@ -73,17 +73,18 @@ router.post("/signup", isLoggedOut, (req, res) => {
       })
       .then((user)=>{
         /* res.redirect('/auth/login') */
+        console.log('User created',user);
         if(user.role === 'Admin') {
           req.session.user = user;
-          res.redirect('/league/edit-league');
+          res.redirect(`/league/edit-league/${user._id}`);
         };
         if(user.role === 'Player') {
           req.session.user = user;
-          res.redirect('/player/edit-player');
+          res.redirect(`/player/edit-player/${user._id}`);
         };
         if(user.role === 'Coach') {
           req.session.user = user;
-          res.redirect('/team/edit-team');
+          res.redirect(`/team/edit-team/${user._id}`);
         };
       })
       .catch((error) => {
@@ -146,9 +147,9 @@ router.post("/login", isLoggedOut, (req, res, next) => {
         req.session.user = user;
         // req.session.user = user._id; // ! better and safer but in this case we saving the entire user object
         /* return res.redirect("/"); */
-      if(user.role === 'Admin') res.redirect('/league/mainLeague');
-      if(user.role === 'Player') res.redirect('/player/mainPlayer');
-      if(user.role === 'Coach') res.redirect('/team/mainTeam');
+      if(user.role === 'Admin') res.redirect(`/league/edit-league/${user._id}`);
+      if(user.role === 'Player') res.redirect(`/player/edit-player/${user._id}`);
+      if(user.role === 'Coach') res.redirect(`/team/mainTeam/${user._id}`);
       });
     })
 

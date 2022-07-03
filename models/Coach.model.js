@@ -12,6 +12,14 @@ const coachSchema = new Schema(
       default:
         "https://res.cloudinary.com/dhgfid3ej/image/upload/v1558806705/asdsadsa_iysw1l.jpg",
     },
+    _owner: {
+      type: Schema.Types.ObjectId,
+      ref: "User"
+    },
+    _players: [{
+      type: Schema.Types.ObjectId,
+      ref: "Player"
+  }] 
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
