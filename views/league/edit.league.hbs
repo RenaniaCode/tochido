@@ -1,4 +1,6 @@
-<form action="/league/edit-league" method="POST">
+<h1>Hi {{user.name}}, edit your League</h1>
+
+<form action="/league/edit-league/{{user._id}}" method="POST">
    <label> League Name
       <input type="text" name="league_name">
    </label>
