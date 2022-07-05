@@ -1,14 +1,12 @@
-<html lang="en">
 
+<!doctype html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>{{appTitle}}</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,81 +17,98 @@
   </head>
 
   <body>
-    <nav class="navbar purpleBackground" role="navigation" aria-label="main navigation">
-      <div class="navbar-brand">
-        <a class="navbar-item" href="https://bulma.io">
-          <img
-            src="https://bulma.io/images/bulma-logo.png"
-            width="112"
-            height="28"
-          />
-        </a>
 
-        <a
-          role="button"
-          class="navbar-burger"
-          aria-label="menu"
-          aria-expanded="false"
-          data-target="navbarBasicExample"
-        >
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </a>
+<nav class="navbar fixed-top navbar-expand-lg" style="background-color: #B609DE">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><img src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" style="color: white" aria-current="page" href="#">Mi Liga</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" style="color: white" aria-current="page" href="#">Resultados</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" style="color: white" aria-current="page" href="#">Calendario de Partidos</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" style="color: white" aria-current="page" href="#">Comunicados</a>
+        </li>
+    </div>
+   
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button type="button" class="btn btn-bd-primary">Log In</button>
+      <button class="btn btn-bd-secondary" type="button">Sign up</button>
       </div>
-
-      <div id="navbarBasicExample" class="navbar-menu">
-        <div class="navbar-start">
-          <a class="navbar-item letterWhite">
-            Mi Liga
-          </a>
-
-          <a class="navbar-item letterWhite">
-            Resultados
-          </a>
-
-          <a class="navbar-item letterWhite">
-            Calendario de Partidos
-          </a>
-
-          <a class="navbar-item letterWhite">
-            Comunicados
-          </a>
-
-        </div>
-
-        <div class="navbar-end">
-          <div class="navbar-item">
-            <div class="buttons">
-              <a class="button is-primary">
-                <strong>Sign up</strong>
-              </a>
-              <a class="button is-light">
-                Log in
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </nav>
-
+  </div> 
+</nav>
+    
+    
     {{{body}}}
 
-    <footer class="footer purpleBackground letterWhite">
-      <div class="content has-text-centered ">
-        <p>
-          <strong>Bulma</strong>
-          by
-          <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is
-          licensed
-          <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The
-          website content is licensed
-          <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC
-            SA 4.0</a>.
-        </p>
-      </div>
-    </footer>
 
+  <!-- Footer -->
+  <footer class="navbar fixed-bottom navbar-expand-lg" style="background-color: #B609DE">
+    <!-- Grid container -->
+    <div class="container p-4">
+      <!--Grid row-->
+      <div class="row">
+        <!--Grid column-->
+        <div class="col-lg-6 col-md-12 mb-4 mb-md-0" style="color: white">
+          <h5 class="text-uppercase" style="color: white">Footer Content</h5>
+
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
+            molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae
+            aliquam voluptatem veniam, est atque cumque eum delectus sint!
+          </p>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase" style="color: white" >Ciudad de México <br>
+          México,010000
+          </h5>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+
+    <!-- Section: Social media -->
+    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+      <!-- Facebook -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-facebook-f"></i
+      ></a>
+
+      <!-- Instagram -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-instagram"></i
+      ></a>
+          <h5 class="text-uppercase" style="color: white" >elcorreo@gmail.com</h5><br>
+          <h5 class="text-uppercase" style="color: white" >Aviso de Privacidad</h5>
+
+      </div>
+        
+        <!--Grid column-->
+      </div>
+      <!--Grid row-->
+    </div>
+    <!-- Grid container -->
+  </footer>
+  <!-- Footer -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
     <script src="/js/script.js"></script>
   </body>
 </html>
