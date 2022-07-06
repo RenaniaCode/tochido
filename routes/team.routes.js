@@ -1,6 +1,7 @@
 const router = require("express").Router();
-const Coach = require('../models/Coach.model');
+const Coach = require('../models/Team.model');
 const User = require('../models/User.model');
+const Player = require('../models/Player.model')
 
 router.get('/mainTeam/:id',(req,res,next)=>{
     const {id} = req.params;
@@ -8,9 +9,11 @@ router.get('/mainTeam/:id',(req,res,next)=>{
     User.findById(id)
     .then((user)=>{
         Coach.findOne({'_owner':`${id}`})
+        .populate('_players')
         .then((coach=>{
-        console.log('coach',coach);
-        res.render('team/main.team.hbs',{user , coach});
+        /* console.log('players',coach._players);
+        console.log('coach',coach); */
+        res.render('team/main.team.hbs',{user , coach , id});
     }))
     })
     .catch(error=>console.log('error',error))
@@ -40,6 +43,38 @@ router.post('/edit-team/:id',(req,res,next)=>{
         })
     })
     .catch(error=>console.log('error',error))
+})
+
+router.get('/mainTeam/:id/add-players',(req,res,next)=>{
+    const {id} = req.params;
+
+    Coach.find({_owner:id})
+    .then((team)=>{
+        console.log('team',team)
+        const teamId = team[0]._id
+        console.log('team id',teamId)
+        Player.find({_teamOwner:teamId})
+        .then((players)=>{
+            console.log('players con el id team',players,'id team',teamId)
+            res.render('team/addPlayers.team.hbs',{players , id , team});
+        })
+    })
+
+})
+
+router.post('/mainTeam/:id/add-players',(req,res,next)=>{
+    const {id} = req.params;
+    const {player_id} = req.body;
+    console.log('player id', player_id)
+
+    Coach.findOneAndUpdate({_owner: id},{_players:`${player_id}`})
+    /* .populate('_players') */
+    .then((coach)=>{
+        console.log('players',coach._players , 'coach' , coach)
+        res.redirect(`/team/mainTeam/${id}`)
+    })
+    .catch(error=>console.log('error',error))
+
 })
 
 module.exports = router;

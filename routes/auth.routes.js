@@ -147,8 +147,8 @@ router.post("/login", isLoggedOut, (req, res, next) => {
         req.session.user = user;
         // req.session.user = user._id; // ! better and safer but in this case we saving the entire user object
         /* return res.redirect("/"); */
-      if(user.role === 'Admin') res.redirect(`/league/edit-league/${user._id}`);
-      if(user.role === 'Player') res.redirect(`/player/edit-player/${user._id}`);
+      if(user.role === 'Admin') res.redirect(`/league/mainLeague/${user._id}`);
+      if(user.role === 'Player') res.redirect(`/player/mainPlayer/${user._id}`);
       if(user.role === 'Coach') res.redirect(`/team/mainTeam/${user._id}`);
       });
     })

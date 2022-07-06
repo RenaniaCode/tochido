@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 
 // TODO: Please make sure you edit the user model to whatever makes sense in this case
-const coachSchema = new Schema(
+const teamSchema = new Schema(
   {
     team_name: {
       type: String,
@@ -19,7 +19,7 @@ const coachSchema = new Schema(
     _players: [{
       type: Schema.Types.ObjectId,
       ref: "Player"
-  }] 
+  }]
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
@@ -27,6 +27,6 @@ const coachSchema = new Schema(
   }
 );
 
-const Coach = model("Coach", coachSchema);
+const Team = model("Team", teamSchema);
 
-module.exports = Coach;
+module.exports = Team;

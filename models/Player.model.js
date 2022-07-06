@@ -12,6 +12,15 @@ const playerSchema = new Schema(
     position:{
          type: String, //lo queremos hacer enum? 
     },
+    _owner: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
+    _teamOwner: {
+      type: Schema.Types.ObjectId,
+      ref: "Team",
+      default: null,
+    },
     age: Number,
     height: String,
     nickname : String,

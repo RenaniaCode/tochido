@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const Player = require('../models/Player.model');
 const User = require("../models/User.model");
+const Coach = require("../models/Team.model")
 
 
 router.get('/mainPlayer/:id',(req,res,next)=>{
@@ -10,7 +11,7 @@ router.get('/mainPlayer/:id',(req,res,next)=>{
     .then((user)=>{
         Player.findOne({'_owner':`${id}`})
         .then((player=>{
-        res.render('player/main.player.hbs',{user , player});
+        res.render('player/main.player.hbs',{user , player , id});
     }))
     })
     .catch(error=>console.log('error',error))
@@ -40,6 +41,29 @@ router.post('/edit-player/:id',(req,res,next)=>{
         })
     })
     .catch(error=>console.log('error',error))
+})
+
+router.get('/mainPlayer/:id/add-team',(req,res,next)=>{
+    const {id} = req.params;
+
+    Player.findOne({_owner:id})
+    .then((player)=>{
+        res.render('player/addTeam.player.hbs',{player , id});
+    })
+})
+
+router.post('/mainPlayer/:id/add-team',(req,res,next)=>{
+    const {id} = req.params;
+    const {team_id} = req.body;
+    console.log('team id', team_id)
+
+    Player.findOneAndUpdate({_owner: id},{_teamOwner:`${team_id}`})
+    .then((player)=>{
+        console.log('players',player._teamOwner)
+        res.redirect(`/player/mainPlayer/${id}`)
+    })
+    .catch(error=>console.log('error',error))
+
 })
 
 
