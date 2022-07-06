@@ -1,5 +1,5 @@
 body {
-  padding: 50px;
+  padding: 100px;
   font-family: "Rubik", sans-serif;
 }
 
@@ -16,12 +16,12 @@ h1 {
   --bs-btn-color: var(--bs-white);
   --bs-btn-bg: var(--bd-violet);
   --bs-btn-border-color: var(--bs-white);
-  --bs-btn-border-radius: .5rem;
-  --bs-btn-hover-color: #29DBE6 ;
-  --bs-btn-hover-bg: #{shade-color(#29DBE6 10%)};
+  --bs-btn-border-radius: 0.5rem;
+  --bs-btn-hover-color: #29dbe6;
+  --bs-btn-hover-bg: #{shade-color(#29dbe6 10%)};
   --bs-btn-hover-border-color: #{shade-color($bd-violet, 10%)};
   --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
-  --bs-btn-active-color: #29DBE6;
+  --bs-btn-active-color: #29dbe6;
   --bs-btn-active-bg: #{shade-color($bd-violet, 20%)};
   --bs-btn-active-border-color: #{shade-color($bd-violet, 20%)};
 }
@@ -29,9 +29,9 @@ h1 {
 .btn-bd-secondary {
   --bs-btn-font-weight: 300;
   --bs-btn-color: #595858;
-  --bs-btn-bg: #29DBE6;
-  --bs-btn-border-color: #29DBE6;
-  --bs-btn-border-radius: .5rem;
+  --bs-btn-bg: #29dbe6;
+  --bs-btn-border-color: #29dbe6;
+  --bs-btn-border-radius: 0.5rem;
   --bs-btn-hover-color: white;
   --bs-btn-hover-bg: #{shade-color($bd-white, 10%)};
   --bs-btn-hover-border-color: #{shade-color($bd-violet, 10%)};
@@ -39,4 +39,33 @@ h1 {
   --bs-btn-active-color: var(--bs-btn-hover-color);
   --bs-btn-active-bg: #{shade-color($bd-violet, 20%)};
   --bs-btn-active-border-color: #{shade-color($bd-violet, 20%)};
+}
+
+.btn-bd-third {
+  --bs-btn-font-weight: 300;
+  --bs-btn-color: #595858;
+  --bs-btn-bg: #29dbe6;
+  --bs-btn-border-color: #29dbe6;
+  --bs-btn-border-radius: 0.5rem;
+  --bs-btn-hover-color: #B609DE;
+  --bs-btn-hover-bg: #{shade-color($bd-white, 10%)};
+  --bs-btn-hover-border-color: #{shade-color($bd-violet, 10%)};
+  --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+  --bs-btn-active-color: var(--bs-btn-hover-color);
+  --bs-btn-active-bg: #{shade-color($bd-violet, 20%)};
+  --bs-btn-active-border-color: #{shade-color($bd-violet, 20%)};
+}
+
+.titles {
+  font-family: "Play", sans-serif;
+  color: #29dbe6;
+  font-weight: bold;
+  font-size: 32px;
+  text-align: center;
+  padding: 50px;
+}
+
+.footer-body{
+  font-family: "Rubik", sans-serif;
+  font-size: 12px;
 }
