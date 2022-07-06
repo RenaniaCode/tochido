@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const Admin = require('../models/Admin.model');
+const Admin = require('../models/League.model');
 const User = require('../models/User.model');
 
 router.get('/mainLeague/:id',(req,res,next)=>{
