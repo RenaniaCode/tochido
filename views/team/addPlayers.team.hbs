@@ -1,0 +1,21 @@
+<h1>Insert player's Id to add</h1>
+
+<ul>
+<h3>Already have</h3>
+{{#each team}}
+<li>
+{{_players}}
+</li>
+{{/each}}
+</ul>  
+
+<form action="/team/mainTeam/{{id}}/add-players" method="POST">
+   <label> Player Id <br>
+      {{#each players}}
+      <label for="player_id"> nickname: <b>{{nickname}}</b> number: <b>{{number}}</b> position: <b>{{position}}</b>
+        <input type="checkbox" name="player_id" value="{{_id}}">
+      </label> <br>
+      {{/each}}
+   </label>
+   <button type="submit">Submit</button>
+</form>

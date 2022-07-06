@@ -1,0 +1,11 @@
+<H1> Hello {{user.name}} edit your Team</H1>
+
+<form action="/team/edit-team/{{user._id}}" method="POST">
+   <label> Team Name
+      <input type="text" name="team_name">
+   </label>
+   <label> Team Logo
+      <input type="text" name="team_logo">
+   </label>
+   <button type="submit">Submit</button>
+</form>

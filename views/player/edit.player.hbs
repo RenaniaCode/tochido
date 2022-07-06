@@ -1,0 +1,37 @@
+<form action="/player/edit-player/{{user._id}}" method="POST">
+   <label> Profile Picture
+      <input type="text" name="profile_pic">
+   </label>
+   <label> Number
+      <input type="number" name="number">
+   </label>
+   <label> Position
+      <input type="text" name="position">
+   </label>
+   <label> Age
+      <input type="number" name="age">
+   </label>
+   <label for="height"> Height
+      <select name="height">
+         <option value="1.45m - 1.50m">1.45m - 1.50m</option>
+         <option value="1.51m - 1.55m">1.51m - 1.55m</option>
+         <option value="1.56m - 1.60m">1.56m - 1.60m</option>
+         <option value="1.61m - 1.65m">1.61m - 1.65m</option>
+         <option value="1.66m - 1.70m">1.66m - 1.70m</option>
+         <option value="1.71m - 1.75m">1.71m - 1.75m</option>
+         <option value="1.76m - 1.80m">1.76m - 1.80m</option>
+         <option value="1.81m - 1.85m">1.81m - 1.85m</option>
+         <option value="1.86m - 1.90m">1.86m - 1.90m</option>
+         <option value="1.91m - 1.95m">1.91m - 1.95m</option>
+         <option value="1.96m - 2.00m">1.96m - 2.00m</option>
+         <option value="2.01m - 2.05m">2.01m - 2.05m</option>
+         <option value="2.06m - 2.10m">2.06m - 2.10m</option>
+      </select>
+   </label>
+   
+   <label> Nickname
+      <input type="text" name="nickname">
+   </label>
+
+   <button type="submit">Submit</button>
+</form>
