@@ -1,27 +1,63 @@
-<form action="/auth/signup" method="POST">
-   <label> Name
-      <input type="text" name="name">
-   </label>
-   <label> Surname
-      <input type="text" name="surname">
-   </label>
-   <label> Email
-      <input type="email" name="email">
-   </label>
-   <label> Password
-      <input type="password" name="password">
-   </label>
-   <label for="role">
-      <select name="role">
-         <option value="Admin">Admin/League</option>
-         <option value="Coach">Coach/Team</option>
-         <option value="Player">Player</option>
-      </select>
-   </label>
+<div class="titles">
+  <p>Sign Up</p>
+</div>
 
-   <button type="submit">Submit</button>
-</form>
+<div class="body">
+  <div>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur.
+    </p>
+  </div>
+
+  <form
+    class="row gy-2 gx-3 align-items-center"
+    action="/auth/signup"
+    method="POST"
+  >
+    <div class="col-sm-5">
+      <label for="exampleInputEmail1" class="form-label">Username</label>
+      <input type="text" name="username" class="form-control" />
+    </div>
+
+    <div class="col-sm-5">
+      <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+      <input type="password" name="password" class="form-control" />
+    </div>
+
+    <div class="col-sm-5">
+      <label for="exampleInputEmail1" class="form-label">Email</label>
+      <input
+        type="email"
+        name="email"
+        class="form-control"
+        aria-describedby="emailHelp"
+      />
+    </div>
+
+    <div class="col-sm-5">
+      <label for="exampleInputEmail1" class="form-label">Quiero crear una cuenta de:</label>
+      <select
+        class="form-select"
+        aria-label="Default select example"
+        name="account"
+        id="type"
+      >
+         <option value="Player">Jugador</option>
+         <option value="Team">Equipo</option>
+        <option value="League">Liga</option>
+      </select>
+    </div>
+
+    <div class="col-12">
+      <button type="submit" class="btn btn-bd-third">Crear Cuenta</button>
+    </div>
+  </form>
+</div>
 
 {{#if errorMessage}}
-   {{errorMessage}}
+  {{errorMessage}}
 {{/if}}

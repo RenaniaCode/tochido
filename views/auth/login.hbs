@@ -1,14 +1,41 @@
-<form action="/auth/login" method="POST">
-   <label> Email
-      <input type="email" name="email">
-   </label>
-   <label> Password
-      <input type="password" name="password">
-   </label>
+<div class="titles">
+  <p>Log In</p>
+</div>
 
-   <button type="submit">Submit</button>
+<div class="body">
+   <div>
+   <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+   </p>
+   </div>
+
+
+<form
+  class="row gy-2 gx-3 align-items-center"
+  action="/auth/login"
+  method="POST"
+>
+  <div class="col-sm-5">
+    <label for="exampleInputEmail1" class="form-label">Email</label>
+    <input
+      type="email"
+      name="email" 
+      class="form-control"
+      aria-describedby="emailHelp"
+    />
+  </div>
+
+  <div class="col-sm-5">
+    <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+    <input type="password" name="password" class="form-control" />
+  </div>
+
+  <div class="col-12">
+    <button type="submit" class="btn btn-bd-third">Entrar</button>
+  </div>
 </form>
+</div>
 
 {{#if errorMessage}}
-   {{errorMessage}}
+  {{errorMessage}}
 {{/if}}
