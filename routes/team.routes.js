@@ -13,7 +13,7 @@ router.get('/mainTeam/:id',(req,res,next)=>{
         .then((coach=>{
         /* console.log('players',coach._players);
         console.log('coach',coach); */
-        res.render('team/main.team.hbs',{user , coach , id});
+        res.render('team/main-team',{user , coach , id});
     }))
     })
     .catch(error=>console.log('error',error))
@@ -24,7 +24,7 @@ router.get('/edit-team/:id',(req,res,next)=>{
     User.findById(id)
     .then((user)=>{
         console.log('user owner', user)
-        res.render('team/edit.team.hbs',{user});
+        res.render('team/edit-team',{user});
     })
     .catch(error=>console.log('error',error))
 })
@@ -49,16 +49,19 @@ router.get('/mainTeam/:id/add-players',(req,res,next)=>{
     const {id} = req.params;
 
     Coach.find({_owner:id})
+    .populate('_players _owner')
     .then((team)=>{
-        console.log('team',team)
-        const teamId = team[0]._id
-        console.log('team id',teamId)
-        Player.find({_teamOwner:teamId})
+        const show = team[0];
+        console.log('team',show._players)
+        /* const teamId = team[0]._id
+        console.log('team id',teamId) */
+        /* Player.find({_teamOwner:teamId})
         .then((players)=>{
             console.log('players con el id team',players,'id team',teamId)
-            res.render('team/addPlayers.team.hbs',{players , id , team});
-        })
+ */            res.render('team/addPlayers-team.hbs',{ id , show });
+       /*  }) */
     })
+    .catch(error=>console.log('error',error))
 
 })
 
@@ -73,7 +76,7 @@ router.post('/mainTeam/:id/add-players',(req,res,next)=>{
         console.log('players',coach._players , 'coach' , coach)
         res.redirect(`/team/mainTeam/${id}`)
     })
-    .catch(error=>console.log('error',error))
+    .catch(error=>next(error))
 
 })
 

@@ -2,9 +2,9 @@
 
 <ul>
 <h3>Already have</h3>
-{{#each team}}
+{{#each show._players}}
 <li>
-{{_players}}
+{{this.nickname}}
 </li>
 {{/each}}
 </ul>  
@@ -13,7 +13,6 @@
    <label> Player Id <br>
       {{#each players}}
       <label for="player_id"> nickname: <b>{{nickname}}</b> number: <b>{{number}}</b> position: <b>{{position}}</b>
-        <input type="checkbox" name="player_id" value="{{_id}}">
       </label> <br>
       {{/each}}
    </label>
