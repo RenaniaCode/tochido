@@ -52,18 +52,22 @@ router.get('/mainPlayer/:id/add-team',(req,res,next)=>{
     })
 })
 
-router.post('/mainPlayer/:id/add-team',(req,res,next)=>{
+router.post('/mainPlayer/:id/add-team', async (req,res,next)=>{
     const {id} = req.params;
     const {team_id} = req.body;
     console.log('team id', team_id)
-
-    Player.findOneAndUpdate({_owner: id},{_teamOwner:`${team_id}`})
-    .then((player)=>{
-        console.log('players',player._teamOwner)
+    try{
+        const player = await Player.findOneAndUpdate({_owner: id},{_teamOwner:`${team_id}`})
+        let coach = await Coach.findOneAndUpdate({_id:team_id},{$push:{'_players': player._id}})
+        console.log('coach',coach._players);
+    }catch(error){return error}
+    
+    /* .then((player)=>{ 
+        console.log('coach',coach)
         res.redirect(`/player/mainPlayer/${id}`)
     })
-    .catch(error=>console.log('error',error))
-
+    .catch(error=>console.log('error',error)) */
+    res.redirect(`/player/mainPlayer/${id}`)
 })
 
 
