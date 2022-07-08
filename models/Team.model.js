@@ -19,7 +19,11 @@ const teamSchema = new Schema(
     _players: [{
       type: Schema.Types.ObjectId,
       ref: "Player"
-  }]
+    }],
+    _leagueOwner: {
+      type: Schema.Types.ObjectId,
+      ref: "League"
+    },
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`

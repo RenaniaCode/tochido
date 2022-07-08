@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const Coach = require('../models/Team.model');
+const Team = require('../models/Team.model');
 const User = require('../models/User.model');
 const Player = require('../models/Player.model')
 
@@ -8,7 +8,7 @@ router.get('/mainTeam/:id',(req,res,next)=>{
 
     User.findById(id)
     .then((user)=>{
-        Coach.findOne({'_owner':`${id}`})
+        Team.findOne({'_owner':`${id}`})
         .populate('_players')
         .then((coach=>{
         /* console.log('players',coach._players);
@@ -33,7 +33,7 @@ router.post('/edit-team/:id',(req,res,next)=>{
     const { team_name , team_logo } = req.body;
     const { id } = req.params
     console.log('name y logo',id , team_name , team_logo)
-    Coach.create({ team_name , team_logo , _owner:id })
+    Team.create({ team_name , team_logo , _owner:id })
     .then(()=>{
         console.log('id',id)
         User.findById(id)
@@ -48,7 +48,7 @@ router.post('/edit-team/:id',(req,res,next)=>{
 router.get('/mainTeam/:id/add-players',(req,res,next)=>{
     const {id} = req.params;
 
-    Coach.find({_owner:id})
+    Team.find({_owner:id})
     .populate('_players _owner')
     .then((team)=>{
         const show = team[0];
@@ -66,7 +66,7 @@ router.post('/mainTeam/:id/add-players', async (req,res,next)=>{
     const {player_id} = req.body;
     console.log('player id', player_id)
     try{
-        let team = await Coach.findOneAndUpdate({_owner:id},{$push:{'_players': player_id}})
+        let team = await Team.findOneAndUpdate({_owner:id},{$push:{'_players': player_id}})
         let player = await Player.findByIdAndUpdate(player_id,{_teamOwner:team._id})
     }catch(error){return error}
     
