@@ -1,20 +1,17 @@
 <h1>Insert player's Id to add</h1>
 
 <ul>
-<h3>Already have</h3>
+<h3>Already have {{numPlayer}} players</h3>
 {{#each show._players}}
 <li>
-{{this.nickname}}
+<p> Nickname : <b>{{this.nickname}}</b> Number : <b>{{this.number}}</b> position : <b>{{this.position}}</b></p>
 </li>
 {{/each}}
 </ul>  
 
 <form action="/team/mainTeam/{{id}}/add-players" method="POST">
-   <label> Player Id <br>
-      {{#each players}}
-      <label for="player_id"> nickname: <b>{{nickname}}</b> number: <b>{{number}}</b> position: <b>{{position}}</b>
-      </label> <br>
-      {{/each}}
+   <label> Player Id
+      <input type="text" name="player_id">
    </label>
    <button type="submit">Submit</button>
 </form>

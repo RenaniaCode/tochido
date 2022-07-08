@@ -34,7 +34,7 @@ router.post('/edit-team/:id',(req,res,next)=>{
     const { id } = req.params
     console.log('name y logo',id , team_name , team_logo)
     Coach.create({ team_name , team_logo , _owner:id })
-    .then((team)=>{
+    .then(()=>{
         console.log('id',id)
         User.findById(id)
         .then((user)=>{
@@ -52,31 +52,25 @@ router.get('/mainTeam/:id/add-players',(req,res,next)=>{
     .populate('_players _owner')
     .then((team)=>{
         const show = team[0];
-        console.log('team',show._players)
-        /* const teamId = team[0]._id
-        console.log('team id',teamId) */
-        /* Player.find({_teamOwner:teamId})
-        .then((players)=>{
-            console.log('players con el id team',players,'id team',teamId)
- */            res.render('team/addPlayers-team.hbs',{ id , show });
-       /*  }) */
+        console.log('team get',show._players) 
+            const numPlayer = show._players.length
+            res.render('team/addPlayers-team.hbs',{ id , show , numPlayer });
     })
     .catch(error=>console.log('error',error))
 
 })
 
-router.post('/mainTeam/:id/add-players',(req,res,next)=>{
+router.post('/mainTeam/:id/add-players', async (req,res,next)=>{
+    
     const {id} = req.params;
     const {player_id} = req.body;
     console.log('player id', player_id)
-
-    Coach.findOneAndUpdate({_owner: id},{_players:`${player_id}`})
-    /* .populate('_players') */
-    .then((coach)=>{
-        console.log('players',coach._players , 'coach' , coach)
-        res.redirect(`/team/mainTeam/${id}`)
-    })
-    .catch(error=>next(error))
+    try{
+        let team = await Coach.findOneAndUpdate({_owner:id},{$push:{'_players': player_id}})
+        let player = await Player.findByIdAndUpdate(player_id,{_teamOwner:team._id})
+    }catch(error){return error}
+    
+    res.redirect(`/team/mainTeam/${id}`)
 
 })
 

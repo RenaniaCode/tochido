@@ -20,13 +20,12 @@ const leagueSchema = new Schema(
       ref: "User"
     },
     teams: [{
-      wins: {type : Number, min: 0, default:0},
-      _team: {
         type: Schema.Types.ObjectId,
         ref: "Team"
-    },
-      defeats: {type : Number, min: 0, default:0},
-      points: {type : Number, min: 0, default:0}
+    }],
+    _matches: [{
+        type: Schema.Types.ObjectId,
+        ref: "Match"
     }]
   },
   {

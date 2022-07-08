@@ -19,8 +19,13 @@
     method="POST"
   >
     <div class="col-sm-5">
-      <label for="exampleInputEmail1" class="form-label">Username</label>
-      <input type="text" name="username" class="form-control" />
+      <label for="exampleInputEmail1" class="form-label">Nombre</label>
+      <input type="text" name="name" class="form-control" />
+    </div>
+
+    <div class="col-sm-5">
+      <label for="exampleInputEmail1" class="form-label">Apellido</label>
+      <input type="text" name="surname" class="form-control" />
     </div>
 
     <div class="col-sm-5">
@@ -39,11 +44,11 @@
     </div>
 
     <div class="col-sm-5">
-      <label for="exampleInputEmail1" class="form-label">Quiero crear una cuenta de:</label>
+      <label for="role" class="form-label">Quiero crear una cuenta de:</label>
       <select
         class="form-select"
         aria-label="Default select example"
-        name="account"
+        name="role"
         id="type"
       >
          <option value="Player">Jugador</option>
