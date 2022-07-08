@@ -4,17 +4,18 @@ const { Schema, model } = require("mongoose");
 const matchSchema = new Schema(
   {
     teamLocal: {
-      _name: String,
+      type: Schema.Types.ObjectId,
+      ref: "Player",
       score: Number,
-      _logo: String,
     },
     teamVisitor: {
-        name: String,
+        type: Schema.Types.ObjectId,
+        ref: "Player",
         score: Number,
-        _logo: String,
     },
     date: Date,
-    hour: String
+    hour: String,
+    week: String,
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
