@@ -19,7 +19,7 @@ const leagueSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "User"
     },
-    teams: [{
+    _teams: [{
         type: Schema.Types.ObjectId,
         ref: "Team"
     }],

@@ -1,0 +1,17 @@
+<h1>Insert team's Id to add</h1>
+
+<ul>
+<h3>Already have {{numTeams}} teams</h3>
+{{#each league._teams}}
+<li>
+<p> Team : <b>{{this.team_name}}</b></p>
+</li>
+{{/each}}
+</ul>  
+
+<form action="/league/mainLeague/{{id}}/add-team" method="POST">
+   <label> Team Id
+      <input type="text" name="team_id">
+   </label>
+   <button type="submit">Submit</button>
+</form>

@@ -19,7 +19,7 @@ const userSchema = new Schema(
     password: String,
     role: {
       type: String,
-      enum: ["Admin", "Coach", "Player"],
+      enum: ["League", "Team", "Player"],
       default: "Player",
       required: true,
     },

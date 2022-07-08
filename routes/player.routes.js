@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const Player = require('../models/Player.model');
 const User = require("../models/User.model");
-const Coach = require("../models/Team.model")
+const Team = require("../models/Team.model")
 
 
 router.get('/mainPlayer/:id',(req,res,next)=>{
@@ -58,7 +58,7 @@ router.post('/mainPlayer/:id/add-team', async (req,res,next)=>{
     console.log('team id', team_id)
     try{
         const player = await Player.findOneAndUpdate({_owner: id},{_teamOwner:`${team_id}`})
-        let coach = await Coach.findOneAndUpdate({_id:team_id},{$push:{'_players': player._id}})
+        let coach = await Team.findOneAndUpdate({_id:team_id},{$push:{'_players': player._id}})
         console.log('coach',coach._players);
     }catch(error){return error}
 
