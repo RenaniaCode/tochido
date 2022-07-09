@@ -1,5 +1,6 @@
 body {
   font-family: "Rubik", sans-serif;
+  color: #595858;
 }
 
 .btn-bd-primary {
@@ -71,6 +72,15 @@ body {
   padding: 50px;
 }
 
+.titles-grey {
+  font-family: "Play", sans-serif;
+  color: #595858;
+  font-weight: bold;
+  font-size: 32px;
+  text-align: center;
+  padding: 50px;
+}
+
 .footer-body {
   font-family: "Rubik", sans-serif;
   font-size: 12px;
@@ -132,15 +142,15 @@ body {
 
 .gallery-cell {
   width: 66%;
-  height: 300px;
+  height: 500px;
   margin-right: 10px;
-  background: #D9EE98;
+  background: #d9ee98;
   counter-increment: gallery-cell;
   text-align: center;
   display: flex;
   align-items: center;
 }
 
-.gallery-text{
+.gallery-text {
   padding: 20px;
 }
