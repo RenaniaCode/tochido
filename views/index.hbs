@@ -1,2 +1,240 @@
-<h1>{{appTitle}} 🚀</h1>
-<p>Welcome Ironhacker!</p>
+<div>
+  <div class="img-back">
+    <div class="container p-4">
+      <div class="row">
+        <div class="col-md-8"></div>
+        <div class="col-6 col-md-4 body-back">
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque
+            ea quis molestias. Fugiat pariatur maxime quis culpa corporis vitae
+            repudiandae aliquam voluptatem veniam, est atque cumque eum delectus
+            sint!
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="titles">
+    <p>Tu Liga</p>
+  </div>
+
+  <div class="row gy-2 gx-3 align-items-center">
+
+    <div class="col-sm-5">
+      <label for="role" class="form-label">Elige tu liga para mostrar su
+        información:</label>
+      <select
+        class="form-select"
+        aria-label="Default select example"
+        name="role"
+        id="type"
+      >
+        <option value="League">{{league_name}}</option>
+      </select>
+    </div>
+    <div class="col-sm-5">
+      <img
+        src="/images/Screen Shot 2022-07-08 at 19.09.39.png"
+        class="float-end"
+        alt="..."
+        width="180"
+        height="180"
+      />
+    </div>
+  </div>
+
+  <div class="titles">
+    <p>Tabla de Resultados {{league_name}}</p>
+  </div>
+
+  <table class="table table-striped table-borderless table-color-bg">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col">Equipo</th>
+        <th scope="col">Puntos</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <tr>
+        <th scope="row">1</th>
+        <td><img
+            src="/images/Screen Shot 2022-07-08 at 19.09.39.png"
+            alt="..."
+            width="30"
+            height="30"
+          /></td>
+        <td>Mark</td>
+        <td>Otto</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td><img
+            src="/images/Screen Shot 2022-07-08 at 19.09.39.png"
+            alt="..."
+            width="30"
+            height="30"
+          /></td>
+        <td>Jacob</td>
+        <td>Thornton</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td><img
+            src="/images/Screen Shot 2022-07-08 at 19.09.39.png"
+            alt="..."
+            width="30"
+            height="30"
+          /></td>
+        <td colspan="2">Larry the Bird</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="titles">
+    <p>Calendario de Partidos Jornada #</p>
+  </div>
+
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+      <div class="card h-100 text-bg-secondary text-center">
+        <img
+          src="/images/Screen Shot 2022-07-08 at 19.09.39.png"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h5 class="card-title">Sábado 2 de julio</h5>
+          <p class="card-text">17:00 hrs</p>
+        </div>
+      </div>
+    </div>
+  
+  <div class="col">
+      <div class="card h-100 text-bg-secondary text-center">
+        <img
+          src="/images/Screen Shot 2022-07-08 at 19.09.39.png"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h5 class="card-title">Sábado 2 de julio</h5>
+          <p class="card-text">17:00 hrs</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100 text-bg-secondary text-center">
+        <img
+          src="/images/Screen Shot 2022-07-08 at 19.09.39.png"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h5 class="card-title">Sábado 2 de julio</h5>
+          <p class="card-text">17:00 hrs</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<div id="carouselExampleCaptions" class="carousel slide announcements" data-bs-ride="false">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="d-block w-100 h-200">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Second slide label</h5>
+        <p>Some representative placeholder content for the second slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="..." class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Third slide label</h5>
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+  
+
+</div>
+
+<footer class="navbar navbar-expand-lg" style="background-color: #B609DE">
+  <div class="container p-4">
+
+    <div class="row">
+
+      <div
+        class="col-lg-6 col-md-12 mb-4 mb-md-0 footer-body"
+        style="color: white"
+      >
+        <h6 class="text-uppercase" style="color: white">Tochido</h6>
+
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque
+          ea quis molestias. Fugiat pariatur maxime quis culpa corporis vitae
+          repudiandae aliquam voluptatem veniam, est atque cumque eum delectus
+          sint!
+        </p>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h6 class="text-uppercase" style="color: white"><center>Ciudad de México
+            <br />
+            México, 010000</center>
+        </h6>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+
+        <a class="btn btn-floating m-1" href="#!" role="button"><img
+            src="/images/facebook-app-symbol.png"
+            alt=""
+            width="30"
+            height="30"
+          /></a>
+
+        <a class="btn btn-floating m-1" href="#!" role="button"><i
+            class="fab fa-instagram"
+          ><img
+              src="/images/instagram.png"
+              alt=""
+              width="30"
+              height="30"
+            /></i></a>
+        <h6
+          class="text-uppercase"
+          style="color: white"
+        >elcorreo@gmail.com</h6><br />
+        <a class="text-uppercase" style="color: white" href="#!">Aviso de
+          Privacidad</a>
+
+      </div>
+    </div>
+  </div>
+</footer>
