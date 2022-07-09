@@ -47,7 +47,7 @@ h1 {
   --bs-btn-bg: #29dbe6;
   --bs-btn-border-color: #29dbe6;
   --bs-btn-border-radius: 0.5rem;
-  --bs-btn-hover-color: #B609DE;
+  --bs-btn-hover-color: #b609de;
   --bs-btn-hover-bg: #{shade-color($bd-white, 10%)};
   --bs-btn-hover-border-color: #{shade-color($bd-violet, 10%)};
   --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
@@ -65,7 +65,32 @@ h1 {
   padding: 50px;
 }
 
-.footer-body{
+.footer-body {
   font-family: "Rubik", sans-serif;
   font-size: 12px;
 }
+
+.img-back {
+  background-image: url("../images/banner1.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 50vh;
+}
+
+.body-back{
+  color: white;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.announcements{
+background-color:#A9E01A ;
+margin-top: 50px;
+color: #595858;
+text-align: center;
+opacity: 0.7;
+}
+
