@@ -51,7 +51,7 @@
 
   <table
     class="table table-striped table-borderless table-color-bg"
-    style="background-color:#595858;"
+    style="background-color: #CDCDCD;"
   >
     <thead>
       <tr>
@@ -64,7 +64,7 @@
     <tbody class="table-group-divider">
       <tr>
         <th scope="row">1</th>
-        <td class="team-radious"><img
+        <td><img
             src="/images/Screen Shot 2022-07-08 at 19.09.39.png"
             alt="..."
             width="30"
@@ -104,8 +104,8 @@
   <div class="row row-cols-1 row-cols-md-3 g-4" style="color: white;">
     <div class="col">
       <div
-        class="card h-100 text-center border-light bg-opacity-50"
-        style="background-color: #B609DE"
+        class="card h-100 text-center border-light"
+        style=" background-color: #DEB5EE"
       >
         <div class="card-img-container">
           <img
@@ -133,78 +133,44 @@
 
 </div>
 
-<div
-  id="carouselExampleIndicators"
-  class="carousel slide announcements"
-  data-bs-ride="true"
->
-  <div class="carousel-indicators">
-    <button
-      type="button"
-      data-bs-target="#carouselExampleIndicators"
-      data-bs-slide-to="0"
-      class="active"
-      aria-current="true"
-      aria-label="Slide 1"
-    ></button>
-    <button
-      type="button"
-      data-bs-target="#carouselExampleIndicators"
-      data-bs-slide-to="1"
-      aria-label="Slide 2"
-    ></button>
-    <button
-      type="button"
-      data-bs-target="#carouselExampleIndicators"
-      data-bs-slide-to="2"
-      aria-label="Slide 3"
-    ></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img
-        src="/images/announcements back2-01.png"
-        class="d-block w-100"
-        alt="..."
-      />
-      <div class="carousel-caption d-md-block" style="color:#595858;">
-        <p>
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum."
-        </p>
-        <a type="button" class="btn btn-bd-fourth" href="/auth/login">Leer más</a>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="..." class="d-block w-100" alt="..." />
-    </div>
-    <div class="carousel-item">
-      <img src="..." class="d-block w-100" alt="..." />
+<!-- Flickity HTML init -->
+<div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
+  <div class="gallery-cell">
+    <div class="gallery-text">
+      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+        sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum."</p>
+      <a type="button" class="btn btn-bd-fourth" href="#">Leer más</a>
     </div>
   </div>
-  <button
-    class="carousel-control-prev"
-    type="button"
-    data-bs-target="#carouselExampleIndicators"
-    data-bs-slide="prev"
-  >
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button
-    class="carousel-control-next"
-    type="button"
-    data-bs-target="#carouselExampleIndicators"
-    data-bs-slide="next"
-  >
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
+  <div class="gallery-cell">
+      <div class="gallery-text">
+      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+        sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum."</p>
+      <a type="button" class="btn btn-bd-fourth" href="#">Leer más</a>
+    </div>
+  </div>
+  <div class="gallery-cell">
+      <div class="gallery-text">
+      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+        sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum."</p>
+      <a type="button" class="btn btn-bd-fourth" href="#">Leer más</a>
+    </div>
+  </div>
 </div>
 
 <footer class="navbar navbar-expand-lg" style="background-color: #B609DE">

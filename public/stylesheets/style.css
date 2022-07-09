@@ -129,3 +129,18 @@ body {
 .team-radious {
   border-radius: 80px;
 }
+
+.gallery-cell {
+  width: 66%;
+  height: 300px;
+  margin-right: 10px;
+  background: #D9EE98;
+  counter-increment: gallery-cell;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+.gallery-text{
+  padding: 20px;
+}
