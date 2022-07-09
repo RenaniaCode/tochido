@@ -1,14 +1,6 @@
 body {
-  padding: 100px;
   font-family: "Rubik", sans-serif;
-}
-
-a {
-  color: #00b7ff;
-}
-
-h1 {
-  color: 15px;
+  color: #595858;
 }
 
 .btn-bd-primary {
@@ -56,9 +48,33 @@ h1 {
   --bs-btn-active-border-color: #{shade-color($bd-violet, 20%)};
 }
 
+.btn-bd-fourth {
+  --bs-btn-font-weight: 300;
+  --bs-btn-color: white;
+  --bs-btn-bg: #b609de;
+  --bs-btn-border-color: #b609de;
+  --bs-btn-border-radius: 0.5rem;
+  --bs-btn-hover-color: #29dbe6;
+  --bs-btn-hover-bg: #{shade-color($bd-white, 10%)};
+  --bs-btn-hover-border-color: #{shade-color($bd-violet, 10%)};
+  --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+  --bs-btn-active-color: var(--bs-btn-hover-color);
+  --bs-btn-active-bg: #{shade-color($bd-violet, 20%)};
+  --bs-btn-active-border-color: #{shade-color($bd-violet, 20%)};
+}
+
 .titles {
   font-family: "Play", sans-serif;
   color: #29dbe6;
+  font-weight: bold;
+  font-size: 32px;
+  text-align: center;
+  padding: 50px;
+}
+
+.titles-grey {
+  font-family: "Play", sans-serif;
+  color: #595858;
   font-weight: bold;
   font-size: 32px;
   text-align: center;
@@ -70,15 +86,20 @@ h1 {
   font-size: 12px;
 }
 
+.footer-style {
+  margin: 50px -50px -200px -50px;
+}
+
 .img-back {
   background-image: url("../images/banner1.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  height: 50vh;
+  height: 80vh;
+  padding-top: 100px;
 }
 
-.body-back{
+.body-back {
   color: white;
   display: flex;
   text-align: center;
@@ -86,11 +107,50 @@ h1 {
   justify-content: center;
 }
 
-.announcements{
-background-color:#A9E01A ;
-margin-top: 50px;
-color: #595858;
-text-align: center;
-opacity: 0.7;
+.announcements {
+  color: #595858;
+  text-align: center;
 }
 
+.body-home-padding {
+  padding-right: 100px;
+  padding-left: 100px;
+  padding-bottom: 100px;
+}
+
+.body-padding {
+  padding: 100px;
+}
+
+.card-img-container {
+  display: flex;
+  justify-content: space-around;
+  height: 70%;
+  align-items: center;
+  padding: 40px;
+}
+
+.card-img-team {
+  width: 120px;
+  height: 120px;
+  border-radius: 80px;
+}
+
+.team-radious {
+  border-radius: 80px;
+}
+
+.gallery-cell {
+  width: 66%;
+  height: 500px;
+  margin-right: 10px;
+  background: #d9ee98;
+  counter-increment: gallery-cell;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+.gallery-text {
+  padding: 20px;
+}
