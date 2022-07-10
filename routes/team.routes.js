@@ -9,11 +9,11 @@ router.get('/mainTeam/:id',(req,res,next)=>{
     User.findById(id)
     .then((user)=>{
         Team.findOne({'_owner':`${id}`})
-        .populate('_players')
+        .populate('_players _owner')
         .then((coach=>{
-        /* console.log('players',coach._players);
-        console.log('coach',coach); */
-        res.render('team/main-team',{user , coach , id});
+        console.log('coach',coach._players);
+        let numPlayers = coach._players.length;
+        res.render('team/main-team',{user , coach , id , numPlayers});
     }))
     })
     .catch(error=>console.log('error',error))
@@ -52,7 +52,7 @@ router.get('/mainTeam/:id/add-players',(req,res,next)=>{
     .populate('_players _owner')
     .then((team)=>{
         const show = team[0];
-        console.log('team get',show._players) 
+        console.log('id players',show._players.length) 
             const numPlayer = show._players.length
             res.render('team/addPlayers-team.hbs',{ id , show , numPlayer });
     })
@@ -69,9 +69,40 @@ router.post('/mainTeam/:id/add-players', async (req,res,next)=>{
         let team = await Team.findOneAndUpdate({_owner:id},{$push:{'_players': player_id}})
         let player = await Player.findByIdAndUpdate(player_id,{_teamOwner:team._id})
     }catch(error){return error}
-    
+
     res.redirect(`/team/mainTeam/${id}`)
 
+})
+
+router.get('/mainTeam/delete/:_id', async (req,res,next)=>{
+    const {_id} = req.params;
+
+    Player.findById(_id)
+    .then(player=>{
+        console.log('player team owner',player._teamOwner)
+        Team.findByIdAndUpdate(player._teamOwner,{$pull:{_players:_id}})
+        .then((team)=>{
+            console.log('team id',team._id)
+            Player.findByIdAndUpdate(_id,{_teamOwner:null})
+            .then(()=>{
+                res.redirect(`/team/mainTeam/${team._owner}`)
+            })
+        })
+    })
+    .catch(error=>console.log('error',error))
+
+    /* try{
+        const player = await Player.findByIdAndUpdate(_id,{_teamOwner:''})
+        const team = await Team.findByIdAndUpdate(player._teamOwner,{$pull:{_players:_id}});
+        console.log('team id',team._id)
+    }catch(error){return error} */
+})
+
+router.get('/mainTeam/:id/lineup', (req,res,next)=>{
+    const {id} = req.params;
+    Team.find({_owner:id})
+    .populate('_owner _players')
+    .then((team)=>{res.render('team/lineups-team.hbs',team , id)})
 })
 
 module.exports = router;

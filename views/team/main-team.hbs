@@ -1,5 +1,18 @@
 <h1>{{coach.team_name}}</h1>
 <h3>Team View</h3>
 
+<h1>Coach Info</h1>
+
+<span>Nombre:</span> <span>{{user.name}}</span><br>
+<span>Apellido:</span> <span>{{user.surname}}</span><br>
+
+<h1>Team Info</h1><br>
+
+<span>Nombre:</span> <span>{{coach.team_name}}</span><br>
+<span>Numero de Jugadores:</span> <span>{{numPlayers}}</span><br><br><br><br>
+
+
+
 <a href="/team/mainTeam/{{id}}/add-players"><button>Players</button></a>
+<a href="/team/mainTeam/{{id}}/lineup"><button>LineUp</button></a>
 <a href="/auth/logout"><button>Log Out</button></a>
