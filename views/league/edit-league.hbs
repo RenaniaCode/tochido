@@ -1,0 +1,30 @@
+<h1>Hi {{user.name}}, edit your Profile</h1>
+
+<form action="/league/edit-league/{{user._id}}" method="POST">
+    <div class="col-sm-5">
+      <label for="exampleInputEmail1" class="form-label">Nombre</label>
+      <input type="text" name="name" class="form-control" value="{{user.name}}"/>
+    </div>
+
+    <div class="col-sm-5">
+      <label for="exampleInputEmail1" class="form-label">Apellido</label>
+      <input type="text" name="surname" class="form-control" value="{{user.surname}}"/>
+    </div>
+
+   <label> League Name
+      <input type="text" name="league_name" value="{{league.0.league_name}}">
+   </label>
+   <label> League Logo
+      <input type="text" name="league_logo" value="{{league.0.league_logo}}">
+   </label>
+   <label for="country"> Country
+      <select name="country">
+         <option value="MX">MX</option>
+         <option value="ALE">ALE</option>
+         <option value="ITA">ITA</option>
+         <option value="EEUU">EEUU</option>
+         <option value="CAN">CAN</option>
+      </select>
+   </label>
+   <button type="submit">Submit</button>
+</form>

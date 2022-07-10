@@ -5,6 +5,7 @@
 {{#each league._teams}}
 <li>
 <p> Team : <b>{{this.team_name}}</b></p>
+<a href="/league/mainLeague/delete/{{this._id}}"><button>Delete</button></a>
 </li>
 {{/each}}
 </ul>  
@@ -15,3 +16,5 @@
    </label>
    <button type="submit">Submit</button>
 </form>
+
+<a href="/league/mainLeague/{{id}}"><button>Main</button></a>

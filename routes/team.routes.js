@@ -74,7 +74,7 @@ router.post('/mainTeam/:id/add-players', async (req,res,next)=>{
 
 })
 
-router.get('/mainTeam/delete/:_id', async (req,res,next)=>{
+router.get('/mainTeam/delete/:_id',(req,res,next)=>{
     const {_id} = req.params;
 
     Player.findById(_id)
@@ -90,12 +90,6 @@ router.get('/mainTeam/delete/:_id', async (req,res,next)=>{
         })
     })
     .catch(error=>console.log('error',error))
-
-    /* try{
-        const player = await Player.findByIdAndUpdate(_id,{_teamOwner:''})
-        const team = await Team.findByIdAndUpdate(player._teamOwner,{$pull:{_players:_id}});
-        console.log('team id',team._id)
-    }catch(error){return error} */
 })
 
 router.get('/mainTeam/:id/lineup', (req,res,next)=>{
