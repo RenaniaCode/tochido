@@ -5,14 +5,14 @@ const matchSchema = new Schema(
   {
     teamLocal: {
       type: Schema.Types.ObjectId,
-      ref: "Player",
-      score: Number,
+      ref: "Team",
     },
+    scoreLocal: Number,
     teamVisitor: {
         type: Schema.Types.ObjectId,
-        ref: "Player",
-        score: Number,
+        ref: "Team",
     },
+    scoreVisitor: Number,
     date: Date,
     hour: String,
     week: String,

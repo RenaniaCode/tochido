@@ -8,13 +8,13 @@
 
     <div class="col-sm-5">
       <p>
-        <b>Nombre:</b><br />
-        <b>Apellido:</b><br />
-        <b>Número:</b><br />
-        <b>Posición:</b><br />
-        <b>Edad:</b><br />
-        <b>Altura:</b><br />
-        <b>Alias:</b><br />
+        <b>Nombre:</b><span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{user.name}}</span><br />
+        <b>Apellido:</b><span>&nbsp&nbsp&nbsp&nbsp&nbsp{{user.surname}}</span><br />
+        <b>Número:</b><span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{player.number}}</span><br />
+        <b>Posición:</b><span>&nbsp&nbsp&nbsp&nbsp&nbsp{{player.position}}</span><br />
+        <b>Edad:</b><span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{player.age}}</span><br />
+        <b>Altura:</b><span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{player.height}}</span><br />
+        <b>Alias:</b><span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{player.nickname}}</span><br />
       </p>
     </div>
     <div class="col-sm-5">
@@ -31,7 +31,7 @@
       <div class="col"></div>
       <div class="col"></div>
       <div class="col col-lg-2">
-        <a type="button" class="btn btn-bd-fourth float-end" href="#">Editar
+        <a type="button" class="btn btn-bd-fourth float-end" href="/player/edit-player/{{id}}">Editar
           Perfil</a>
       </div>
 
@@ -39,7 +39,7 @@
   </div>
 
   <div class="titles" id="Results">
-    <p>Tabla de Resultados {{league_name}}</p>
+    <p>Tabla de Resultados {{league.league_name}}</p>
   </div>
 
   <table
@@ -48,13 +48,18 @@
   >
     <thead>
       <tr>
-        <th scope="col"></th>
+        <th scope="col">Position</th>
         <th scope="col"></th>
         <th scope="col">Equipo</th>
         <th scope="col">Puntos</th>
+        <th scope="col">JJ</th>
+        <th scope="col">JG</th>
+        <th scope="col">JP</th>
+        <th scope="col">JE</th>
       </tr>
     </thead>
     <tbody class="table-group-divider">
+      {{#each data}}
       <tr>
         <th scope="row">1</th>
         <td><img
@@ -63,30 +68,14 @@
             width="30"
             height="30"
           /></td>
-        <td>Mark</td>
-        <td>Otto</td>
+        <td>{{this.team_name}}</td>
+        <td>{{this.points}}</td>
+        <td>{{this.gamesPlayed}}</td>
+        <td>{{this.wins}}</td>
+        <td>{{this.defeats}}</td>
+        <td>{{this.draws}}</td>
       </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td><img
-            src="/images/Screen Shot 2022-07-08 at 19.09.39.png"
-            alt="..."
-            width="30"
-            height="30"
-          /></td>
-        <td>Jacob</td>
-        <td>Thornton</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td><img
-            src="/images/Screen Shot 2022-07-08 at 19.09.39.png"
-            alt="..."
-            width="30"
-            height="30"
-          /></td>
-        <td colspan="2">Larry the Bird</td>
-      </tr>
+    {{/each}}
     </tbody>
   </table>
 </div>

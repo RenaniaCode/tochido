@@ -9,25 +9,27 @@ router.get('/mainLeague/:id',(req,res,next)=>{
     User.findById(id)
     .then((user)=>{
         League.findOne({'_owner':`${id}`})
+        .populate('_teams')
         .then(((league)=>{
         console.log('coach',league);
-        res.render('league/main.league.hbs',{user , league});
+        const numTeams = league._teams.length;
+        res.render('league/main.league.hbs',{user , league , numTeams});
     }))
     })
     .catch(error=>console.log('error',error))
 })
 
-router.get('/edit-league/:id',(req,res,next)=>{
+router.get('/create-league/:id',(req,res,next)=>{
     const { id } = req.params;
     User.findById(id)
     .then((user)=>{
         console.log('user owner', user)
-        res.render('league/edit.league.hbs',{user});
+        res.render('league/create-league.hbs',{user});
     })
     .catch(error=>console.log('error',error))
 })
 
-router.post('/edit-league/:id',(req,res,next)=>{
+router.post('/create-league/:id',(req,res,next)=>{
 
     const { league_name , league_logo , country } = req.body;
     const { id } = req.params
@@ -68,6 +70,49 @@ router.post('/mainLeague/:id/add-team', async (req,res)=>{
     }catch(error){return error}
     
     res.redirect(`/league/mainLeague/${id}`)
+})
+
+router.get('/mainLeague/delete/:_id',(req,res,next)=>{
+    const {_id} = req.params;
+
+    Team.findById(_id)
+    .then(team=>{
+        console.log('team league owner',team._leagueOwner)
+        League.findByIdAndUpdate(team._leagueOwner,{$pull:{_teams:_id}})
+        .then((league)=>{
+            console.log('league id',league._id)
+            Team.findByIdAndUpdate(_id,{_leagueOwner:null})
+            .then(()=>{
+                res.redirect(`/league/mainLeague/${league._owner}`)
+            })
+        })
+    })
+    .catch(error=>console.log('error',error))
+})
+
+router.get('/edit-league/:id',(req,res,next)=>{
+    const {id} = req.params
+
+    User.findById(id)
+    .then((user)=>{
+        League.find({_owner:id})
+        .then((league)=>{
+            console.log('league',league,'user',user)
+            console.log('league name',league[0].league_name)
+            res.render('league/edit-league.hbs',{league , user})
+        })
+    })
+})
+
+router.post('/edit-league/:id',(req,res,next)=>{
+    const {id} = req.params
+    const {name,surname,league_name,league_logo,country} = req.body
+
+    User.findByIdAndUpdate(id,{name,surname},{new:true})
+    .then((user)=>{
+        League.findOneAndUpdate({_owner:id},{league_name,league_logo,country},{new:true})
+        .then(()=>res.redirect(`/league/mainLeague/${id}`))
+    })
 })
 
 module.exports = router;

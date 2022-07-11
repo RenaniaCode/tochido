@@ -76,15 +76,15 @@ router.post("/signup", isLoggedOut, (req, res) => {
         console.log('User created',user);
         if(user.role === 'League') {
           req.session.user = user;
-          res.redirect(`/league/edit-league/${user._id}`);
+          res.redirect(`/league/create-league/${user._id}`);
         };
         if(user.role === 'Player') {
           req.session.user = user;
-          res.redirect(`/player/edit-player/${user._id}`);
+          res.redirect(`/player/create-player/${user._id}`);
         };
         if(user.role === 'Team') {
           req.session.user = user;
-          res.redirect(`/team/edit-team/${user._id}`);
+          res.redirect(`/team/create-team/${user._id}`);
         };
       })
       .catch((error) => {

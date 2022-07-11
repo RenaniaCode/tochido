@@ -8,8 +8,8 @@
 
     <div class="col-sm-5">
       <p>
-        <b>Nombre:</b><br />
-        <b>Apellido:</b><br />
+        <b>Nombre:</b><span>{{user.name}}</span><br />
+        <b>Apellido:</b><span>{{user.surname}}</span><br />
       </p>
     </div>
     <div class="col-sm-5">
@@ -25,11 +25,6 @@
     <div class="row">
       <div class="col"></div>
       <div class="col"></div>
-      <div class="col col-lg-2">
-        <a type="button" class="btn btn-bd-fourth float-end" href="#">Editar
-          Información</a>
-      </div>
-
     </div>
   </div>
 
@@ -41,10 +36,10 @@
 
     <div class="col-sm-5">
       <p>
-        <b>Nombre de la Liga:</b><br />
-        <b>Cantidad de Equipos:</b><br />
-        <b>Ubicación:</b><br />
-        <b>País:</b><br />
+        <b>Nombre de la Liga:</b><span>{{league.league_name}}</span><br />
+        <b>Cantidad de Equipos:</b><span>{{numTeams}}</span><br />
+        <b>País:</b><span>{{league.country}}</span><br />
+        <b>ID:</b>{{league._id}}<br />
       </p>
     </div>
     <div class="col-sm-5">
@@ -62,10 +57,9 @@
       </div>
       <div class="col">
       </div>
-      <div class="col col-sm-6 float-end">
-        <a type="button" class="btn btn-bd-fourth" href="#">Crear Equipos</a>
-        <a type="button" class="btn btn-bd-fourth" href="#">Editar Perfil</a>
-        <a type="button" class="btn btn-bd-fourth" href="#">Eliminar Equipos</a>
+      <div class="col col-sm-4 float-end">
+        <a type="button" class="btn btn-bd-fourth" href="/league/mainLeague/{{user._id}}/add-team">Equipos</a>
+        <a type="button" class="btn btn-bd-fourth" href="/league/edit-league/{{user._id}}">Editar Perfil</a>
       </div>
 
     </div>
@@ -193,4 +187,5 @@
 <h3>Your Id : {{league.id}}</h3>
 
 <a href="/league/mainLeague/{{user._id}}/add-team"><button>Teams</button></a>
+<a href="/league/edit-league/{{user._id}}"><button>Edit Profile</button></a>
 <a href="/auth/logout"><button>Log Out</button></a>

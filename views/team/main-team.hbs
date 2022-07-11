@@ -8,8 +8,8 @@
 
     <div class="col-sm-5">
       <p>
-        <b>Nombre:</b><br />
-        <b>Apellido:</b><br />
+        <b>Nombre:</b><span>{{user.name}}</span><br />
+        <b>Apellido:</b><span>{{user.surname}}</span><br />
       </p>
     </div>
     <div class="col-sm-5">
@@ -25,11 +25,6 @@
     <div class="row">
       <div class="col"></div>
       <div class="col"></div>
-      <div class="col col-lg-2">
-        <a type="button" class="btn btn-bd-fourth float-end" href="#">Editar
-          Información</a>
-      </div>
-
     </div>
   </div>
 
@@ -41,9 +36,9 @@
 
     <div class="col-sm-5">
       <p>
-        <b>Nombre del Equipo:</b><br />
-        <b>Cantidad de Jugadores:</b><br />
-        <b>País:</b><br />
+        <b>Nombre del Equipo:</b><span>{{coach.team_name}}</span><br/>
+        <b>Cantidad de Jugadores:</b><span>{{numPlayers}}</span><br/>
+        <b>ID:</b><span>{{coach._id}}</span><br/>
       </p>
     </div>
     <div class="col-sm-5">
@@ -60,15 +55,16 @@
       <div class="col"></div>
       <div class="col"></div>
       <div class="col col-lg-2">
-        <a type="button" class="btn btn-bd-fourth float-end" href="#">Editar
-          Perfil</a>
+        <a type="button" class="btn btn-bd-fourth float-end" href="/team/mainTeam/{{id}}/add-players">Jugadores</a>
       </div>
-
+      <div class="col col-lg-2">
+        <a type="button" class="btn btn-bd-fourth float-end" href="/team/edit-team/{{id}}">Editar Perfil</a>
+      </div>
     </div>
   </div>
 
   <div class="titles" id="Results">
-    <p>Tabla de Resultados Jornada #</p>
+    <p>Tabla de Resultados {{league.league_name}}</p>
   </div>
 
   <table
@@ -77,13 +73,18 @@
   >
     <thead>
       <tr>
-        <th scope="col"></th>
+        <th scope="col">Position</th>
         <th scope="col"></th>
         <th scope="col">Equipo</th>
         <th scope="col">Puntos</th>
+        <th scope="col">JJ</th>
+        <th scope="col">JG</th>
+        <th scope="col">JP</th>
+        <th scope="col">JE</th>
       </tr>
     </thead>
     <tbody class="table-group-divider">
+    {{#each data}}
       <tr>
         <th scope="row">1</th>
         <td><img
@@ -92,30 +93,14 @@
             width="30"
             height="30"
           /></td>
-        <td>Mark</td>
-        <td>Otto</td>
+        <td>{{this.team_name}}</td>
+        <td>{{this.points}}</td>
+        <td>{{this.gamesPlayed}}</td>
+        <td>{{this.wins}}</td>
+        <td>{{this.defeats}}</td>
+        <td>{{this.draws}}</td>
       </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td><img
-            src="/images/Screen Shot 2022-07-08 at 19.09.39.png"
-            alt="..."
-            width="30"
-            height="30"
-          /></td>
-        <td>Jacob</td>
-        <td>Thornton</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td><img
-            src="/images/Screen Shot 2022-07-08 at 19.09.39.png"
-            alt="..."
-            width="30"
-            height="30"
-          /></td>
-        <td colspan="2">Larry the Bird</td>
-      </tr>
+    {{/each}}
     </tbody>
   </table>
 </div>
@@ -221,9 +206,8 @@
   </div>
 </footer>
 
-/////////////////////////
-<h1>{{coach.team_name}}</h1>
-<h3>Team View</h3>
+
 
 <a href="/team/mainTeam/{{id}}/add-players"><button>Players</button></a>
+<a href="/team/mainTeam/{{id}}/lineup"><button>LineUp</button></a>
 <a href="/auth/logout"><button>Log Out</button></a>
