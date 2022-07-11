@@ -24,6 +24,26 @@ const teamSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "League"
     },
+    wins:{
+      type: Number,
+      default: 0
+    },
+    defeats:{
+      type: Number,
+      default: 0
+    },
+    draws:{
+      type: Number,
+      default: 0
+    },
+    gamesPlayed:{
+      type: Number,
+      default: 0
+    },
+    points:{
+      type: Number,
+      default: 0
+    }
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`

@@ -1,3 +1,188 @@
+<div class="body-padding">
+
+  <div class="titles">
+    <p>Mi Información</p>
+  </div>
+
+  <div class="row gy-2 gx-3 align-items-center">
+
+    <div class="col-sm-5">
+      <p>
+        <b>Nombre:</b><span>{{user.name}}</span><br />
+        <b>Apellido:</b><span>{{user.surname}}</span><br />
+      </p>
+    </div>
+    <div class="col-sm-5">
+      <img
+        src="/images/Screen Shot 2022-07-08 at 19.09.39.png"
+        class="float-end"
+        alt="..."
+        width="180"
+        height="180"
+      />
+    </div>
+
+    <div class="row">
+      <div class="col"></div>
+      <div class="col"></div>
+    </div>
+  </div>
+
+  <div class="titles">
+    <p>Perfil de mi Liga</p>
+  </div>
+
+  <div class="row gy-2 gx-3 align-items-center">
+
+    <div class="col-sm-5">
+      <p>
+        <b>Nombre de la Liga:</b><span>{{league.league_name}}</span><br />
+        <b>Cantidad de Equipos:</b><span>{{numTeams}}</span><br />
+        <b>País:</b><span>{{league.country}}</span><br />
+        <b>ID:</b>{{league._id}}<br />
+      </p>
+    </div>
+    <div class="col-sm-5">
+      <img
+        src="/images/Screen Shot 2022-07-08 at 19.09.39.png"
+        class="float-end"
+        alt="..."
+        width="180"
+        height="180"
+      />
+    </div>
+
+    <div class="row">
+      <div class="col">
+      </div>
+      <div class="col">
+      </div>
+      <div class="col col-sm-4 float-end">
+        <a type="button" class="btn btn-bd-fourth" href="/league/mainLeague/{{user._id}}/add-team">Equipos</a>
+        <a type="button" class="btn btn-bd-fourth" href="/league/edit-league/{{user._id}}">Editar Perfil</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div
+  class="gallery js-flickity"
+  data-flickity-options='{ "wrapAround": true }'
+  id="Announcements"
+>
+  <div class="gallery-cell">
+    <div class="gallery-text">
+      <div class="titles-grey">
+        <p>Comunicados Oficiales de la Liga</p>
+      </div>
+      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+        sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum."</p>
+      <a type="button" class="btn btn-bd-fourth" href="#">Leer más</a>
+    </div>
+  </div>
+  <div class="gallery-cell">
+    <div class="gallery-text">
+      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+        sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum."</p>
+      <a type="button" class="btn btn-bd-fourth" href="#">Leer más</a>
+    </div>
+  </div>
+  <div class="gallery-cell">
+    <div class="gallery-text">
+      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+        sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum."</p>
+      <a type="button" class="btn btn-bd-fourth" href="#">Leer más</a>
+    </div>
+  </div>
+</div>
+
+<div class="body-padding">
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col">
+    </div>
+    <div class="col col-sm-6 float-end">
+      <a type="button" class="btn btn-bd-fourth" href="#">Crear Comunicados</a>
+      <a type="button" class="btn btn-bd-fourth" href="#">Editar Comunicados</a>
+      <a type="button" class="btn btn-bd-fourth" href="#">Eliminar Comunicados</a>
+    </div>
+
+  </div>
+</div>
+
+<footer class="navbar navbar-expand-lg" style="background-color: #B609DE">
+  <div class="container p-4">
+
+    <div class="row">
+
+      <div
+        class="col-lg-6 col-md-12 mb-4 mb-md-0 footer-body"
+        style="color: white"
+      >
+        <h6 class="text-uppercase" style="color: white">Tochido</h6>
+
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque
+          ea quis molestias. Fugiat pariatur maxime quis culpa corporis vitae
+          repudiandae aliquam voluptatem veniam, est atque cumque eum delectus
+          sint!
+        </p>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h6 class="text-uppercase" style="color: white"><center>Ciudad de México
+            <br />
+            México, 010000</center>
+        </h6>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+
+        <a class="btn btn-floating m-1" href="#!" role="button"><img
+            src="/images/facebook-app-symbol.png"
+            alt=""
+            width="30"
+            height="30"
+          /></a>
+
+        <a class="btn btn-floating m-1" href="#!" role="button"><i
+            class="fab fa-instagram"
+          ><img
+              src="/images/instagram.png"
+              alt=""
+              width="30"
+              height="30"
+            /></i></a>
+        <h6
+          class="text-uppercase"
+          style="color: white"
+        >elcorreo@gmail.com</h6><br />
+        <a class="text-uppercase" style="color: white" href="#!">Aviso de
+          Privacidad</a>
+
+      </div>
+    </div>
+  </div>
+</footer>
+
+/////////////////////////////////////////////
 <h1>League {{league.name}} View</h1>
 <h3>Your Id : {{league.id}}</h3>
 

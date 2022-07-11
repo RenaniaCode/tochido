@@ -9,9 +9,11 @@ router.get('/mainLeague/:id',(req,res,next)=>{
     User.findById(id)
     .then((user)=>{
         League.findOne({'_owner':`${id}`})
+        .populate('_teams')
         .then(((league)=>{
         console.log('coach',league);
-        res.render('league/main.league.hbs',{user , league});
+        const numTeams = league._teams.length;
+        res.render('league/main.league.hbs',{user , league , numTeams});
     }))
     })
     .catch(error=>console.log('error',error))
@@ -104,11 +106,11 @@ router.get('/edit-league/:id',(req,res,next)=>{
 
 router.post('/edit-league/:id',(req,res,next)=>{
     const {id} = req.params
-    const {name,surname,league_name,league_logo} = req.body
+    const {name,surname,league_name,league_logo,country} = req.body
 
     User.findByIdAndUpdate(id,{name,surname},{new:true})
     .then((user)=>{
-        League.findOneAndUpdate({_owner:id},{league_name,league_logo},{new:true})
+        League.findOneAndUpdate({_owner:id},{league_name,league_logo,country},{new:true})
         .then(()=>res.redirect(`/league/mainLeague/${id}`))
     })
 })

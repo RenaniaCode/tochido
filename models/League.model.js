@@ -26,6 +26,10 @@ const leagueSchema = new Schema(
     _matches: [{
         type: Schema.Types.ObjectId,
         ref: "Match"
+    }],
+    announcements:[{
+      header: String,
+      text: String
     }]
   },
   {
