@@ -19,7 +19,7 @@ const playerSchema = new Schema(
     _teamOwner: {
       type: Schema.Types.ObjectId,
       ref: "Team",
-      default: null,
+      default: null
     },
     age: Number,
     height: String,

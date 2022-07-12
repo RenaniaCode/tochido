@@ -31,7 +31,9 @@
         name="role"
         id="type"
       >
-        <option value="League">{{league_name}}</option>
+      {{#each league}}
+        <option value="League">{{this.league_name}}</option>
+      {{/each}}
       </select>
     </div>
     <div class="col-sm-5">
@@ -46,7 +48,7 @@
   </div>
 
   <div class="titles" id="Results">
-    <p>Tabla de Resultados {{league_name}}</p>
+    <p>Tabla de Resultados {{league.league_name}}</p>
   </div>
 
   <table
