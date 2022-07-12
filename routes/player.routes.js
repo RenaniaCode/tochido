@@ -28,9 +28,9 @@ router.get('/mainPlayer/:id',(req,res,next)=>{
                 })
             }
         }))
-        .then((player=>{
-        res.render('player/main.player.hbs',{user , player , id});
-    }))
+        // .then((player=>{
+        // res.render('player/main.player.hbs',{user , player , id});
+    //}))
     })
     .catch(error=>console.log('error',error))
 })

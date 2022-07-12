@@ -1,46 +1,132 @@
+<div class="body-padding">
+  <div class="titles">
+    <p>Editar mi Perfil</p>
+  </div>
+
+  <div class="body">
+
+    <form
+      class="row gy-2 gx-3 align-items-center"
+      action="/player/edit-player/{{user._id}}"
+      method="POST"
+    >
+      <div class="col-sm-5">
+        <label for="exampleInputEmail1" class="form-label">Nombre</label>
+        <input type="text" name="name" class="form-control" value="{{user.name}}"/>
+      </div>
+
+      <div class="col-sm-5">
+        <label for="exampleInputEmail1" class="form-label">Apellido</label>
+        <input type="text" name="surname" class="form-control" value="{{user.surname}}"/>
+      </div>
+
+      <div class="col-sm-5">
+        <label for="exampleInputPassword1" class="form-label">Position</label>
+        <input type="text" name="position" value="{{player.0.position}}"  />
+      </div>
+
+      <div class="col-sm-5">
+        <label for="exampleInputEmail1" class="form-label">Age</label>
+        <input
+          type="number"
+          name="age"
+          value="{{player.0.age}}"
+        />
+      </div>
+
+       <div class="col-sm-5">
+        <label for="exampleInputEmail1" class="form-label">Nickname</label>
+        <input
+          type="text"
+          name="nickname"
+        />
+      </div>
+
+       <div class="col-sm-5">
+        <label for="role" class="form-label">Height</label>
+        <select
+          class="form-select"
+          aria-label="Default select example"
+          name="height"
+          id="type"
+        >
+      <option value="1.51m - 1.55m">1.51m - 1.55m</option>
+      <option value="1.56m - 1.60m">1.56m - 1.60m</option>
+      <option value="1.61m - 1.65m">1.61m - 1.65m</option>
+      <option value="1.66m - 1.70m">1.66m - 1.70m</option>
+      <option value="1.71m - 1.75m">1.71m - 1.75m</option>
+      <option value="1.76m - 1.80m">1.76m - 1.80m</option>
+      <option value="1.81m - 1.85m">1.81m - 1.85m</option>
+      <option value="1.86m - 1.90m">1.86m - 1.90m</option>
+      <option value="1.91m - 1.95m">1.91m - 1.95m</option>
+      <option value="1.96m - 2.00m">1.96m - 2.00m</option>
+      <option value="2.01m - 2.05m">2.01m - 2.05m</option>
+      <option value="2.06m - 2.10m">2.06m - 2.10m</option>
+        </select>
+      </div>
+
+      <div class="col-12">
+        <button type="submit" class="btn btn-bd-third">Enviar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+//////////////////////////////////
 <form action="/player/edit-player/{{user._id}}" method="POST">
-   <div class="col-sm-5">
-      <label for="exampleInputEmail1" class="form-label">Nombre</label>
-      <input type="text" name="name" class="form-control" value="{{user.name}}"/>
-   </div>
+  <div class="col-sm-5">
+    <label for="exampleInputEmail1" class="form-label">Nombre</label>
+    <input type="text" name="name" class="form-control" value="{{user.name}}" />
+  </div>
 
-   <div class="col-sm-5">
-      <label for="exampleInputEmail1" class="form-label">Apellido</label>
-      <input type="text" name="surname" class="form-control" value="{{user.surname}}"/>
-   </div>
-   <label> Profile Picture
-      <input type="text" name="profile_pic" value="{{player.0.profile_pic}}">
-   </label>
-   <label> Number
-      <input type="number" name="number" value="{{player.0.number}}">
-   </label>
-   <label> Position
-      <input type="text" name="position" value="{{player.0.position}}">
-   </label>
-   <label> Age
-      <input type="number" name="age" value="{{player.0.age}}">
-   </label>
-   <label for="height"> Height
-      <select name="height">
-         <option value="1.45m - 1.50m">1.45m - 1.50m</option>
-         <option value="1.51m - 1.55m">1.51m - 1.55m</option>
-         <option value="1.56m - 1.60m">1.56m - 1.60m</option>
-         <option value="1.61m - 1.65m">1.61m - 1.65m</option>
-         <option value="1.66m - 1.70m">1.66m - 1.70m</option>
-         <option value="1.71m - 1.75m">1.71m - 1.75m</option>
-         <option value="1.76m - 1.80m">1.76m - 1.80m</option>
-         <option value="1.81m - 1.85m">1.81m - 1.85m</option>
-         <option value="1.86m - 1.90m">1.86m - 1.90m</option>
-         <option value="1.91m - 1.95m">1.91m - 1.95m</option>
-         <option value="1.96m - 2.00m">1.96m - 2.00m</option>
-         <option value="2.01m - 2.05m">2.01m - 2.05m</option>
-         <option value="2.06m - 2.10m">2.06m - 2.10m</option>
-      </select>
-   </label>
-   
-   <label> Nickname
-      <input type="text" name="nickname">
-   </label>
+  <div class="col-sm-5">
+    <label for="exampleInputEmail1" class="form-label">Apellido</label>
+    <input
+      type="text"
+      name="surname"
+      class="form-control"
+      value="{{user.surname}}"
+    />
+  </div>
+  <label>
+    Profile Picture
+    <input type="text" name="profile_pic" value="{{player.0.profile_pic}}" />
+  </label>
+  <label>
+    Number
+    <input type="number" name="number" value="{{player.0.number}}" />
+  </label>
+  <label>
+    Position
+    <input type="text" name="position" value="{{player.0.position}}" />
+  </label>
+  <label>
+    Age
+    <input type="number" name="age" value="{{player.0.age}}" />
+  </label>
+  <label for="height">
+    Height
+    <select name="height">
+      <option value="1.45m - 1.50m">1.45m - 1.50m</option>
+      <option value="1.51m - 1.55m">1.51m - 1.55m</option>
+      <option value="1.56m - 1.60m">1.56m - 1.60m</option>
+      <option value="1.61m - 1.65m">1.61m - 1.65m</option>
+      <option value="1.66m - 1.70m">1.66m - 1.70m</option>
+      <option value="1.71m - 1.75m">1.71m - 1.75m</option>
+      <option value="1.76m - 1.80m">1.76m - 1.80m</option>
+      <option value="1.81m - 1.85m">1.81m - 1.85m</option>
+      <option value="1.86m - 1.90m">1.86m - 1.90m</option>
+      <option value="1.91m - 1.95m">1.91m - 1.95m</option>
+      <option value="1.96m - 2.00m">1.96m - 2.00m</option>
+      <option value="2.01m - 2.05m">2.01m - 2.05m</option>
+      <option value="2.06m - 2.10m">2.06m - 2.10m</option>
+    </select>
+  </label>
 
-   <button type="submit">Submit</button>
+  <label>
+    Nickname
+    <input type="text" name="nickname" />
+  </label>
+
+  <button type="submit">Submit</button>
 </form>

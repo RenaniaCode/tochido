@@ -12,7 +12,7 @@ router.get('/mainLeague/:id',(req,res,next)=>{
         .populate('_teams')
         .then(((league)=>{
         console.log('coach',league);
-        const numTeams = league._teams.length;
+        const numTeams = league[0]._teams.length;
         res.render('league/main.league.hbs',{user , league , numTeams});
     }))
     })

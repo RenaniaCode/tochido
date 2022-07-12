@@ -43,12 +43,23 @@
           <a class="nav-link active" style="color: white" aria-current="page" href="#Announcements">Comunicados</a>
         </li>
     </div>
+   
+{{#if user}}
    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-  <a type="button" class="btn btn-bd-primary" href="/auth/login">Log In</a>
-  <a class="btn btn-bd-secondary" type="button" href="/auth/signup">Sign up</a>
-</div>
+
+{{user.name}}
+
+{{else}}
   </div> 
+
+    <a type="button" class="btn btn-bd-primary" href="/auth/login">Log In</a>
+  <a class="btn btn-bd-secondary" type="button" href="/auth/signup">Sign up</a>
+ 
+ {{/if}}
+</div>
+  
 </nav>
+
     
     
     {{{body}}}
