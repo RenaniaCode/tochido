@@ -31,7 +31,7 @@ router.get('/mainPlayer/:id',(req,res,next)=>{
                 })
             }
         }))
-    })
+        })
     .catch(error=>console.log('error',error))
 })
 
