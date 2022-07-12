@@ -24,7 +24,8 @@ router.get('/mainTeam/:id',(req,res,next)=>{
                     console.log('data',league._teams);
                     const data = league._teams;
                     const numPlayers = coach._players.length;
-                    res.render('team/main-team',{user , coach , id , numPlayers , data , league});
+                    const sorted = data.filter((team)=>team.points).sort((a,b)=>b.points-a.points)
+                    res.render('team/main-team',{user , coach , id , numPlayers , data , league , sorted});
                 })
             }
         }))
