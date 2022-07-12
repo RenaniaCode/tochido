@@ -12,7 +12,7 @@ router.get('/mainLeague/:id',(req,res,next)=>{
         .populate('_teams')
         .then(((league)=>{
         console.log('coach',league);
-        const numTeams = league[0]._teams.length;
+        const numTeams = league._teams.length;
         res.render('league/main.league.hbs',{user , league , numTeams});
     }))
     })
@@ -86,6 +86,32 @@ router.get('/mainLeague/delete/:_id',(req,res,next)=>{
                 res.redirect(`/league/mainLeague/${league._owner}`)
             })
         })
+    })
+    .catch(error=>console.log('error',error))
+})
+
+
+router.get('/mainLeague/edit-stats/:id',(req,res,next)=>{
+    const {id} = req.params
+    
+    Team.findById(id)
+    .then(team=>{
+        console.log('team',team)
+        res.render('league/edit-stats.hbs',{team})
+    })
+    .catch(error=>console.log('error',error))
+})
+
+router.post('/mainLeague/edit-stats/:id',(req,res,next)=>{
+    const {id} = req.params
+    const {points , gamesPlayed , wins , defeats , draws} = req.body
+
+    Team.findByIdAndUpdate(id,{points , gamesPlayed , wins , defeats , draws},{new:true})
+    .populate('_leagueOwner')
+    .then(team=>{
+        console.log('team',team._leagueOwner._owner)
+        const _id = team._leagueOwner._owner
+        res.redirect(`/league/mainLeague/${_id}`)
     })
     .catch(error=>console.log('error',error))
 })

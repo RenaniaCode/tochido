@@ -14,20 +14,19 @@ router.get('/mainPlayer/:id',(req,res,next)=>{
         .populate('_teamOwner')
         .then((player=>{
             console.log('player team owner',player._teamOwner)
-            const leagueId = player._teamOwner._leagueOwner;
-            if(player._teamOwner == null){
+            if(player._teamOwner === null){
+                console.log('inside if null')
                 res.render('player/main-player.hbs',{user , player , id});
             }
             else {
+                const leagueId = player._teamOwner._leagueOwner;
+                console.log('leagueId',player._teamOwner._leagueOwner)
                 League.findById(leagueId)
                 .populate('_teams')
                 .then((league)=>{
-                    console.log('player number',player.number);
                     const data = league._teams;
                     const sorted = data.filter((team)=>team.points).sort((a,b)=>b.points-a.points)
-                    const position = sorted.map((item,index)=>index+1)
-                    console.log('position',position)
-                    res.render('player/main-player.hbs',{user , player , id , data , sorted , position});
+                    res.render('player/main-player.hbs',{user , player , id , data , sorted});
                 })
             }
         }))
