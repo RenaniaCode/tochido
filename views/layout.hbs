@@ -35,11 +35,11 @@
           </div>
 
         <li class="nav-item">
-          <a class="nav-link active" style="color: #29DBE6" aria-current="page" href="#MyLeague">Mi Perfil</a>
+          <a class="nav-link active" style="color: #29DBE6" aria-current="page" href="/player/mainPlayer/{{id}}">Mi Perfil</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" style="color: #29DBE6" aria-current="page" href="#Results">Alineaciones</a>
+          <a class="nav-link" style="color: #29DBE6" aria-current="page" href="">Alineaciones</a>
         </li>
 
     </div>
@@ -50,6 +50,75 @@
  </div>
   </div>
 
+  {{!-- Para Coach
+
+<nav class="navbar fixed-top navbar-expand-lg" style="background-color: #B609DE">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><img src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+          <div class="nav-item">
+          <a class="nav-link active" style="color: white" aria-current="page">¡Hola {{user.name}}!</a>
+          </div>
+
+        <li class="nav-item">
+          <a class="nav-link active" style="color: #29DBE6" aria-current="page" href="">Perfiles</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" style="color: #29DBE6" aria-current="page" href="">Alineaciones</a>
+        </li>
+
+    </div>
+   
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <a type="button" class="btn btn-bd-primary" href="/auth/logout">Log Out</a>
+ </div>
+  </div> --}}
+
+ 
+ {{!-- Para Liga
+  <nav class="navbar fixed-top navbar-expand-lg" style="background-color: #B609DE">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><img src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+          <div class="nav-item">
+          <a class="nav-link active" style="color: white" aria-current="page">¡Hola {{user.name}}!</a>
+          </div>
+
+        <li class="nav-item">
+          <a class="nav-link active" style="color: #29DBE6" aria-current="page" href="">Perfiles</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" style="color: #29DBE6" aria-current="page" href="">Comunicados</a>
+        </li>
+
+         <li class="nav-item">
+          <a class="nav-link" style="color: #29DBE6" aria-current="page" href="">Calendario de Juegos</a>
+        </li>
+
+         <li class="nav-item">
+          <a class="nav-link" style="color: #29DBE6" aria-current="page" href="">Resultados</a>
+        </li>
+
+    </div>
+    --}}
+
+    {{!-- <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <a type="button" class="btn btn-bd-primary" href="/auth/logout">Log Out</a>
+ </div>
+  </div> --}}
 
 {{else}}
 

@@ -36,9 +36,9 @@
 
     <div class="col-sm-5">
       <p>
-        <b>Nombre del Equipo:</b><span>{{coach.team_name}}</span><br/>
-        <b>Cantidad de Jugadores:</b><span>{{numPlayers}}</span><br/>
-        <b>ID:</b><span>{{coach._id}}</span><br/>
+        <b>Nombre del Equipo:</b><span>{{coach.team_name}}</span><br />
+        <b>Cantidad de Jugadores:</b><span>{{numPlayers}}</span><br />
+        <b>ID:</b><span>{{coach._id}}</span><br />
       </p>
     </div>
     <div class="col-sm-5">
@@ -55,10 +55,18 @@
       <div class="col"></div>
       <div class="col"></div>
       <div class="col col-lg-2">
-        <a type="button" class="btn btn-bd-fourth float-end" href="/team/mainTeam/{{id}}/add-players">Jugadores</a>
+        <a
+          type="button"
+          class="btn btn-bd-fourth float-end"
+          href="/team/mainTeam/{{id}}/add-players"
+        >Jugadores</a>
       </div>
       <div class="col col-lg-2">
-        <a type="button" class="btn btn-bd-fourth float-end" href="/team/edit-team/{{id}}">Editar Perfil</a>
+        <a
+          type="button"
+          class="btn btn-bd-fourth float-end"
+          href="/team/edit-team/{{id}}"
+        >Editar Perfil</a>
       </div>
     </div>
   </div>
@@ -84,23 +92,23 @@
       </tr>
     </thead>
     <tbody class="table-group-divider">
-    {{#each sorted}}
-      <tr>
-        <th scope="row">{{@key}}</th>
-        <td><img
-            src="/images/Screen Shot 2022-07-08 at 19.09.39.png"
-            alt="..."
-            width="30"
-            height="30"
-          /></td>
-        <td>{{this.team_name}}</td>
-        <td>{{this.points}}</td>
-        <td>{{this.gamesPlayed}}</td>
-        <td>{{this.wins}}</td>
-        <td>{{this.defeats}}</td>
-        <td>{{this.draws}}</td>
-      </tr>
-    {{/each}}
+      {{#each sorted}}
+        <tr>
+          <th scope="row">{{@key}}</th>
+          <td><img
+              src="/images/Screen Shot 2022-07-08 at 19.09.39.png"
+              alt="..."
+              width="30"
+              height="30"
+            /></td>
+          <td>{{this.team_name}}</td>
+          <td>{{this.points}}</td>
+          <td>{{this.gamesPlayed}}</td>
+          <td>{{this.wins}}</td>
+          <td>{{this.defeats}}</td>
+          <td>{{this.draws}}</td>
+        </tr>
+      {{/each}}
     </tbody>
   </table>
 </div>
@@ -151,42 +159,42 @@
   </div>
 </div>
 
-<footer class="navbar navbar-expand-lg" style="background-color: #B609DE">
-  <div class="container p-4">
+<footer class="footer-style" style="background-color: #B609DE">
+  <div class="container">
 
     <div class="row">
 
-      <div
-        class="col-lg-6 col-md-12 mb-4 mb-md-0 footer-body"
-        style="color: white"
-      >
+      <div class="col footer-body" style="color: white">
         <h6 class="text-uppercase" style="color: white">Tochido</h6>
 
         <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque
-          ea quis molestias. Fugiat pariatur maxime quis culpa corporis vitae
-          repudiandae aliquam voluptatem veniam, est atque cumque eum delectus
-          sint!
+          Tochido es la app #1 en Latinoamérica que facilita
+          <br />
+          la administración local de Ligas de Tocho.
+          <br />
+          Centraliza la infrmación de tu liga, equipos y jugadores
+          <br />
+          en esta app fácil e intuitiva de usar.
         </p>
       </div>
 
-      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+      <div class="col">
         <h6 class="text-uppercase" style="color: white"><center>Ciudad de México
             <br />
             México, 010000</center>
         </h6>
       </div>
 
-      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+      <div class="col">
 
-        <a class="btn btn-floating m-1" href="#!" role="button"><img
+        <a class="btn btn-floating" href="#!" role="button"><img
             src="/images/facebook-app-symbol.png"
             alt=""
             width="30"
             height="30"
           /></a>
 
-        <a class="btn btn-floating m-1" href="#!" role="button"><i
+        <a class="btn btn-floating" href="#!" role="button"><i
             class="fab fa-instagram"
           ><img
               src="/images/instagram.png"
@@ -205,8 +213,6 @@
     </div>
   </div>
 </footer>
-
-
 
 <a href="/team/mainTeam/{{id}}/add-players"><button>Players</button></a>
 <a href="/team/mainTeam/{{id}}/lineup"><button>LineUp</button></a>
