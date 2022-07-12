@@ -13,10 +13,10 @@ router.get('/mainPlayer/:id',(req,res,next)=>{
         Player.findOne({'_owner':`${id}`})
         .populate('_teamOwner')
         .then((player=>{
-            console.log('league id by long route',player._teamOwner._leagueOwner)
+            console.log('player team owner',player._teamOwner)
             const leagueId = player._teamOwner._leagueOwner;
-            if(!player._teamOwner){
-                res.render('player/main.player.hbs',{user , player , id});
+            if(player._teamOwner == null){
+                res.render('player/main-player.hbs',{user , player , id});
             }
             else {
                 League.findById(leagueId)
@@ -24,13 +24,13 @@ router.get('/mainPlayer/:id',(req,res,next)=>{
                 .then((league)=>{
                     console.log('player number',player.number);
                     const data = league._teams;
-                    res.render('player/main.player.hbs',{user , player , id , data});
+                    const sorted = data.filter((team)=>team.points).sort((a,b)=>b.points-a.points)
+                    const position = sorted.map((item,index)=>index+1)
+                    console.log('position',position)
+                    res.render('player/main-player.hbs',{user , player , id , data , sorted , position});
                 })
             }
         }))
-        .then((player=>{
-        res.render('player/main.player.hbs',{user , player , id});
-    }))
     })
     .catch(error=>console.log('error',error))
 })
