@@ -1,30 +1,185 @@
+<div class="body-padding">
+  <div class="titles">
+    <p>Editar Mi Perfil y mi Liga</p>
+  </div>
+
+  <div class="body">
+
+    <form
+      class="row gy-2 gx-3 align-items-center"
+      action="/league/edit-league/{{user._id}}"
+      method="POST"
+    >
+      <div class="col-sm-5">
+        <label for="exampleInputEmail1" class="form-label">Nombre</label>
+        <input
+          type="text"
+          name="name"
+          class="form-control"
+          value="{{user.name}}"
+        />
+      </div>
+
+      <div class="col-sm-5">
+        <label for="exampleInputEmail1" class="form-label">Apellido</label>
+        <input
+          type="text"
+          name="surname"
+          class="form-control"
+          value="{{user.surname}}"
+        />
+      </div>
+
+      <div class="col-sm-5">
+        <label for="basic-url" class="form-label">Foto de Perfil</label>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon3">URL</span>
+          <input
+            type="text"
+            class="form-control"
+            id="basic-url"
+            aria-describedby="basic-addon3"
+          />
+        </div>
+      </div>
+
+      <div class="col-sm-5">
+        <label for="exampleInputPassword1" class="form-label">Nombre de mi Liga</label>
+        <input
+          type="text"
+          name="position"
+          class="form-control"
+          value="{{league.0.league_name}}"
+        />
+      </div>
+
+      <div class="col-sm-5">
+        <label for="basic-url" class="form-label">Logo de mi Liga</label>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon3">URL</span>
+          <input
+            type="text"
+            class="form-control"
+            id="basic-url"
+            aria-describedby="basic-addon3"
+          />
+        </div>
+      </div>
+
+      <div class="col-sm-5">
+        <label for="country" class="form-label">País</label>
+        <select
+          class="form-select"
+          aria-label="Default select example"
+          name="country"
+        >
+          <option value="MX">MEX 🇲🇽 </option>
+          <option value="ALE">DEU 🇩🇪 </option>
+          <option value="ITA">ITA 🇮🇹 </option>
+          <option value="EEUU">USA 🇺🇸 </option>
+          <option value="CAN">CAN 🇨🇦 </option>
+        </select>
+      </div>
+
+      <div class="col-12">
+        <button type="submit" class="btn btn-bd-third">Enviar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<footer class="footer-style" style="background-color: #B609DE">
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col footer-body" style="color: white">
+        <h6 class="text-uppercase" style="color: white">Tochido</h6>
+
+        <p>
+          Tochido es la app #1 en Latinoamérica que facilita
+          <br />
+          la administración local de Ligas de Tocho.
+          <br />
+          Centraliza la infrmación de tu liga, equipos y jugadores
+          <br />
+          en esta app fácil e intuitiva de usar.
+        </p>
+      </div>
+
+      <div class="col">
+        <h6 class="text-uppercase" style="color: white"><center>Ciudad de México
+            <br />
+            México, 010000</center>
+        </h6>
+      </div>
+
+      <div class="col">
+
+        <a class="btn btn-floating" href="#!" role="button"><img
+            src="/images/facebook-app-symbol.png"
+            alt=""
+            width="30"
+            height="30"
+          /></a>
+
+        <a class="btn btn-floating" href="#!" role="button"><i
+            class="fab fa-instagram"
+          ><img
+              src="/images/instagram.png"
+              alt=""
+              width="30"
+              height="30"
+            /></i></a>
+        <h6
+          class="text-uppercase"
+          style="color: white"
+        >elcorreo@gmail.com</h6><br />
+        <a class="text-uppercase" style="color: white" href="#!">Aviso de
+          Privacidad</a>
+
+      </div>
+    </div>
+  </div>
+</footer>
+
+//////////////////////////////////////////////////////////////
+
 <h1>Hi {{user.name}}, edit your Profile</h1>
 
 <form action="/league/edit-league/{{user._id}}" method="POST">
-    <div class="col-sm-5">
-      <label for="exampleInputEmail1" class="form-label">Nombre</label>
-      <input type="text" name="name" class="form-control" value="{{user.name}}"/>
-    </div>
+  <div class="col-sm-5">
+    <label for="exampleInputEmail1" class="form-label">Nombre</label>
+    <input type="text" name="name" class="form-control" value="{{user.name}}" />
+  </div>
 
-    <div class="col-sm-5">
-      <label for="exampleInputEmail1" class="form-label">Apellido</label>
-      <input type="text" name="surname" class="form-control" value="{{user.surname}}"/>
-    </div>
+  <div class="col-sm-5">
+    <label for="exampleInputEmail1" class="form-label">Apellido</label>
+    <input
+      type="text"
+      name="surname"
+      class="form-control"
+      value="{{user.surname}}"
+    />
+  </div>
 
-   <label> League Name
-      <input type="text" name="league_name" value="{{league.0.league_name}}">
-   </label>
-   <label> League Logo
-      <input type="text" name="league_logo" value="{{league.0.league_logo}}">
-   </label>
-   <label for="country"> Country
-      <select name="country">
-         <option value="MX">MX</option>
-         <option value="ALE">ALE</option>
-         <option value="ITA">ITA</option>
-         <option value="EEUU">EEUU</option>
-         <option value="CAN">CAN</option>
-      </select>
-   </label>
-   <button type="submit">Submit</button>
+  <label>
+    League Name
+    <input type="text" name="league_name" value="{{league.0.league_name}}" />
+  </label>
+  <label>
+    League Logo
+    <input type="text" name="league_logo" value="{{league.0.league_logo}}" />
+  </label>
+  <label for="country">
+    Country
+    <select name="country">
+      <option value="MX">MX</option>
+      <option value="ALE">ALE</option>
+      <option value="ITA">ITA</option>
+      <option value="EEUU">EEUU</option>
+      <option value="CAN">CAN</option>
+    </select>
+  </label>
+  <button type="submit">Submit</button>
 </form>

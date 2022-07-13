@@ -1,18 +1,49 @@
 <div class="img-back">
-  <div class="container p-4">
-    <div class="row">
+  <div class="container p-2">
+       <div class="row">
       <div class="col-md-8"></div>
-      <div class="col-6 col-md-4 body-back">
+      <div class="col-6 col-md-3 body-back" style="color: #595858">
         <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque
-          ea quis molestias. Fugiat pariatur maxime quis culpa corporis vitae
-          repudiandae aliquam voluptatem veniam, est atque cumque eum delectus
-          sint!
         </p>
       </div>
     </div>
+     <div class="row">
+      <div class="col-md-8"></div>
+      <div class="col-6 col-md-3 body-back" style="color: #595858">
+        <p>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8"></div>
+      <div class="col-6 col-md-3 body-back" style="color: #595858">
+        <p>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8"></div>
+      <div class="col-6 col-md-3 body-back" style="color: #595858">
+        <p>
+          Con Tochido es fácil y rápido revisar los resultados de los partidos,
+          <br />
+          calendario de juegos, alineaciones, comunicados y mucho más.
+          <br />
+        </p>
+      </div>
+    </div>
+<div class="row">
+      <div class="col-md-8"></div>
+      <div class="col-6 col-md-3 body-back" style="color: #595858">
+          <b>¡Forma parte de la Familia Tochido 🏈 y lleva tu liga de Tocho al
+          siguiente nivel!</b>
+        </p>
+      </div>
+    </div>
+
   </div>
 </div>
+
 
 <div class="body-home-padding">
 
@@ -31,9 +62,9 @@
         name="role"
         id="type"
       >
-      {{#each league}}
-        <option name="id" value="{{this._id}}">{{this.league_name}}</option>
-      {{/each}}
+        {{#each league}}
+          <option value="League">{{this.league_name}}</option>
+        {{/each}}
       </select>
     </div>
     <div class="col-sm-5">
@@ -135,7 +166,11 @@
 
 </div>
 
-<div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }' id="Announcements">
+<div
+  class="gallery js-flickity"
+  data-flickity-options='{ "wrapAround": true }'
+  id="Announcements"
+>
   <div class="gallery-cell">
     <div class="gallery-text">
       <div class="titles-grey">
@@ -177,42 +212,42 @@
   </div>
 </div>
 
-<footer class="navbar navbar-expand-lg" style="background-color: #B609DE">
-  <div class="container p-4">
+<footer class ="footer-style " style="background-color: #B609DE">
+  <div class="container">
 
     <div class="row">
 
       <div
-        class="col-lg-6 col-md-12 mb-4 mb-md-0 footer-body"
+        class="col footer-body"
         style="color: white"
       >
         <h6 class="text-uppercase" style="color: white">Tochido</h6>
 
         <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque
-          ea quis molestias. Fugiat pariatur maxime quis culpa corporis vitae
-          repudiandae aliquam voluptatem veniam, est atque cumque eum delectus
-          sint!
+          Tochido es la app #1 en Latinoamérica que facilita <br>
+          la administración local de Ligas de Tocho. <br>
+          Centraliza la infrmación de tu liga, equipos y jugadores <br>
+          en esta app fácil e intuitiva de usar. 
         </p>
       </div>
 
-      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+      <div class="col">
         <h6 class="text-uppercase" style="color: white"><center>Ciudad de México
             <br />
             México, 010000</center>
         </h6>
       </div>
 
-      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+      <div class="col">
 
-        <a class="btn btn-floating m-1" href="#!" role="button"><img
+        <a class="btn btn-floating" href="#!" role="button"><img
             src="/images/facebook-app-symbol.png"
             alt=""
             width="30"
             height="30"
           /></a>
 
-        <a class="btn btn-floating m-1" href="#!" role="button"><i
+        <a class="btn btn-floating" href="#!" role="button"><i
             class="fab fa-instagram"
           ><img
               src="/images/instagram.png"
