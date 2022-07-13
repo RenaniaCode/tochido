@@ -13,7 +13,7 @@ router.get('/mainPlayer/:id',(req,res,next)=>{
         Player.findOne({'_owner':`${id}`})
         .populate('_teamOwner')
         .then((player=>{
-            console.log('player team owner',player._teamOwner)
+            // console.log('player team owner',player._teamOwner)
             if(player._teamOwner === null){
                 console.log('inside if null')
                 res.render('player/main-player.hbs',{user , player , id});

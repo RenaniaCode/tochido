@@ -3,6 +3,11 @@ body {
   color: #595858;
 }
 
+.subtitles {
+  text-align: center;
+  padding-bottom: 50px;
+}
+
 .btn-bd-primary {
   --bs-btn-font-weight: 300;
   --bs-btn-color: var(--bs-white);
@@ -88,6 +93,9 @@ body {
 
 .footer-style {
   margin: 50px -50px -200px -50px;
+  padding: 50px;
+  display: flex;
+  justify-content: center;
 }
 
 .img-back {
