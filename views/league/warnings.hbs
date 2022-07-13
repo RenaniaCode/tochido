@@ -1,0 +1,30 @@
+<h1>Anuncios de tu liga {{league.league_name}}</h1>
+
+<form action="/league/mainLeague/warning/{{id}}" method="POST">
+    <div class="col-sm-5">
+      <label for="exampleInputEmail1" class="form-label">Encabezado</label>
+      <input type="text" name="header" class="form-control" value="{{league.points}}"/>
+    </div>
+
+    <div class="col-sm-5">
+      <label for="exampleInputEmail1" class="form-label">Juegos Jugados</label>
+      <input type="text" name="gamesPlayed" class="form-control" value="{{team.gamesPlayed}}"/>
+    </div>
+
+    <div class="col-sm-5">
+      <label for="exampleInputEmail1" class="form-label">Juegos Ganados</label>
+      <input type="text" name="wins" class="form-control" value="{{team.wins}}"/>
+    </div>
+
+    <div class="col-sm-5">
+      <label for="exampleInputEmail1" class="form-label">Juegos Perdidos</label>
+      <input type="text" name="defeats" class="form-control" value="{{team.defeats}}"/>
+    </div>
+
+    <div class="col-sm-5">
+      <label for="exampleInputEmail1" class="form-label">Juegos Empatados</label>
+      <input type="text" name="draws" class="form-control" value="{{team.draws}}"/>
+    </div>
+
+    <button type="submit">Submit</button>
+</form>
