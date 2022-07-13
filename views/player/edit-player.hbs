@@ -31,7 +31,7 @@
       </div>
 
       <div class="col-sm-5">
-        <label for="exampleInputPassword1" class="form-label">Position</label>
+        <label for="exampleInputPassword1" class="form-label">Posición</label>
         <input
           type="text"
           name="position"
@@ -41,7 +41,7 @@
       </div>
 
       <div class="col-sm-5">
-        <label for="exampleInputEmail1" class="form-label">Age</label>
+        <label for="exampleInputEmail1" class="form-label">Edad</label>
         <input
           type="number"
           name="age"
@@ -61,7 +61,17 @@
       </div>
 
       <div class="col-sm-5">
-        <label for="role" class="form-label">Height</label>
+        <label for="exampleInputEmail1" class="form-label">Número</label>
+        <input
+          type="number"
+          name="age"
+          class="form-control"
+          value="{{player.0.number}}"
+        />
+      </div>
+
+      <div class="col-sm-5">
+        <label for="role" class="form-label">Altura</label>
         <select
           class="form-select"
           aria-label="Default select example"
