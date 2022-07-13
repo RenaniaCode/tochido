@@ -22,11 +22,11 @@ router.get('/mainPlayer/:id',(req,res,next)=>{
                 const leagueId = player._teamOwner._leagueOwner;
                 console.log('leagueId',player._teamOwner._leagueOwner)
                 League.findById(leagueId)
-                .populate('_teams')
+                .populate('_teams _warning')
                 .then((league)=>{
                     const data = league._teams;
                     const sorted = data.filter((team)=>team.points).sort((a,b)=>b.points-a.points)
-                    res.render('player/main-player.hbs',{user , player , id , data , sorted});
+                    res.render('player/main-player.hbs',{user , player , id , data , sorted , league});
                 })
             }
         }))

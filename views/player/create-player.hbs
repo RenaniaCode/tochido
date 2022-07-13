@@ -17,7 +17,6 @@
           type="text"
           name="position"
           class="form-control"
-          value="{{player.0.position}}"
         />
       </div>
 
@@ -27,7 +26,6 @@
           type="number"
           name="age"
           class="form-control"
-          value="{{player.0.age}}"
         />
       </div>
 
@@ -37,7 +35,6 @@
           type="text"
           name="nickname"
           class="form-control"
-          value="{{player.0.nickname}}"
         />
       </div>
 
@@ -45,9 +42,8 @@
         <label for="exampleInputEmail1" class="form-label">Número</label>
         <input
           type="number"
-          name="age"
+          name="number"
           class="form-control"
-          value="{{player.0.age}}"
         />
       </div>
 
@@ -82,6 +78,7 @@
             type="text"
             class="form-control"
             id="basic-url"
+            name="profile_pic"
             aria-describedby="basic-addon3"
           />
         </div>
@@ -149,7 +146,7 @@
   </div>
 </footer>
 
-/////////////////////////////////////////////////////////////////
+{{!-- /////////////////////////////////////////////////////////////////
 
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 <form action="/player/create-player/{{user._id}}" method="POST">
@@ -194,4 +191,4 @@
   </label>
 
   <button type="submit">Submit</button>
-</form>
+</form> --}}

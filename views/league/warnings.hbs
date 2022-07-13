@@ -1,30 +1,29 @@
-<h1>Anuncios de tu liga {{league.league_name}}</h1>
+<h1>Comunicados de tu liga {{league.league_name}}</h1>
+
+<h2>Nuevo Comunicado</h2>
 
 <form action="/league/mainLeague/warning/{{id}}" method="POST">
     <div class="col-sm-5">
       <label for="exampleInputEmail1" class="form-label">Encabezado</label>
-      <input type="text" name="header" class="form-control" value="{{league.points}}"/>
+      <input type="text" name="header" class="form-control" placeholder="Titulo"/>
     </div>
 
     <div class="col-sm-5">
-      <label for="exampleInputEmail1" class="form-label">Juegos Jugados</label>
-      <input type="text" name="gamesPlayed" class="form-control" value="{{team.gamesPlayed}}"/>
+      <label for="exampleInputEmail1" class="form-label">Comunicado</label><br>
+      <textarea name="text" rows="10" cols="40">Comunicado..</textarea>
     </div>
 
-    <div class="col-sm-5">
-      <label for="exampleInputEmail1" class="form-label">Juegos Ganados</label>
-      <input type="text" name="wins" class="form-control" value="{{team.wins}}"/>
-    </div>
-
-    <div class="col-sm-5">
-      <label for="exampleInputEmail1" class="form-label">Juegos Perdidos</label>
-      <input type="text" name="defeats" class="form-control" value="{{team.defeats}}"/>
-    </div>
-
-    <div class="col-sm-5">
-      <label for="exampleInputEmail1" class="form-label">Juegos Empatados</label>
-      <input type="text" name="draws" class="form-control" value="{{team.draws}}"/>
-    </div>
-
-    <button type="submit">Submit</button>
+    <button type="submit">Crear</button>
 </form>
+
+<h2>Tus Comunicados Actuales</h2>
+
+{{#each league.0._warning}}
+    <li>{{this.header}}</li>
+    <div class="col col-lg-2">
+        <a type="button" class="btn btn-bd-fourth" href="/league/mainLeague/warning/{{this._id}}/delete">Eliminar</a>
+    </div>
+    <div class="col col-lg-2">
+        <a type="button" class="btn btn-bd-fourth" href="/league/mainLeague/warning/{{this._id}}/edit">Editar Estadísticas</a>
+      </div>
+{{/each}}

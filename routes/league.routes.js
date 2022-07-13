@@ -143,13 +143,32 @@ router.post('/edit-league/:id',(req,res,next)=>{
 })
 
 router.get('/mainLeague/warning/:id',(req,res,next)=>{
-    const {id} = req.body;
+    const {id} = req.params;
 
-    League.findById(id)
-    .then(league=>res.render('league/warnings.hbs',{league , id}))
+    League.find({_owner:id})
+    .populate('_warning')
+    .then((league)=>{
+        console.log('league',league[0]._warning)
+        res.render('league/warnings.hbs',{league , id})
+    })
     .catch(error=>console.log('error',error))
 })
 
+router.post('/mainLeague/warning/:id', async (req,res,next)=>{
+    const {id} = req.params;
+    const {header,text} = req.body;
+
+    League.find({_owner:id})
+    .then((league)=>{
+        Warning.create({header,text,_owner:league._id})
+        .then((warning)=>{
+            League.findOneAndUpdate({_owner:id},{$push:{_warning:warning}})
+            .then(()=>{
+                res.redirect(`/league/mainLeague/${id}`);
+            })
+        })
+    })
+})
 
 
 module.exports = router;
