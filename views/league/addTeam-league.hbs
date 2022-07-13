@@ -13,32 +13,28 @@
 
     <div class="col-sm-5">
       <p>
-        <b>Tu liga tiene {{numTeams}} equipos:<br />
+        Tu liga tiene {{numTeams}} equipos.
          </p>
          {{#each league._teams}}
-            <li style="none" >
+            <li style="list-style: none;" >
       <p>
-        Equipo:
-        <b>{{this.team_name}}</b>
+        <b>Equipo:</b>
+        {{this.team_name}}
 
  <div class="container">
     <div class="row">
-      <div class="col col-lg-2">
+      <div class="col">
         <a
           type="button"
-          class="btn btn-bd-fourth float-end"
+          class="btn btn-bd-fourth"
           href="/league/mainLeague/delete/{{this._id}}"
         >Eliminar</a>
-      </div>
-      <div class="col col-lg-2">
         <a
           type="button"
-          class="btn btn-bd-fourth float-end"
+          class="btn btn-bd-fourth"
           href="/league/mainLeague/edit-stats/{{this._id}}"
         >Editar Estadísticas</a>
       </div>
-      <div class="col"></div>
-      <div class="col"></div>
     </div>
     </div>
     </li>
@@ -46,15 +42,15 @@
     </div>
 
  <form
-      class="row gy-2 gx-3 align-items-center"
+      class="row gy-2 gx-3 align-items-center space"
       action="/league/mainLeague/{{id}}/add-team"
       method="POST"
     >
       <div class="col-sm-5">
-        <label for="exampleInputEmail1" class="form-label">ID del Equipo</label>
+        <label for="exampleInputEmail1" class="form-label"><b>ID del Equipo</b></label>
         <input
           type="text"
-          name="player_id"
+          name="team_id"
           class="form-control"
         />
       </div>

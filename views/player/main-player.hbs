@@ -8,15 +8,29 @@
 
     <div class="col-sm-5">
       <p>
-        <b>Nombre:</b><span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{user.name}}</span><br />
-        <b>Apellido:</b><span>&nbsp&nbsp&nbsp&nbsp&nbsp{{user.surname}}</span><br />
-        <b>Número:</b><span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{player.number}}</span><br />
-        <b>Posición:</b><span>&nbsp&nbsp&nbsp&nbsp&nbsp{{player.position}}</span><br />
-        <b>Edad:</b><span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{player.age}}</span><br />
-        <b>Altura:</b><span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{player.height}}</span><br />
-        <b>Alias:</b><span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{player.nickname}}</span><br />
-        <b>Equipo:</b><span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{player._teamOwner.team_name}}</span><br />
-        <b>Id:</b><span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{player._id}}</span><br />
+        <b>Nombre:</b><span
+        >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{user.name}}</span><br />
+        <b>Apellido:</b><span
+        >&nbsp&nbsp&nbsp&nbsp&nbsp{{user.surname}}</span><br />
+        <b>Número:</b><span
+        >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{player.number}}</span><br />
+        <b>Posición:</b><span
+        >&nbsp&nbsp&nbsp&nbsp&nbsp{{player.position}}</span><br />
+        <b>Edad:</b><span
+        >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{player.age}}</span><br
+        />
+        <b>Altura:</b><span
+        >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{player.height}}</span><br
+        />
+        <b>Alias:</b><span
+        >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{player.nickname}}</span><br
+        />
+        <b>Equipo:</b><span
+        >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{player._teamOwner.team_name}}</span><br
+        />
+        <b>Id:</b><span
+        >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{player._id}}</span><br
+        />
 
       </p>
     </div>
@@ -30,14 +44,20 @@
       />
     </div>
 
-    <div class="row">
-      <div class="col"></div>
-      <div class="col"></div>
-      <div class="col col-lg-2">
-        <a type="button" class="btn btn-bd-fourth float-end" href="/player/edit-player/{{id}}">Editar
-          Perfil</a>
+    <div class="container">
+      <div class="row">
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col">
+          <a
+            type="button"
+            class="btn btn-bd-fourth float-end"
+            href="/player/edit-player/{{id}}"
+          >Editar Perfil</a>
+        </div>
+        <div class="col"></div>
       </div>
-
     </div>
   </div>
 
@@ -63,22 +83,22 @@
     </thead>
     <tbody class="table-group-divider">
       {{#each sorted}}
-      <tr>
-        <th scope="row">{{@index}}</th>
-        <td><img
-            src="/images/Screen Shot 2022-07-08 at 19.09.39.png"
-            alt="..."
-            width="30"
-            height="30"
-          /></td>
-        <td>{{this.team_name}}</td>
-        <td>{{this.points}}</td>
-        <td>{{this.gamesPlayed}}</td>
-        <td>{{this.wins}}</td>
-        <td>{{this.defeats}}</td>
-        <td>{{this.draws}}</td>
-      </tr>
-    {{/each}}
+        <tr>
+          <th scope="row">{{@index}}</th>
+          <td><img
+              src="/images/Screen Shot 2022-07-08 at 19.09.39.png"
+              alt="..."
+              width="30"
+              height="30"
+            /></td>
+          <td>{{this.team_name}}</td>
+          <td>{{this.points}}</td>
+          <td>{{this.gamesPlayed}}</td>
+          <td>{{this.wins}}</td>
+          <td>{{this.defeats}}</td>
+          <td>{{this.draws}}</td>
+        </tr>
+      {{/each}}
     </tbody>
   </table>
 </div>
@@ -129,22 +149,22 @@
   </div>
 </div>
 
-<footer class ="footer-style " style="background-color: #B609DE">
+<footer class="footer-style" style="background-color: #B609DE">
   <div class="container">
 
     <div class="row">
 
-      <div
-        class="col footer-body"
-        style="color: white"
-      >
+      <div class="col footer-body" style="color: white">
         <h6 class="text-uppercase" style="color: white">Tochido</h6>
 
         <p>
-          Tochido es la app #1 en Latinoamérica que facilita <br>
-          la administración local de Ligas de Tocho. <br>
-          Centraliza la infrmación de tu liga, equipos y jugadores <br>
-          en esta app fácil e intuitiva de usar. 
+          Tochido es la app #1 en Latinoamérica que facilita
+          <br />
+          la administración local de Ligas de Tocho.
+          <br />
+          Centraliza la infrmación de tu liga, equipos y jugadores
+          <br />
+          en esta app fácil e intuitiva de usar.
         </p>
       </div>
 
