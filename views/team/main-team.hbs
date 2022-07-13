@@ -8,8 +8,8 @@
 
     <div class="col-sm-5">
       <p>
-        <b>Nombre:</b><span>{{user.name}}</span><br />
-        <b>Apellido:</b><span>{{user.surname}}</span><br />
+        <b>Nombre: </b><span>{{user.name}}</span><br />
+        <b>Apellido: </b><span>{{user.surname}}</span><br />
       </p>
     </div>
     <div class="col-sm-5">
@@ -36,9 +36,9 @@
 
     <div class="col-sm-5">
       <p>
-        <b>Nombre del Equipo:</b><span>{{coach.team_name}}</span><br />
-        <b>Cantidad de Jugadores:</b><span>{{numPlayers}}</span><br />
-        <b>ID:</b><span>{{coach._id}}</span><br />
+        <b>Nombre del Equipo: </b><span>{{coach.team_name}}</span><br />
+        <b>Cantidad de Jugadores: </b><span>{{numPlayers}}</span><br />
+        <b>ID: </b><span>{{coach._id}}</span><br />
       </p>
     </div>
     <div class="col-sm-5">
@@ -52,24 +52,24 @@
     </div>
 
     <div class="container">
-    <div class="row">
-      <div class="col"></div>
-      <div class="col col-lg-2">
-        <a
-          type="button"
-          class="btn btn-bd-fourth float-end"
-          href="/team/mainTeam/{{id}}/add-players"
-        >Jugadores</a>
+      <div class="row">
+        <div class="col"></div>
+        <div class="col col-lg-2">
+          <a
+            type="button"
+            class="btn btn-bd-fourth float-end"
+            href="/team/mainTeam/{{id}}/add-players"
+          >Jugadores</a>
+        </div>
+        <div class="col col-lg-2">
+          <a
+            type="button"
+            class="btn btn-bd-fourth float-end"
+            href="/team/edit-team/{{id}}"
+          >Editar Perfiles</a>
+        </div>
+        <div class="col"></div>
       </div>
-      <div class="col col-lg-2">
-        <a
-          type="button"
-          class="btn btn-bd-fourth float-end"
-          href="/team/edit-team/{{id}}"
-        >Editar Perfiles</a>
-      </div>
-      <div class="col"></div>
-    </div>
     </div>
   </div>
 

@@ -1,6 +1,6 @@
 <div class="body-padding">
   <div class="titles">
-    <p>Editar Mi Perfil y mi Liga</p>
+    <p>Editar Mi Perfil y Mi Liga</p>
   </div>
 
   <div class="body">
@@ -39,6 +39,8 @@
             class="form-control"
             id="basic-url"
             aria-describedby="basic-addon3"
+            name="profile_pic"
+            value="{{player.0.profile_pic}}"
           />
         </div>
       </div>
@@ -47,7 +49,7 @@
         <label for="exampleInputPassword1" class="form-label">Nombre de mi Liga</label>
         <input
           type="text"
-          name="position"
+          name="league_name"
           class="form-control"
           value="{{league.0.league_name}}"
         />
@@ -62,6 +64,8 @@
             class="form-control"
             id="basic-url"
             aria-describedby="basic-addon3"
+            name="league_logo"
+            value="{{league.0.league_logo}}"
           />
         </div>
       </div>

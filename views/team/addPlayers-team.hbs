@@ -10,52 +10,50 @@
       </p>
     </div>
   </div>
+  <div class="col-sm-5">
+    <p>
+      Tu equipo tiene
+      {{numPlayer}}
+      jugadores.<br />
+    </p>
+    {{#each show._players}}
+      <li style="list-style: none;">
+        <p>
+          <b>Nickname:</b>
+          {{this.nickname}}
+          <br />
+          <b>Número:</b>
+          {{this.number}}
+          <br />
+          <b>Posición:</b>
+          {{this.position}}<br /></p>
 
+        <div class="col col-lg-2">
+          <a
+            type="button"
+            class="btn btn-bd-fourth"
+            href="/team/mainTeam/delete/{{this._id}}"
+          >Eliminar</a>
+        </div>
+      </li>
+    {{/each}}
+  </div>
+
+  <form
+    class="row gy-2 gx-3 align-items-center space"
+    action="/team/mainTeam/{{id}}/add-players"
+    method="POST"
+  >
     <div class="col-sm-5">
-      <p>
-        <b>Tu equipo tiene {{numPlayer}} jugadores:<br />
-         </p>
-         {{#each show._players}}
-            <li style="none">
-      <p>
-        Nickname:
-        <b>{{this.nickname}}</b>
-        Número:
-        <b>{{this.number}}</b>
-        Posición:
-        <b>{{this.position}}</b></p>
-
-         <div class="col col-lg-2">
-        <a
-          type="button"
-          class="btn btn-bd-fourth"
-          href="/team/mainTeam/delete/{{this._id}}"
-        >Eliminar</a>
-      </div>
-    </li>
-  {{/each}}
+      <label for="exampleInputEmail1" class="form-label">ID del Jugador</label>
+      <input type="text" name="player_id" class="form-control" />
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-bd-third">Enviar</button>
     </div>
 
- <form
-      class="row gy-2 gx-3 align-items-center"
-      action="/team/mainTeam/{{id}}/add-players"
-      method="POST"
-    >
-      <div class="col-sm-5">
-        <label for="exampleInputEmail1" class="form-label">ID del Jugador</label>
-        <input
-          type="text"
-          name="player_id"
-          class="form-control"
-        />
-      </div>
- <div class="col-12">
-        <button type="submit" class="btn btn-bd-third">Enviar</button>
-      </div>
+  </form>
 
-</form>
-
- 
 </div>
 
 <footer class="footer-style" style="background-color: #B609DE">
@@ -115,7 +113,6 @@
 
 //////////////////////////////////////////////////
 
-
 <h1>Insert player's Id to add</h1>
 
 <ul>
@@ -123,12 +120,14 @@
   {{#each show._players}}
     <li>
       <p>
-        Nickname :
-        <b>{{this.nickname}}</b>
-        Number :
-        <b>{{this.number}}</b>
-        position :
-        <b>{{this.position}}</b></p>
+        <b>Nickname:</b>
+        {{this.nickname}}
+        <br />
+        <b>Número:</b>
+        {{this.number}}
+        <br />
+        <b>Posición:</b>
+        {{this.position}}<br /></p>
       <a href="/team/mainTeam/delete/{{this._id}}"><button>Delete</button></a>
     </li>
   {{/each}}
