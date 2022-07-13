@@ -27,9 +27,9 @@ const leagueSchema = new Schema(
         type: Schema.Types.ObjectId,
         ref: "Match"
     }],
-    announcements:[{
-      header: String,
-      text: String
+    _warning:[{
+      type: Schema.Types.ObjectId,
+      ref: "Warning"
     }]
   },
   {

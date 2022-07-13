@@ -2,6 +2,7 @@ const router = require("express").Router();
 const League = require('../models/League.model');
 const User = require('../models/User.model');
 const Team = require('../models/Team.model');
+const Warning = require('../models/Warning.model');
 
 router.get('/mainLeague/:id',(req,res,next)=>{
     const {id} = req.params;
@@ -9,7 +10,7 @@ router.get('/mainLeague/:id',(req,res,next)=>{
     User.findById(id)
     .then((user)=>{
         League.findOne({'_owner':`${id}`})
-        .populate('_teams')
+        .populate('_teams _warning')
         .then(((league)=>{
         console.log('coach',league);
         const numTeams = league._teams.length;
@@ -140,5 +141,15 @@ router.post('/edit-league/:id',(req,res,next)=>{
         .then(()=>res.redirect(`/league/mainLeague/${id}`))
     })
 })
+
+router.get('/mainLeague/warning/:id',(req,res,next)=>{
+    const {id} = req.body;
+
+    League.findById(id)
+    .then(league=>res.render('league/warnings.hbs',{league , id}))
+    .catch(error=>console.log('error',error))
+})
+
+
 
 module.exports = router;
