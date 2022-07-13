@@ -21,7 +21,7 @@
         <label for="exampleFormControlTextarea1" class="form-label">Anuncio</label>
         <textarea
           type="text"
-          name="#"
+          name="text"
           class="form-control"
           rows="5"
         />
@@ -29,17 +29,19 @@
 </div>
 
  <div class="col-12">
-        <button type="submit" class="btn btn-bd-third">Enviar</button>
+        <button type="submit" class="btn btn-bd-third">Crear</button>
       </div>
 
 </form>
+
+<h2>Tus Comunicados Actuales</h2>
+
+{{#each league.0._warning}}
 </div> 
 
       <div class="col-sm-5 space">
             <li style="list-style: none;">
-      <p> 
-        Encabezado:<br>
-        Anuncio:  </p> 
+      <p> Encabezado: {{this.header}}<br></p> 
 
 
  <div class="container">
@@ -48,17 +50,13 @@
         <a
           type="button"
           class="btn btn-bd-fourth"
-          href="#"
+          href="/league/mainLeague/warning/{{this._id}}/delete"
         >Eliminar</a>
-        <a
-          type="button"
-          class="btn btn-bd-fourth"
-          href="#"
-        >Editar</a>
       </div>
     </div>
     </div>
 </li>
+{{/each}}
 </div>
 
 
@@ -117,54 +115,3 @@
   </div>
 </footer>
 
-/////////////////////////////////////////////////////////
-<h1>Anuncios de tu liga {{league.league_name}}</h1>
-
-<form action="/league/mainLeague/warning/{{id}}" method="POST">
-  <div class="col-sm-5">
-    <label for="exampleInputEmail1" class="form-label">Encabezado</label>
-    <input
-      type="text"
-      name="header"
-      class="form-control"
-      value="{{league.points}}"
-    />
-  </div>
-
-  <div class="col-sm-5">
-    <label for="exampleInputEmail1" class="form-label">Juegos Jugados</label>
-    <input
-      type="text"
-      name="gamesPlayed"
-      class="form-control"
-      value="{{team.gamesPlayed}}"
-    />
-  </div>
-
-  <div class="col-sm-5">
-    <label for="exampleInputEmail1" class="form-label">Juegos Ganados</label>
-    <input type="text" name="wins" class="form-control" value="{{team.wins}}" />
-  </div>
-
-  <div class="col-sm-5">
-    <label for="exampleInputEmail1" class="form-label">Juegos Perdidos</label>
-    <input
-      type="text"
-      name="defeats"
-      class="form-control"
-      value="{{team.defeats}}"
-    />
-  </div>
-
-  <div class="col-sm-5">
-    <label for="exampleInputEmail1" class="form-label">Juegos Empatados</label>
-    <input
-      type="text"
-      name="draws"
-      class="form-control"
-      value="{{team.draws}}"
-    />
-  </div>
-
-  <button type="submit">Submit</button>
-</form>

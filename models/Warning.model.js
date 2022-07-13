@@ -10,6 +10,11 @@ const warningSchema = new Schema(
     text: {
       type: String,
       required: true,
+    },
+    _owner: {
+      type: Schema.Types.ObjectId,
+      ref: "League",
+      default: null
     }
   },
   {
