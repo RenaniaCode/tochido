@@ -160,7 +160,8 @@ router.post('/mainLeague/warning/:id', async (req,res,next)=>{
 
     League.find({_owner:id})
     .then((league)=>{
-        Warning.create({header,text,_owner:league._id})
+        console.log('league id',league[0]._id)
+        Warning.create({header,text,_owner:league[0]._id})
         .then((warning)=>{
             League.findOneAndUpdate({_owner:id},{$push:{_warning:warning}})
             .then(()=>{
@@ -170,5 +171,21 @@ router.post('/mainLeague/warning/:id', async (req,res,next)=>{
     })
 })
 
+router.get('/mainLeague/warning/:_id/delete',(req,res,next)=>{
+    const {_id} = req.params;
+
+    Warning.findById(_id)
+    .then((warning)=>{
+        const league_id = warning._owner;
+        console.log('leagueId',league_id)
+        League.findByIdAndUpdate(league_id,{$pull:{_warning:_id}})
+        .then((league)=>{
+            Warning.findByIdAndDelete(_id)
+            .then(()=>{
+                res.redirect(`/league/mainLeague/${league._owner}`)
+            })
+        })
+    })
+})
 
 module.exports = router;

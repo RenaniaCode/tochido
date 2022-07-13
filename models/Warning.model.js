@@ -13,7 +13,8 @@ const warningSchema = new Schema(
     },
     _owner: {
       type: Schema.Types.ObjectId,
-      ref: "League"
+      ref: "League",
+      default: null
     }
   },
   {
