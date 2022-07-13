@@ -164,6 +164,16 @@ body {
   padding: 20px;
 }
 
+.gallery-lineups{
+    width: 66%;
+  height: 500px;
+  margin-right: 10px;
+  counter-increment: gallery-cell;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
 .space {
   padding-top: 50px
 }
