@@ -112,7 +112,7 @@ router.get('/mainTeam/:id/lineup', (req,res,next)=>{
     .populate('_owner _players')
     .then((team)=>{
         console.log('team',team)
-        res.render('team/lineups-team',team , id)
+        res.render('team/lineups-team',{team , id})
     })
     .catch(error=>console.log('error',error))
 })
