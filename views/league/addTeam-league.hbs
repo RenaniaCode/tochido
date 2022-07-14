@@ -1,6 +1,6 @@
 <div class="body-padding">
   <div class="titles">
-    <p>Equipos de {{league_name}} </p>
+    <p>Equipos de {{league.0.league_name}} </p>
   </div>
 
   <div class="body">
@@ -32,10 +32,10 @@
 
     <div class="col-sm-5 space">
       <p>
-        Tu liga tiene {{numTeams}} equipos.
+        <b>Tu liga tiene {{numTeams}} equipos.</b>
          </p>
          {{#each league._teams}}
-            <li style="list-style: none;" >
+            <li class= "space" style="list-style: none;" >
       <p>
         <b>Equipo:</b>
         {{this.team_name}}

@@ -1,6 +1,6 @@
 <div class="body-padding">
   <div class="titles">
-    <p>Anuncios de tu liga {{league.league_name}}</p>
+    <p>Anuncios de tu liga {{league.0.league_name}}</p>
   </div>
 <div>
  <form
@@ -34,14 +34,16 @@
 
 </form>
 
-<h2>Tus Comunicados Actuales</h2>
+<div class="titles space">
+    <p>Anuncios publicados</p>
+  </div>
 
 {{#each league.0._warning}}
 </div> 
 
       <div class="col-sm-5 space">
             <li style="list-style: none;">
-      <p> Encabezado: {{this.header}}<br></p> 
+      <p>{{this.header}}<br></p> 
 
 
  <div class="container">
@@ -57,6 +59,7 @@
     </div>
 </li>
 {{/each}}
+</div>
 </div>
 
 
