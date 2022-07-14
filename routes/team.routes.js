@@ -20,7 +20,7 @@ router.get('/mainTeam/:id',(req,res,next)=>{
             }
             else {
                 League.findById(coach._leagueOwner)
-                .populate('_teams _warning')
+                .populate('_teams _warning _matches')
                 .then((league)=>{
                     console.log('data',league._warning);
                     const data = league._teams;

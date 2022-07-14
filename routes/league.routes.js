@@ -11,7 +11,7 @@ router.get('/mainLeague/:id',(req,res,next)=>{
     User.findById(id)
     .then((user)=>{
         League.findOne({'_owner':`${id}`})
-        .populate('_teams _warning')
+        .populate('_teams _warning _matches')
         .then(((league)=>{
         console.log('coach',league);
         const numTeams = league._teams.length;
