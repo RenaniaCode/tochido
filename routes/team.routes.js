@@ -110,7 +110,11 @@ router.get('/mainTeam/:id/lineup', (req,res,next)=>{
     const {id} = req.params;
     Team.find({_owner:id})
     .populate('_owner _players')
-    .then((team)=>{res.render('team/lineups-team.hbs',team , id)})
+    .then((team)=>{
+        console.log('team',team)
+        res.render('team/lineups-team',team , id)
+    })
+    .catch(error=>console.log('error',error))
 })
 
 router.get('/edit-team/:id',(req,res,next)=>{
