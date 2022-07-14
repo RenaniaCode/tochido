@@ -1,6 +1,6 @@
 <div class="body-padding">
   <div class="titles">
-    <p>Alineaciones de {{team.team_name}} </p>
+    <p>Alineaciones de {{team.0.team_name}} </p>
   </div>
 
 <div
@@ -60,12 +60,12 @@
         <a
           type="button"
           class="btn btn-bd-fourth"
-          href="/league/mainLeague/delete/{{this._id}}"
+          href="/league/mainLeague/delete/{{!-- {{this._id}} --}}"
         >Eliminar</a>
         <a
           type="button"
           class="btn btn-bd-fourth"
-          href="/league/mainLeague/edit-stats/{{this._id}}"
+          href="/league/mainLeague/edit-stats/{{!-- {{this._id}} --}}"
         >Editar Estadísticas</a>
       </div>
     </div>
