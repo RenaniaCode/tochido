@@ -11,7 +11,26 @@
     </div>
   </div>
 
-    <div class="col-sm-5">
+   <form
+      class="row gy-2 gx-3 align-items-center"
+      action="/league/mainLeague/{{id}}/add-team"
+      method="POST"
+    >
+      <div class="col-sm-5">
+        <label for="exampleInputEmail1" class="form-label"><b>ID del Equipo</b></label>
+        <input
+          type="text"
+          name="team_id"
+          class="form-control"
+        />
+      </div>
+ <div class="col-12">
+        <button type="submit" class="btn btn-bd-third">Enviar</button>
+      </div>
+
+</form>
+
+    <div class="col-sm-5 space">
       <p>
         Tu liga tiene {{numTeams}} equipos.
          </p>
@@ -40,25 +59,6 @@
     </li>
   {{/each}}
     </div>
-
- <form
-      class="row gy-2 gx-3 align-items-center space"
-      action="/league/mainLeague/{{id}}/add-team"
-      method="POST"
-    >
-      <div class="col-sm-5">
-        <label for="exampleInputEmail1" class="form-label"><b>ID del Equipo</b></label>
-        <input
-          type="text"
-          name="team_id"
-          class="form-control"
-        />
-      </div>
- <div class="col-12">
-        <button type="submit" class="btn btn-bd-third">Enviar</button>
-      </div>
-
-</form>
 
  
 </div>

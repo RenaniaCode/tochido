@@ -3,75 +3,80 @@
     <p>Alineaciones de {{team.0.team_name}} </p>
   </div>
 
-<div
-  class="gallery js-flickity"
-  data-flickity-options='{ "wrapAround": true }'
->
-  <div class="gallery-lineups">
-
-<div class="col-sm-5">
-      <img
-        src="/images/jugadas-01.png"
-        alt="..."
-        height="180"
-      />
-    </div>
-
-    <div class="gallery-text">
-      <div class="titles-grey">
-        <p>Comunicados Oficiales de la Liga</p>
+  <div
+    class="gallery js-flickity"
+    data-flickity-options='{ "wrapAround": true }'
+  >
+    <div class="gallery-lineups">
+      <div class="col-sm-5">
+        <img src="/images/jugadas-01.png" alt="..." height="480" />
       </div>
-      <p>"Lorem ipsum dolor sit amet"</p>
+      <div class="gallery-text">
+        <p><b>"Twins Left Draw Right"</b></p><br />
+        <p>QB retrocede para pasar y luego se retira</p>
+      </div>
     </div>
-  </div>
-  <div class="gallery-lineups">
-    <div class="gallery-text">
-      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-        sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum."</p>
-      <a type="button" class="btn btn-bd-fourth" href="#">Leer más</a>
+
+    <div class="gallery-lineups">
+      <div class="col-sm-5">
+        <img src="/images/jugadas-02.png" alt="..." height="480" />
+      </div>
+      <div class="gallery-text">
+        <p><b>"Trips Right Pass"</b></p><br />
+        <p>QB gira a la derecha y centra al receptor primario</p>
+      </div>
     </div>
+
+    <div class="gallery-lineups">
+      <div class="col-sm-5">
+        <img src="/images/jugadas-03.png" alt="..." height="480" />
+      </div>
+      <div class="gallery-text">
+        <p><b>"Trips Right Run"</b></p><br />
+      </div>
+    </div>
+
+    <div class="gallery-lineups">
+      <div class="col-sm-5">
+        <img src="/images/jugadas-04.png" alt="..." height="480" />
+      </div>
+      <div class="gallery-text">
+        <p><b>"Split T Pass"</b></p><br />
+      </div>
+    </div>
+
+    <div class="gallery-lineups">
+      <div class="col-sm-5">
+        <img src="/images/jugadas-05.png" alt="..." height="480" />
+      </div>
+      <div class="gallery-text">
+        <p><b>"Trips Left Run"</b></p><br />
+      </div>
+    </div>
+
   </div>
-  <div class="gallery-lineups">
-    <div class="gallery-text">
-      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-        sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum."</p>
-      <a type="button" class="btn btn-bd-fourth" href="#">Leer más</a>
+  <div class="body">
+    <div class="col-sm-5 space">
+      <label for="country" class="form-label"><b>Jugadas</b></label>
+      <select multiple class="form-select" aria-label="Default select example">
+        <option value="MX">Twins Left Draw Right</option>
+        <option value="ALE">Trips Right Pass</option>
+        <option value="ITA">Trips Right Run</option>
+        <option value="EEUU">Split T Pass</option>
+        <option value="CAN">Trips Left Run</option>
+      </select>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <a type="button" class="btn btn-bd-fourth" href="#">Crear Playbook</a>
+          <a type="button" class="btn btn-bd-fourth" href="#">Ver Playbook</a>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-
-
-
-
-
- <div class="container">
-    <div class="row">
-      <div class="col">
-        <a
-          type="button"
-          class="btn btn-bd-fourth"
-          href="/league/mainLeague/delete/{{!-- {{this._id}} --}}"
-        >Eliminar</a>
-        <a
-          type="button"
-          class="btn btn-bd-fourth"
-          href="/league/mainLeague/edit-stats/{{!-- {{this._id}} --}}"
-        >Editar Estadísticas</a>
-      </div>
-    </div>
-    </div>
-    </div>
-
 
 <footer class="footer-style" style="background-color: #B609DE">
   <div class="container">
@@ -127,8 +132,3 @@
     </div>
   </div>
 </footer>
-
-
-
-
-<h1>Line Up for </h1>
