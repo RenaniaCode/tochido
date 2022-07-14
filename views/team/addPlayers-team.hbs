@@ -2,16 +2,9 @@
   <div class="titles">
     <p>Jugadores de {{team_name}} </p>
   </div>
-  <div class="body">
-    <div class="subtitles">
-      <p>
-        <b>Para agregar un nuevo jugador, es necesario insertar su ID</b>
-      </p>
-    </div>
-  </div>
 
   <form
-    class="row gy-2 gx-3 align-items-center"
+    class="row gy-2 gx-3 align-items-center space"
     action="/team/mainTeam/{{id}}/add-players"
     method="POST"
   >
@@ -24,7 +17,15 @@
     </div>
 
   </form>
-  <div class="col-sm-5 space">
+
+  <div class="body">
+    <div class="subtitles">
+      <p>
+        <b>Para agregr un nuevo jugador, es necesario insertar su ID</b>
+      </p>
+    </div>
+  </div>
+  <div class="col-sm-5">
     <p>
       Tu equipo tiene
       {{numPlayer}}
