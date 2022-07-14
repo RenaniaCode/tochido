@@ -104,6 +104,44 @@
   </table>
 </div>
 
+  <div class="titles" id="Calendar">
+    <p>Calendario de Partidos</p>
+  </div>
+
+  <div class="row row-cols-1 row-cols-md-3 g-4" style="color: white;">
+    {{#each league._matches}}
+    <div class="col">
+      <div
+        class="card h-100 text-center border-light"
+        style=" background-color: #DEB5EE"
+      >
+        <div class="card-img-container">
+          <img
+            src="/images/Screen Shot 2022-07-08 at 19.09.39.png"
+            class="card-img-team"
+            alt="..."
+          />
+
+          <span>vs</span>
+          <img
+            src="/images/Screen Shot 2022-07-08 at 19.09.39.png"
+            class="card-img-team"
+            alt="..."
+          />
+
+        </div>
+
+        <div class="card-body">
+          <h5 class="card-title">{{this.date}}</h5>
+          <p class="card-text">{{this.hour}} hrs</p>
+          <p class="card-text">week {{this.week}}</p>
+        </div>
+      </div>
+    </div>
+     {{/each}}
+  </div>
+<br><br><br><br>
+
 <div
   class="gallery js-flickity"
   data-flickity-options='{ "wrapAround": true }'

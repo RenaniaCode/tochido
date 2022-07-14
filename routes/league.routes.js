@@ -3,6 +3,7 @@ const League = require('../models/League.model');
 const User = require('../models/User.model');
 const Team = require('../models/Team.model');
 const Warning = require('../models/Warning.model');
+const Match = require('../models/Match.model');
 
 router.get('/mainLeague/:id',(req,res,next)=>{
     const {id} = req.params;
@@ -183,6 +184,34 @@ router.get('/mainLeague/warning/:_id/delete',(req,res,next)=>{
             Warning.findByIdAndDelete(_id)
             .then(()=>{
                 res.redirect(`/league/mainLeague/${league._owner}`)
+            })
+        })
+    })
+})
+
+router.get('/match/:id',(req,res,next)=>{
+    const {id} = req.params;
+
+    League.find({_owner:id})
+    .populate('_teams')
+    .then((league)=>{
+        res.render('league/create-match',{league,id})
+    })
+})
+
+router.post('/match/:id',(req,res,next)=>{
+    const {id} = req.params;
+    const {teamLocal , scoreLocal , teamVisitor , scoreVisitor , date , hour , week} = req.body;
+
+    League.find({_owner:id})
+    .populate('_teams')
+    .then((league)=>{
+        Match.create({teamLocal , scoreLocal , teamVisitor , scoreVisitor , date , hour , week , _owner:league[0]._id})
+        .then((match)=>{
+            League.findOneAndUpdate({_owner:id},{$push:{_matches:match}})
+            .then(()=>{
+                console.log('league id',league[0]._owner)
+                res.redirect(`/league/mainLeague/${league[0]._owner}`);
             })
         })
     })

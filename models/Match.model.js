@@ -7,12 +7,22 @@ const matchSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "Team",
     },
-    scoreLocal: Number,
+    scoreLocal: {
+      type: Number,
+      default: 0
+    },
     teamVisitor: {
         type: Schema.Types.ObjectId,
         ref: "Team",
     },
-    scoreVisitor: Number,
+    scoreVisitor: {
+      type: Number,
+      default: 0
+    },
+    _owner: {
+      type: Schema.Types.ObjectId,
+      ref: "League",
+    },
     date: Date,
     hour: String,
     week: String,
