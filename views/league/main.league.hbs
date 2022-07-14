@@ -15,7 +15,7 @@
     <div class="col-sm-5">
       <img
         src="/images/Screen Shot 2022-07-08 at 19.09.39.png"
-       class="float-end circle-image"
+        class="float-end circle-image"
         alt="..."
         width="200"
         height="200"
@@ -80,8 +80,6 @@
       </div>
     </div>
   </div>
-</div>
-
 
   <div class="titles" id="Calendar">
     <p>Calendario de Partidos</p>
@@ -89,69 +87,67 @@
 
   <div class="row row-cols-1 row-cols-md-3 g-4" style="color: white;">
     {{#each league._matches}}
-    <div class="col">
-      <div
-        class="card h-100 text-center border-light"
-        style=" background-color: #DEB5EE"
-      >
-        <div class="card-img-container">
-          <img
-            src="/images/Screen Shot 2022-07-08 at 19.09.39.png"
-            class="card-img-team"
-            alt="..."
-          />
+      <div class="col">
+        <div
+          class="card h-100 text-center border-light"
+          style=" background-color: #DEB5EE"
+        >
+          <div class="card-img-container">
+            <img
+              src="/images/Screen Shot 2022-07-08 at 19.09.39.png"
+              class="card-img-team"
+              alt="..."
+            />
 
-          <span>vs</span>
-          <img
-            src="/images/Screen Shot 2022-07-08 at 19.09.39.png"
-            class="card-img-team"
-            alt="..."
-          />
+            <span>vs</span>
+            <img
+              src="/images/Screen Shot 2022-07-08 at 19.09.39.png"
+              class="card-img-team"
+              alt="..."
+            />
 
-        </div>
+          </div>
 
-        <div class="card-body">
-          <h5 class="card-title">{{this.date}}</h5>
-          <p class="card-text">{{this.hour}} hrs</p>
-          <p class="card-text">week {{this.week}}</p>
+          <div class="card-body">
+            <p class="card-title"><b>{{this.date}}</b></p>
+            <p class="card-text">{{this.hour}} hrs</p>
+            <p class="card-text">semana {{this.week}}</p>
+          </div>
         </div>
       </div>
-    </div>
-     {{/each}}
+    {{/each}}
   </div>
-<br><br><br><br>
-
+</div>
 
 <div
   class="gallery js-flickity"
   data-flickity-options='{ "wrapAround": true }'
   id="Announcements"
 >
-{{#each league._warning}}
-  <div class="gallery-cell">
-    <div class="gallery-text">
-      <div class="titles-grey">
-        <p>{{this.header}}</p>
+  {{#each league._warning}}
+    <div class="gallery-cell">
+      <div class="gallery-text">
+        <div class="titles-grey">
+          <p>{{this.header}}</p>
+        </div>
+        <p>{{this.text}}</p>
+        <a type="button" class="btn btn-bd-fourth" href="#">Leer más</a>
       </div>
-      <p>{{this.text}}</p>
-      <a type="button" class="btn btn-bd-fourth" href="#">Leer más</a>
     </div>
-  </div>
   {{/each}}
 </div>
-  <div class="row">
-    <div class="col">
-    </div>
-    <div class="col">
-    </div>
-    <div class="col float-end">
-      <a
-        type="button"
-        class="btn btn-bd-fourth"
-        href="/league/mainLeague/warning/{{user._id}}"
-      >Comunicados</a>
-    </div>
-
+<div class="row">
+  <div class="col">
+  </div>
+  <div class="col">
+  </div>
+  <div class="col float-end">
+    <a
+      type="button"
+      class="btn btn-bd-fourth"
+      href="/league/mainLeague/warning/{{user._id}}"
+    >Comunicados</a>
+  </div>
 
 </div>
 

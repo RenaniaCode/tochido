@@ -121,7 +121,6 @@
       {{/each}}
     </tbody>
   </table>
-</div>
 
   <div class="titles" id="Calendar">
     <p>Calendario de Partidos</p>
@@ -151,15 +150,17 @@
         </div>
 
         <div class="card-body">
-          <h5 class="card-title">{{this.date}}</h5>
+          <p class="card-title"><b>{{this.date}}</b></h5>
           <p class="card-text">{{this.hour}} hrs</p>
-          <p class="card-text">week {{this.week}}</p>
+          <p class="card-text">semana {{this.week}}</p>
         </div>
       </div>
     </div>
      {{/each}}
   </div>
-<br><br><br><br>
+  </div>
+
+
 <div
   class="gallery js-flickity"
   data-flickity-options='{ "wrapAround": true }'

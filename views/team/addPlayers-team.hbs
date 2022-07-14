@@ -1,63 +1,57 @@
 <div class="body-padding">
   <div class="titles">
-    <p>Jugadores de {{team_name}} </p>
+    <p>Jugadores de {{team.0.team_name}} </p>
   </div>
+
   <div class="body">
     <div class="subtitles">
       <p>
         <b>Para agregar un nuevo jugador, es necesario insertar su ID</b>
       </p>
     </div>
-  </div>
 
-   <div class="body">
-    <div class="subtitles">
+    <form
+      class="row gy-2 gx-3 align-items-center"
+      action="/team/mainTeam/{{id}}/add-players"
+      method="POST"
+    >
+      <div class="col-sm-5">
+        <label for="exampleInputEmail1" class="form-label">ID del Jugador</label>
+        <input type="text" name="player_id" class="form-control" />
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn btn-bd-third">Enviar</button>
+      </div>
+
+    </form>
+    <div class="col-sm-5 space">
       <p>
-        <b>Para agregar un nuevo jugador, es necesario insertar su ID</b>
+        <b>Tu equipo tiene
+          {{numPlayer}}
+          jugadores.</b><br />
       </p>
-    </div>
+      {{#each show._players}}
+        <li class="space" style="list-style: none;">
+          <p>
+            <b>Nickname:</b>
+            {{this.nickname}}
+            <br />
+            <b>Número:</b>
+            {{this.number}}
+            <br />
+            <b>Posición:</b>
+            {{this.position}}<br /></p>
 
-  <form
-    class="row gy-2 gx-3 align-items-center"
-    action="/team/mainTeam/{{id}}/add-players"
-    method="POST"
-  >
-    <div class="col-sm-5">
-      <label for="exampleInputEmail1" class="form-label">ID del Jugador</label>
-      <input type="text" name="player_id" class="form-control" />
+          <div class="col col-lg-2">
+            <a
+              type="button"
+              class="btn btn-bd-fourth"
+              href="/team/mainTeam/delete/{{this._id}}"
+            >Eliminar</a>
+          </div>
+        </li>
+      {{/each}}
     </div>
-    <div class="col-12">
-      <button type="submit" class="btn btn-bd-third">Enviar</button>
-    </div>
-
-  </form>
-  <div class="col-sm-5 space">
-    <p>
-      Tu equipo tiene
-      {{numPlayer}}
-      jugadores.<br />
-    </p>
-    {{#each show._players}}
-      <li style="list-style: none;">
-        <p>
-          <b>Nickname:</b>
-          {{this.nickname}}
-          <br />
-          <b>Número:</b>
-          {{this.number}}
-          <br />
-          <b>Posición:</b>
-          {{this.position}}<br /></p>
-
-        <div class="col col-lg-2">
-          <a
-            type="button"
-            class="btn btn-bd-fourth"
-            href="/team/mainTeam/delete/{{this._id}}"
-          >Eliminar</a>
-        </div>
-      </li>
-    {{/each}}
   </div>
 </div>
 

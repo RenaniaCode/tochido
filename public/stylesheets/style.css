@@ -164,8 +164,8 @@ body {
   padding: 20px;
 }
 
-.gallery-lineups{
-    width: 66%;
+.gallery-lineups {
+  width: 66%;
   height: 500px;
   margin-right: 10px;
   counter-increment: gallery-cell;
@@ -175,9 +175,15 @@ body {
 }
 
 .space {
-  padding-top: 50px
+  padding-top: 50px;
 }
 
-.circle-image{
+.circle-image {
   border-radius: 180px;
+}
+
+.nav-space {
+  padding-right: 20px;
+  align-items: center;
+  display: flex;
 }
