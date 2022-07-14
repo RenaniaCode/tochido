@@ -3,6 +3,7 @@ const Team = require('../models/Team.model');
 const User = require('../models/User.model');
 const Player = require('../models/Player.model');
 const League = require('../models/League.model');
+const isLoggedIn = require("../middleware/isLoggedIn");
 
 router.get('/mainTeam/:id',(req,res,next)=>{
     const {id} = req.params;
@@ -19,7 +20,7 @@ router.get('/mainTeam/:id',(req,res,next)=>{
             }
             else {
                 League.findById(coach._leagueOwner)
-                .populate('_teams _warning')
+                .populate('_teams _warning _matches')
                 .then((league)=>{
                     console.log('data',league._warning);
                     const data = league._teams;
