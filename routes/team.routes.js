@@ -19,9 +19,9 @@ router.get('/mainTeam/:id',(req,res,next)=>{
             }
             else {
                 League.findById(coach._leagueOwner)
-                .populate('_teams')
+                .populate('_teams _warning')
                 .then((league)=>{
-                    console.log('data',league._teams);
+                    console.log('data',league._warning);
                     const data = league._teams;
                     const numPlayers = coach._players.length;
                     const sorted = data.filter((team)=>team.points).sort((a,b)=>b.points-a.points)
