@@ -79,7 +79,7 @@
   </div>
 
   <div class="titles" id="Results">
-    <p>Tabla de Resultados {{league.0.league_name}}</p>
+    <p>Tabla de Resultados {{specific.league_name}}</p>
   </div>
 
   <table
@@ -88,56 +88,45 @@
   >
     <thead>
       <tr>
-        <th scope="col"></th>
+        <th scope="col">Position</th>
         <th scope="col"></th>
         <th scope="col">Equipo</th>
         <th scope="col">Puntos</th>
+        <th scope="col">JJ</th>
+        <th scope="col">JG</th>
+        <th scope="col">JP</th>
+        <th scope="col">JE</th>
       </tr>
     </thead>
     <tbody class="table-group-divider">
-      <tr>
-        <th scope="row">1</th>
-        <td><img
-            src="/images/Screen Shot 2022-07-08 at 19.09.39.png"
-            alt="..."
-            style="border-radius:20px;"
-            width="30"
-            height="30"
-          /></td>
-        <td>Mark</td>
-        <td>Otto</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td><img
-            src="/images/Screen Shot 2022-07-08 at 19.09.39.png"
-            alt="..."
-            style="border-radius:20px;"
-            width="30"
-            height="30"
-          /></td>
-        <td>Jacob</td>
-        <td>Thornton</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td><img
-            src="/images/Screen Shot 2022-07-08 at 19.09.39.png"
-            alt="..."
-            style="border-radius:20px;"
-            width="30"
-            height="30"
-          /></td>
-        <td colspan="2">Larry the Bird</td>
-      </tr>
+      {{#each sorted}}
+        <tr>
+          <th scope="row">{{@key}}</th>
+          <td><img
+              src="/images/Screen Shot 2022-07-08 at 19.09.39.png"
+              alt="..."
+              style="border-radius:20px;"
+              width="30"
+              height="30"
+            /></td>
+          <td>{{this.team_name}}</td>
+          <td>{{this.points}}</td>
+          <td>{{this.gamesPlayed}}</td>
+          <td>{{this.wins}}</td>
+          <td>{{this.defeats}}</td>
+          <td>{{this.draws}}</td>
+        </tr>
+      {{/each}}
     </tbody>
   </table>
+</div>
 
   <div class="titles" id="Calendar">
-    <p>Calendario de Partidos Jornada #</p>
+    <p>Calendario de Partidos Jornada {{specific._matches.0.week}}</p>
   </div>
 
   <div class="row row-cols-1 row-cols-md-3 g-4" style="color: white;">
+    {{#each specific._matches}}
     <div class="col">
       <div
         class="card h-100 text-center border-light"
@@ -160,59 +149,32 @@
         </div>
 
         <div class="card-body">
-          <h5 class="card-title">Sábado 2 de julio</h5>
-          <p class="card-text">17:00 hrs</p>
+          <h5 class="card-title">{{this.date}}</h5>
+          <p class="card-text">{{this.hour}} hrs</p>
+          <p class="card-text">week {{this.week}}</p>
         </div>
       </div>
     </div>
+     {{/each}}
   </div>
-
 </div>
-
+<br><br><br><br>
 <div
   class="gallery js-flickity"
   data-flickity-options='{ "wrapAround": true }'
   id="Announcements"
 >
+{{#each specific._warning}}
   <div class="gallery-cell">
     <div class="gallery-text">
       <div class="titles-grey">
-        <p>Comunicados Oficiales de la Liga</p>
+        <p>{{this.header}}</p>
       </div>
-      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-        sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum."</p>
+      <p>{{this.text}}</p>
       <a type="button" class="btn btn-bd-fourth" href="#">Leer más</a>
     </div>
   </div>
-  <div class="gallery-cell">
-    <div class="gallery-text">
-      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-        sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum."</p>
-      <a type="button" class="btn btn-bd-fourth" href="#">Leer más</a>
-    </div>
-  </div>
-  <div class="gallery-cell">
-    <div class="gallery-text">
-      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-        sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum."</p>
-      <a type="button" class="btn btn-bd-fourth" href="#">Leer más</a>
-    </div>
-  </div>
+{{/each}}
 </div>
 
 <footer class ="footer-style " style="background-color: #B609DE">

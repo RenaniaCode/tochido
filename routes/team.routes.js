@@ -3,6 +3,7 @@ const Team = require('../models/Team.model');
 const User = require('../models/User.model');
 const Player = require('../models/Player.model');
 const League = require('../models/League.model');
+const isLoggedIn = require("../middleware/isLoggedIn");
 
 router.get('/mainTeam/:id',(req,res,next)=>{
     const {id} = req.params;
