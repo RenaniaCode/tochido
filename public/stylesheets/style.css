@@ -177,3 +177,7 @@ body {
 .space {
   padding-top: 50px
 }
+
+.circle-image{
+  border-radius: 180px;
+}
