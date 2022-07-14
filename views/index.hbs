@@ -1,5 +1,271 @@
-<h1>{{appTitle}} 🚀</h1>
-<p>Welcome Ironhacker!</p>
+<div class="img-back">
+  <div class="container p-2">
+       <div class="row">
+      <div class="col-md-8"></div>
+      <div class="col-6 col-md-3 body-back" style="color: #595858">
+        <p>
+        </p>
+      </div>
+    </div>
+     <div class="row">
+      <div class="col-md-8"></div>
+      <div class="col-6 col-md-3 body-back" style="color: #595858">
+        <p>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8"></div>
+      <div class="col-6 col-md-3 body-back" style="color: #595858">
+        <p>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8"></div>
+      <div class="col-6 col-md-3 body-back" style="color: #595858">
+        <p>
+          Con Tochido es fácil y rápido revisar los resultados de los partidos,
+          <br />
+          calendario de juegos, alineaciones, comunicados y mucho más.
+          <br />
+        </p>
+      </div>
+    </div>
+<div class="row">
+      <div class="col-md-8"></div>
+      <div class="col-6 col-md-3 body-back" style="color: #595858">
+          <b>¡Forma parte de la Familia Tochido &#127944; y lleva tu liga de Tocho al
+          siguiente nivel!</b>
+        </p>
+      </div>
+    </div>
 
-<a href="/auth/login"><button>Log In</button></a>
-<a href="/auth/signup"><button>Sign Up</button></a>
+  </div>
+</div>
+
+
+<div class="body-home-padding">
+
+  <div class="titles" id="MyLeague">
+    <p>Mi Liga</p>
+  </div>
+
+  <div class="row gy-2 gx-3 align-items-center">
+
+    <div class="col-sm-5">
+      <label for="role" class="form-label">Elige tu liga para mostrar su
+        información:</label>
+      <select
+        class="form-select"
+        aria-label="Default select example"
+        name="role"
+        id="type"
+      >
+        {{#each league}}
+          <option value="League">{{this.league_name}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <div class="col-sm-5">
+      <img
+        src="/images/Screen Shot 2022-07-08 at 19.09.39.png"
+        class="float-end circle-image"
+        alt="..."
+        width="200"
+        height="200"
+      />
+    </div>
+  </div>
+
+  <div class="titles" id="Results">
+    <p>Tabla de Resultados {{league.0.league_name}}</p>
+  </div>
+
+  <table
+    class="table table-striped table-borderless table-color-bg"
+    style="background-color: #CDCDCD;"
+  >
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col">Equipo</th>
+        <th scope="col">Puntos</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <tr>
+        <th scope="row">1</th>
+        <td><img
+            src="/images/Screen Shot 2022-07-08 at 19.09.39.png"
+            alt="..."
+            style="border-radius:20px;"
+            width="30"
+            height="30"
+          /></td>
+        <td>Mark</td>
+        <td>Otto</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td><img
+            src="/images/Screen Shot 2022-07-08 at 19.09.39.png"
+            alt="..."
+            style="border-radius:20px;"
+            width="30"
+            height="30"
+          /></td>
+        <td>Jacob</td>
+        <td>Thornton</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td><img
+            src="/images/Screen Shot 2022-07-08 at 19.09.39.png"
+            alt="..."
+            style="border-radius:20px;"
+            width="30"
+            height="30"
+          /></td>
+        <td colspan="2">Larry the Bird</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="titles" id="Calendar">
+    <p>Calendario de Partidos Jornada #</p>
+  </div>
+
+  <div class="row row-cols-1 row-cols-md-3 g-4" style="color: white;">
+    <div class="col">
+      <div
+        class="card h-100 text-center border-light"
+        style=" background-color: #DEB5EE"
+      >
+        <div class="card-img-container">
+          <img
+            src="/images/Screen Shot 2022-07-08 at 19.09.39.png"
+            class="card-img-team"
+            alt="..."
+          />
+
+          <span>vs</span>
+          <img
+            src="/images/Screen Shot 2022-07-08 at 19.09.39.png"
+            class="card-img-team"
+            alt="..."
+          />
+
+        </div>
+
+        <div class="card-body">
+          <h5 class="card-title">Sábado 2 de julio</h5>
+          <p class="card-text">17:00 hrs</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div
+  class="gallery js-flickity"
+  data-flickity-options='{ "wrapAround": true }'
+  id="Announcements"
+>
+  <div class="gallery-cell">
+    <div class="gallery-text">
+      <div class="titles-grey">
+        <p>Comunicados Oficiales de la Liga</p>
+      </div>
+      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+        sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum."</p>
+      <a type="button" class="btn btn-bd-fourth" href="#">Leer más</a>
+    </div>
+  </div>
+  <div class="gallery-cell">
+    <div class="gallery-text">
+      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+        sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum."</p>
+      <a type="button" class="btn btn-bd-fourth" href="#">Leer más</a>
+    </div>
+  </div>
+  <div class="gallery-cell">
+    <div class="gallery-text">
+      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+        sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum."</p>
+      <a type="button" class="btn btn-bd-fourth" href="#">Leer más</a>
+    </div>
+  </div>
+</div>
+
+<footer class ="footer-style " style="background-color: #B609DE">
+  <div class="container">
+
+    <div class="row">
+
+      <div
+        class="col footer-body"
+        style="color: white"
+      >
+        <h6 class="text-uppercase" style="color: white">Tochido</h6>
+
+        <p>
+          Tochido es la app #1 en Latinoamérica que facilita <br>
+          la administración local de Ligas de Tocho. <br>
+          Centraliza la infrmación de tu liga, equipos y jugadores <br>
+          en esta app fácil e intuitiva de usar. 
+        </p>
+      </div>
+
+      <div class="col">
+        <h6 class="text-uppercase" style="color: white"><center>Ciudad de México
+            <br />
+            México, 010000</center>
+        </h6>
+      </div>
+
+      <div class="col">
+
+        <a class="btn btn-floating" href="#!" role="button"><img
+            src="/images/facebook-app-symbol.png"
+            alt=""
+            width="30"
+            height="30"
+          /></a>
+
+        <a class="btn btn-floating" href="#!" role="button"><i
+            class="fab fa-instagram"
+          ><img
+              src="/images/instagram.png"
+              alt=""
+              width="30"
+              height="30"
+            /></i></a>
+        <h6
+          class="text-uppercase"
+          style="color: white"
+        >elcorreo@gmail.com</h6><br />
+        <a class="text-uppercase" style="color: white" href="#!">Aviso de
+          Privacidad</a>
+
+      </div>
+    </div>
+  </div>
+</footer>

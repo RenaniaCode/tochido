@@ -19,14 +19,14 @@ router.get("/signup", isLoggedOut, (req, res) => {
 });
 
 router.post("/signup", isLoggedOut, (req, res) => {
-  const { username, password, email, account } = req.body;
-  console.log('User',{ username, password, email, account })
-  console.log('account',{account})
+  const { name, surname , email , password , role } = req.body;
+  console.log('User',{ name, surname , email , password , role })
+  console.log('account',{role})
   
 
-  if (!username) {
+  if (!name || !surname || !email) {
     return res.status(400).render("auth/signup", {
-      errorMessage: "Please provide your username.",
+      errorMessage: "Please provide all data.",
     });
   }
 
@@ -49,12 +49,12 @@ router.post("/signup", isLoggedOut, (req, res) => {
   */
 
   // Search the database for a user with the username submitted in the form
-  User.findOne({ username }).then((found) => {
+  User.findOne({ email }).then((found) => {
     // If the user is found, send the message username is taken
     if (found) {
       return res
         .status(400)
-        .render("auth.signup", { errorMessage: "Username already taken." });
+        .render("auth.signup", { errorMessage: "Email already taken." });
     }
 
     // if user is not found, create a new user - start with hashing the password
@@ -64,20 +64,29 @@ router.post("/signup", isLoggedOut, (req, res) => {
       .then((hashedPassword) => {
         // Create a user and save it in the database
         return User.create({
-          username,
-          password: hashedPassword,
+          name,
+          surname,
           email,
-          account
+          password: hashedPassword,
+          role
         });
       })
-      .then(()=>{
-        res.redirect('/auth/login')
+      .then((user)=>{
+        /* res.redirect('/auth/login') */
+        console.log('User created',user);
+        if(user.role === 'League') {
+          req.session.user = user;
+          res.redirect(`/league/create-league/${user._id}`);
+        };
+        if(user.role === 'Player') {
+          req.session.user = user;
+          res.redirect(`/player/create-player/${user._id}`);
+        };
+        if(user.role === 'Team') {
+          req.session.user = user;
+          res.redirect(`/team/create-team/${user._id}`);
+        };
       })
-      /* .then((user) => {
-        // Bind the user to the session object
-        req.session.user = user;
-        res.redirect("/");
-      }) */
       .catch((error) => {
         if (error instanceof mongoose.Error.ValidationError) {
           return res
@@ -87,7 +96,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
         if (error.code === 11000) {
           return res.status(400).render("auth/signup", {
             errorMessage:
-              "Username need to be unique. The username you chose is already in use.",
+              "Email need to be unique. The email you chose is already in use.",
           });
         }
         return res
@@ -102,9 +111,9 @@ router.get("/login", isLoggedOut, (req, res) => {
 });
 
 router.post("/login", isLoggedOut, (req, res, next) => {
-  const { username, password } = req.body;
+  const { email, password } = req.body;
   
-  if (!username) {
+  if (!email) {
     return res.status(400).render("auth/login", {
       errorMessage: "Please provide your username.",
     });
@@ -119,7 +128,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
   }
 
   // Search the database for a user with the username submitted in the form
-  User.findOne({ username })
+  User.findOne({ email })
     .then((user) => {
       console.log('User',user)
       // If the user isn't found, send the message that user provided wrong credentials
@@ -138,9 +147,9 @@ router.post("/login", isLoggedOut, (req, res, next) => {
         req.session.user = user;
         // req.session.user = user._id; // ! better and safer but in this case we saving the entire user object
         /* return res.redirect("/"); */
-      if(user.account === 'League') res.redirect('/league/mainLeague');
-      if(user.account === 'Player') res.redirect('/player/mainPlayer');
-      if(user.account === 'Team') res.redirect('/team/mainTeam');
+      if(user.role === 'League') res.redirect(`/league/mainLeague/${user._id}`);
+      if(user.role === 'Player') res.redirect(`/player/mainPlayer/${user._id}`);
+      if(user.role === 'Team') res.redirect(`/team/mainTeam/${user._id}`);
       });
     })
 

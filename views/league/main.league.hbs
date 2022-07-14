@@ -1,2 +1,180 @@
-<h1>League View</h1>
-<a href="/auth/logout"><button>Log Out</button></a>
+<div class="body-padding">
+
+  <div class="titles">
+    <p>Mi Información</p>
+  </div>
+
+  <div class="row gy-2 gx-3 align-items-center">
+
+    <div class="col-sm-5">
+      <p>
+        <b>Nombre: </b><span>{{user.name}}</span><br />
+        <b>Apellido: </b><span>{{user.surname}}</span><br />
+      </p>
+    </div>
+    <div class="col-sm-5">
+      <img
+        src="/images/Screen Shot 2022-07-08 at 19.09.39.png"
+       class="float-end circle-image"
+        alt="..."
+        width="200"
+        height="200"
+      />
+    </div>
+
+    <div class="row">
+      <div class="col"></div>
+      <div class="col"></div>
+    </div>
+  </div>
+
+  <div class="titles">
+    <p>Perfil de mi Liga</p>
+  </div>
+
+  <div class="row gy-2 gx-3 align-items-center">
+
+    <div class="col-sm-5">
+      <p>
+        <b>Nombre de la Liga: </b><span>{{league.league_name}}</span><br />
+        <b>Cantidad de Equipos: </b><span>{{numTeams}}</span><br />
+        <b>País: </b><span>{{league.country}}</span><br />
+        <b>ID: </b>{{league._id}}<br />
+      </p>
+    </div>
+    <div class="col-sm-5">
+      <img
+        src="/images/Screen Shot 2022-07-08 at 19.09.39.png"
+        alt="..."
+        class="float-end circle-image"
+        width="200"
+        height="200"
+      />
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col"></div>
+        <div class="col col-lg-2">
+          <a
+            type="button"
+            class="btn btn-bd-fourth float-end"
+            href="/league/mainLeague/{{user._id}}/add-team"
+          >Equipos</a>
+        </div>
+        <div class="col col-lg-2">
+          <a
+            type="button"
+            class="btn btn-bd-fourth float-end"
+            href=""
+          >Partidos</a>
+        </div>
+        <div class="col col-lg-2">
+          <a
+            type="button"
+            class="btn btn-bd-fourth float-end"
+            href="/league/edit-league/{{user._id}}"
+          >Editar Perfiles</a>
+        </div>
+        <div class="col"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  class="gallery js-flickity"
+  data-flickity-options='{ "wrapAround": true }'
+  id="Announcements"
+>
+{{#each league._warning}}
+  <div class="gallery-cell">
+    <div class="gallery-text">
+      <div class="titles-grey">
+        <p>{{this.header}}</p>
+      </div>
+      <p>{{this.text}}</p>
+      <a type="button" class="btn btn-bd-fourth" href="#">Leer más</a>
+    </div>
+  </div>
+  {{/each}}
+</div>
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col">
+    </div>
+    <div class="col float-end">
+      <a
+        type="button"
+        class="btn btn-bd-fourth"
+        href="/league/mainLeague/warning/{{user._id}}"
+      >Comunicados</a>
+    </div>
+
+  </div>
+  <div class="col">
+  </div>
+  <div class="col float-end">
+    <a
+      type="button"
+      class="btn btn-bd-fourth"
+      href="/league/mainLeague/warning/{{user._id}}"
+    >Comunicados</a>
+  </div>
+
+</div>
+
+<footer class="footer-style" style="background-color: #B609DE">
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col footer-body" style="color: white">
+        <h6 class="text-uppercase" style="color: white">Tochido</h6>
+
+        <p>
+          Tochido es la app #1 en Latinoamérica que facilita
+          <br />
+          la administración local de Ligas de Tocho.
+          <br />
+          Centraliza la infrmación de tu liga, equipos y jugadores
+          <br />
+          en esta app fácil e intuitiva de usar.
+        </p>
+      </div>
+
+      <div class="col">
+        <h6 class="text-uppercase" style="color: white"><center>Ciudad de México
+            <br />
+            México, 010000</center>
+        </h6>
+      </div>
+
+      <div class="col">
+
+        <a class="btn btn-floating" href="#!" role="button"><img
+            src="/images/facebook-app-symbol.png"
+            alt=""
+            width="30"
+            height="30"
+          /></a>
+
+        <a class="btn btn-floating" href="#!" role="button"><i
+            class="fab fa-instagram"
+          ><img
+              src="/images/instagram.png"
+              alt=""
+              width="30"
+              height="30"
+            /></i></a>
+        <h6
+          class="text-uppercase"
+          style="color: white"
+        >elcorreo@gmail.com</h6><br />
+        <a class="text-uppercase" style="color: white" href="#!">Aviso de
+          Privacidad</a>
+
+      </div>
+    </div>
+  </div>
+</footer>

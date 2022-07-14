@@ -1,0 +1,178 @@
+<div class="body-padding">
+
+  <div class="titles">
+    <p>Mi Perfil</p>
+  </div>
+
+  <div class="row gy-2 gx-3 align-items-center">
+
+    <div class="col-sm-5">
+      <p>
+        <b>Nombre:</b><span
+        >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{user.name}}</span><br />
+        <b>Apellido:</b><span
+        >&nbsp&nbsp&nbsp&nbsp&nbsp{{user.surname}}</span><br />
+        <b>Número:</b><span
+        >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{player.number}}</span><br />
+        <b>Posición:</b><span
+        >&nbsp&nbsp&nbsp&nbsp&nbsp{{player.position}}</span><br />
+        <b>Edad:</b><span
+        >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{player.age}}</span><br
+        />
+        <b>Altura:</b><span
+        >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{player.height}}</span><br
+        />
+        <b>Alias:</b><span
+        >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{player.nickname}}</span><br
+        />
+        <b>Equipo:</b><span
+        >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{player._teamOwner.team_name}}</span><br
+        />
+        <b>Id:</b><span
+        >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{player._id}}</span><br
+        />
+
+      </p>
+    </div>
+    <div class="col-sm-5">
+      <img
+        src="/images/Screen Shot 2022-07-08 at 19.09.39.png"
+        class="float-end circle-image"
+        alt="..."
+        width="200"
+        height="200"
+      />
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col">
+          <a
+            type="button"
+            class="btn btn-bd-fourth float-end"
+            href="/player/edit-player/{{id}}"
+          >Editar Perfil</a>
+        </div>
+        <div class="col"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="titles" id="Results">
+    <p>Tabla de Resultados {{league.league_name}}</p>
+  </div>
+
+  <table
+    class="table table-striped table-borderless table-color-bg"
+    style="background-color: #CDCDCD;"
+  >
+    <thead>
+      <tr>
+        <th scope="col">Posición</th>
+        <th scope="col"></th>
+        <th scope="col">Equipo</th>
+        <th scope="col">Puntos</th>
+        <th scope="col">JJ</th>
+        <th scope="col">JG</th>
+        <th scope="col">JP</th>
+        <th scope="col">JE</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      {{#each sorted}}
+        <tr>
+          <th scope="row">{{@index}}</th>
+          <td><img
+              src="/images/Screen Shot 2022-07-08 at 19.09.39.png"
+              alt="..."
+              style="border-radius:20px;"
+              width="30"
+              height="30"
+            /></td>
+          <td>{{this.team_name}}</td>
+          <td>{{this.points}}</td>
+          <td>{{this.gamesPlayed}}</td>
+          <td>{{this.wins}}</td>
+          <td>{{this.defeats}}</td>
+          <td>{{this.draws}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+
+<div
+  class="gallery js-flickity"
+  data-flickity-options='{ "wrapAround": true }'
+  id="Announcements"
+>
+{{#each league._warning}}
+  <div class="gallery-cell">
+    <div class="gallery-text">
+      <div class="titles-grey">
+        <p>{{this.header}}</p>
+      </div>
+      <p>{{this.text}}</p>
+      <a type="button" class="btn btn-bd-fourth" href="#">Leer más</a>
+    </div>
+  </div>
+  {{/each}}
+</div>
+
+<footer class="footer-style" style="background-color: #B609DE">
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col footer-body" style="color: white">
+        <h6 class="text-uppercase" style="color: white">Tochido</h6>
+
+        <p>
+          Tochido es la app #1 en Latinoamérica que facilita
+          <br />
+          la administración local de Ligas de Tocho.
+          <br />
+          Centraliza la infrmación de tu liga, equipos y jugadores
+          <br />
+          en esta app fácil e intuitiva de usar.
+        </p>
+      </div>
+
+      <div class="col">
+        <h6 class="text-uppercase" style="color: white"><center>Ciudad de México
+            <br />
+            México, 010000</center>
+        </h6>
+      </div>
+
+      <div class="col">
+
+        <a class="btn btn-floating" href="#!" role="button"><img
+            src="/images/facebook-app-symbol.png"
+            alt=""
+            width="30"
+            height="30"
+          /></a>
+
+        <a class="btn btn-floating" href="#!" role="button"><i
+            class="fab fa-instagram"
+          ><img
+              src="/images/instagram.png"
+              alt=""
+              width="30"
+              height="30"
+            /></i></a>
+        <h6
+          class="text-uppercase"
+          style="color: white"
+        >elcorreo@gmail.com</h6><br />
+        <a class="text-uppercase" style="color: white" href="#!">Aviso de
+          Privacidad</a>
+
+      </div>
+    </div>
+  </div>
+</footer>
