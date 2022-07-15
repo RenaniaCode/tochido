@@ -1,18 +1,74 @@
-
-<div class="titles">
+<div class="body-padding">
+  <div class="titles">
     <p>Alineaciones de {{team.0.team_name}} </p>
   </div>
 
-<div
+  <div
     class="gallery js-flickity"
     data-flickity-options='{ "wrapAround": true }'
   >
-  {{#each team.0.playbook}}
-    <div class="gallery-lineups">
-      <div class="col-sm-5">
-        <img src={{this}} alt="..." height="480" />
-        <a href="/team/lineup/delete/{{this}}"></a>
+    {{#each team.0.playbook}}
+      <div class="gallery-lineups">
+        <div class="col">
+          <img src={{this}} alt="..." height="480" />
+          <a href="/team/lineup/delete/{{this}}"></a>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>
+
+<footer class="footer-style" style="background-color: #B609DE">
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col footer-body" style="color: white">
+        <h6 class="text-uppercase" style="color: white">Tochido</h6>
+
+        <p>
+          Tochido es la app #1 en Latinoamérica que facilita
+          <br />
+          la administración local de Ligas de Tocho.
+          <br />
+          Centraliza la infrmación de tu liga, equipos y jugadores
+          <br />
+          en esta app fácil e intuitiva de usar.
+        </p>
+      </div>
+
+      <div class="col">
+        <h6 class="text-uppercase" style="color: white"><center>Ciudad de México
+            <br />
+            México, 010000</center>
+        </h6>
+      </div>
+
+      <div class="col">
+
+        <a class="btn btn-floating" href="#!" role="button"><img
+            src="/images/facebook-app-symbol.png"
+            alt=""
+            width="30"
+            height="30"
+          /></a>
+
+        <a class="btn btn-floating" href="#!" role="button"><i
+            class="fab fa-instagram"
+          ><img
+              src="/images/instagram.png"
+              alt=""
+              width="30"
+              height="30"
+            /></i></a>
+        <h6
+          class="text-uppercase"
+          style="color: white"
+        >elcorreo@gmail.com</h6><br />
+        <a class="text-uppercase" style="color: white" href="#!">Aviso de
+          Privacidad</a>
+
       </div>
     </div>
-  {{/each}}
-</div>
+  </div>
+</footer>
