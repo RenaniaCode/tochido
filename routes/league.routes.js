@@ -4,6 +4,7 @@ const User = require('../models/User.model');
 const Team = require('../models/Team.model');
 const Warning = require('../models/Warning.model');
 const Match = require('../models/Match.model');
+const isLoggedIn = require("../middleware/isLoggedIn");
 
 router.get('/mainLeague/:id',(req,res,next)=>{
     const {id} = req.params;
