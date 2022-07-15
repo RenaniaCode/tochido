@@ -61,7 +61,7 @@
   <div class="body">
     <div class="col-sm-5 space">
     <form action="/team/mainTeam/{{id}}/lineup" method="post">
-    <label for="play" class="form-label"><b>Jugadas<br> crtl + select para seleccionar las jugadas que te interesan </b></label>
+    <label for="play" class="form-label"><b>Jugadas</b><br> Presiona crtl + select para seleccionar las jugadas que te interesan </b></label>
       <select multiple class="form-select" name="play" aria-label="Default select example">
         <option value="/images/jugadas-01.png">Twins Left Draw Right</option>
         <option value="/images/jugadas-02.png">Trips Right Pass</option>
@@ -70,16 +70,18 @@
         <option value="/images/jugadas-05.png">Trips Left Run</option>
       </select>
       <div class="col">
-          <button type="submit" class="btn btn-bd-fourth">Crear Playbook</button>
+          <button type="submit" class="btn btn-bd-third">Crear Playbook</button>
+          <a type="button" class="btn btn-bd-fourth" href="/team/mainTeam/{{id}}/lineup/watch">Ver Playbook</a>
         </div>
     </form>
+     <div class="col">
+          
+        </div>
     </div>
 
     <div class="container">
       <div class="row">
-        <div class="col">
-          <a type="button" class="btn btn-bd-first" href="/team/mainTeam/{{id}}/lineup/watch">Ver Playbook</a>
-        </div>
+       
       </div>
     </div>
   </div>
