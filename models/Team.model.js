@@ -43,7 +43,8 @@ const teamSchema = new Schema(
     points:{
       type: Number,
       default: 0
-    }
+    },
+    playbook: [String],
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`

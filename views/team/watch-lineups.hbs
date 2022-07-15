@@ -1,0 +1,18 @@
+
+<div class="titles">
+    <p>Alineaciones de {{team.0.team_name}} </p>
+  </div>
+
+<div
+    class="gallery js-flickity"
+    data-flickity-options='{ "wrapAround": true }'
+  >
+  {{#each team.0.playbook}}
+    <div class="gallery-lineups">
+      <div class="col-sm-5">
+        <img src={{this}} alt="..." height="480" />
+        <a href="/team/lineup/delete/{{this}}"></a>
+      </div>
+    </div>
+  {{/each}}
+</div>

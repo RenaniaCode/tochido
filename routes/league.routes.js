@@ -217,4 +217,22 @@ router.post('/match/:id',(req,res,next)=>{
     })
 })
 
+router.get('/mainLeague/:_id/delete-match',(req,res,next)=>{
+    const {_id} = req.params;
+
+    Match.findById(_id)
+    .then(match=>{
+        console.log('team league owner',match._owner)
+        League.findByIdAndUpdate(match._owner,{$pull:{_matches:_id}})
+        .then((league)=>{
+            console.log('league id',league._id)
+            Match.findByIdAndDelete(_id)
+            .then(()=>{
+                res.redirect(`/league/mainLeague/${league._owner}`)
+            })
+        })
+    })
+    .catch(error=>console.log('error',error))
+})
+
 module.exports = router;
