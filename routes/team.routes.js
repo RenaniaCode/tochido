@@ -118,6 +118,32 @@ router.get('/mainTeam/:id/lineup', (req,res,next)=>{
     .catch(error=>console.log('error',error))
 })
 
+router.post('/mainTeam/:id/lineup', (req, res, next) => {
+    const {id} = req.params
+    const {play} = req.body
+    console.log("playbook",play)
+    Team.findOneAndUpdate({_owner:id},{$push:{playbook:play}},{new:true}) 
+      .then(team=>{
+          res.redirect(`/team/mainTeam/${id}`)
+      })
+      .catch(error=>{
+          console.log("el error",error)
+          next()
+      })
+  });
+
+router.get('/mainTeam/:id/lineup/watch',(req,res,next)=>{
+    const {id} = req.params;
+
+    Team.find({_owner:id})
+    .populate('playbook')
+    .then((team)=>{
+        console.log('playbook',team[0].playbook)
+        res.render('team/watch-lineups',{team , id})
+    })
+    .catch((error)=>{console.log('error',error)})
+})
+
 router.get('/edit-team/:id',(req,res,next)=>{
     const {id} = req.params
 

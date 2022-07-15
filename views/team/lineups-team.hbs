@@ -1,6 +1,6 @@
 <div class="body-padding">
   <div class="titles">
-    <p>Alineaciones de {{team.0.team_name}} </p>
+    <p>Jugadas disponibles {{team.0.team_name}} </p>
   </div>
 
   <div
@@ -33,6 +33,7 @@
       </div>
       <div class="gallery-text">
         <p><b>"Trips Right Run"</b></p><br />
+        <p>QB en posicion abierta, entrega balon a QB2, pase largo</p>
       </div>
     </div>
 
@@ -42,6 +43,7 @@
       </div>
       <div class="gallery-text">
         <p><b>"Split T Pass"</b></p><br />
+        <p>QB entrega balon a RB, carrera por outside zone</p>
       </div>
     </div>
 
@@ -51,27 +53,32 @@
       </div>
       <div class="gallery-text">
         <p><b>"Trips Left Run"</b></p><br />
+        <p>QB finta entrega de balon a RB, pase a las bandas</p>
       </div>
     </div>
 
   </div>
   <div class="body">
     <div class="col-sm-5 space">
-      <label for="country" class="form-label"><b>Jugadas</b></label>
-      <select multiple class="form-select" aria-label="Default select example">
-        <option value="MX">Twins Left Draw Right</option>
-        <option value="ALE">Trips Right Pass</option>
-        <option value="ITA">Trips Right Run</option>
-        <option value="EEUU">Split T Pass</option>
-        <option value="CAN">Trips Left Run</option>
+    <form action="/team/mainTeam/{{id}}/lineup" method="post">
+    <label for="play" class="form-label"><b>Jugadas<br> crtl + select para seleccionar las jugadas que te interesan </b></label>
+      <select multiple class="form-select" name="play" aria-label="Default select example">
+        <option value="/images/jugadas-01.png">Twins Left Draw Right</option>
+        <option value="/images/jugadas-02.png">Trips Right Pass</option>
+        <option value="/images/jugadas-03.png">Trips Right Run</option>
+        <option value="/images/jugadas-04.png">Split T Pass</option>
+        <option value="/images/jugadas-05.png">Trips Left Run</option>
       </select>
+      <div class="col">
+          <button type="submit" class="btn btn-bd-fourth">Crear Playbook</button>
+        </div>
+    </form>
     </div>
 
     <div class="container">
       <div class="row">
         <div class="col">
-          <a type="button" class="btn btn-bd-fourth" href="#">Crear Playbook</a>
-          <a type="button" class="btn btn-bd-fourth" href="#">Ver Playbook</a>
+          <a type="button" class="btn btn-bd-first" href="/team/mainTeam/{{id}}/lineup/watch">Ver Playbook</a>
         </div>
       </div>
     </div>

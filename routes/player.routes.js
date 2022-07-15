@@ -108,4 +108,22 @@ router.post('/edit-player/:id',(req,res,next)=>{
     })
 })
 
+router.get('/mainPlayer/:id/lineup/watch',(req,res,next)=>{
+    const {id} = req.params;
+
+    Player.find({_owner:id})
+    .then((player)=>{
+        console.log('player',player)
+        const teamId = player[0]._teamOwner;
+        console.log('teamId',teamId)
+        Team.findById(teamId)
+        .populate('playbook')
+        .then((team)=>{
+            console.log('playbook',team)
+            res.render('player/watch-lineups',{team , id})
+        })
+    })
+    .catch((error)=>{console.log('error',error)})
+})
+
 module.exports = router;

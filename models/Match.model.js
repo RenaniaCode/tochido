@@ -23,7 +23,7 @@ const matchSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "League",
     },
-    date: Date,
+    date: String,
     hour: String,
     week: String,
   },
