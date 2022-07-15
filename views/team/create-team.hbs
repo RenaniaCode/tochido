@@ -43,22 +43,22 @@
   </form>
 </div>
 
-<footer class ="footer-style " style="background-color: #B609DE">
+<footer class="footer-style" style="background-color: #B609DE">
   <div class="container">
 
     <div class="row">
 
-      <div
-        class="col footer-body"
-        style="color: white"
-      >
+      <div class="col footer-body" style="color: white">
         <h6 class="text-uppercase" style="color: white">Tochido</h6>
 
         <p>
-          Tochido es la app #1 en Latinoamérica que facilita <br>
-          la administración local de Ligas de Tocho. <br>
-          Centraliza la infrmación de tu liga, equipos y jugadores <br>
-          en esta app fácil e intuitiva de usar. 
+          Tochido es la app #1 en Latinoamérica que facilita
+          <br />
+          la administración local de Ligas de Tocho.
+          <br />
+          Centraliza la infrmación de tu liga, equipos y jugadores
+          <br />
+          en esta app fácil e intuitiva de usar.
         </p>
       </div>
 
@@ -97,19 +97,3 @@
     </div>
   </div>
 </footer>
-
-/////////////////////////////
-
-<H1> Hello {{user.name}} edit your Team</H1>
-
-<form action="/team/create-team/{{user._id}}" method="POST">
-  <label>
-    Team Name
-    <input type="text" name="team_name" />
-  </label>
-  <label>
-    Team Logo
-    <input type="text" name="team_logo" />
-  </label>
-  <button type="submit">Submit</button>
-</form>

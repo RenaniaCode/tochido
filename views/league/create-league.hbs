@@ -119,29 +119,3 @@
     </div>
   </div>
 </footer>
-
-
-//////////////////////////////////////////////////
-<h1>Hi {{user.name}}, edit your League</h1>
-
-<form action="/league/create-league/{{user._id}}" method="POST">
-  <label>
-    League Name
-    <input type="text" name="league_name" />
-  </label>
-  <label>
-    League Logo
-    <input type="text" name="league_logo" />
-  </label>
-  <label for="country">
-    Country
-    <select name="country">
-      <option value="MX">MX</option>
-      <option value="ALE">ALE</option>
-      <option value="ITA">ITA</option>
-      <option value="EEUU">EEUU</option>
-      <option value="CAN">CAN</option>
-    </select>
-  </label>
-  <button type="submit">Submit</button>
-</form>
