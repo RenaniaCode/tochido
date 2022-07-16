@@ -117,11 +117,12 @@ router.get('/mainTeam/delete/:_id',(req,res,next)=>{
 
 router.get('/mainTeam/:id/lineup', (req,res,next)=>{
     const {id} = req.params;
+    console.log('id line up',id)
     Team.find({_owner:id})
     .populate('_owner _players')
     .then((team)=>{
         console.log('team',team)
-        res.render('team/lineups-team',team , id)
+        res.render('team/lineups-team',{team , id})
     })
     .catch(error=>console.log('error',error))
 })
@@ -129,7 +130,7 @@ router.get('/mainTeam/:id/lineup', (req,res,next)=>{
 router.post('/mainTeam/:id/lineup', (req, res, next) => {
     const {id} = req.params
     const {play} = req.body
-    console.log("playbook",play)
+
     Team.findOneAndUpdate({_owner:id},{$push:{playbook:play}},{new:true}) 
       .then(team=>{
           res.redirect(`/team/mainTeam/${id}`)

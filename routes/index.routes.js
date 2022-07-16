@@ -25,7 +25,7 @@ router.get("/", (req, res, next) => {
                       console.log('specific',specific._warning);
                         const data = specific._teams;
                         const sorted = data.filter((team)=>team.points).sort((a,b)=>b.points-a.points)
-                        res.render('index',{user:req.user , specific , id , data , sorted , league , match});
+                        res.render('index',{user:req.user,specific , id , data , sorted , league , match});
                     })
       })
   })
