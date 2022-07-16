@@ -3,6 +3,7 @@ const Team = require('../models/Team.model');
 const User = require('../models/User.model');
 const Player = require('../models/Player.model');
 const League = require('../models/League.model');
+const fileUploader = require('../config/cloudinary.config');
 
 /* GET home page */
 router.get("/", (req, res, next) => {

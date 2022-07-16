@@ -5,6 +5,7 @@ const Team = require('../models/Team.model');
 const Warning = require('../models/Warning.model');
 const Match = require('../models/Match.model');
 const isLoggedIn = require("../middleware/isLoggedIn");
+const fileUploader = require('../config/cloudinary.config');
 
 router.get('/mainLeague/:id',(req,res,next)=>{
     const {id} = req.params;
@@ -14,9 +15,20 @@ router.get('/mainLeague/:id',(req,res,next)=>{
         League.findOne({'_owner':`${id}`})
         .populate('_teams _warning _matches')
         .then(((league)=>{
-        console.log('coach',league);
+            console.log('league._id',league._id)
+                    const ownerLeague = league._id;
+                    Match.find({_owner:ownerLeague})
+                    .populate('teamLocal teamVisitor')
+                    .then((match)=>{
+                        console.log('league',league)
+                        const data = league._teams;
+                        const numTeams = league._teams.length;
+                        const sorted = data.filter((team)=>team.points).sort((a,b)=>b.points-a.points)
+                        res.render('league/main.league.hbs',{user , id , numTeams , data , sorted , league , match});
+                    })
+        /* console.log('coach',league);
         const numTeams = league._teams.length;
-        res.render('league/main.league.hbs',{user , league , numTeams});
+        res.render('league/main.league.hbs',{user , league , numTeams}); */
     }))
     })
     .catch(error=>console.log('error',error))
@@ -133,13 +145,13 @@ router.get('/edit-league/:id',(req,res,next)=>{
     })
 })
 
-router.post('/edit-league/:id',(req,res,next)=>{
+router.post('/edit-league/:id',fileUploader.single('league_logo'),(req,res,next)=>{
     const {id} = req.params
-    const {name,surname,league_name,league_logo,country} = req.body
+    const {name,surname,league_name,country} = req.body
 
     User.findByIdAndUpdate(id,{name,surname},{new:true})
     .then((user)=>{
-        League.findOneAndUpdate({_owner:id},{league_name,league_logo,country},{new:true})
+        League.findOneAndUpdate({_owner:id},{league_name,country,league_logo:req.file.path},{new:true})
         .then(()=>res.redirect(`/league/mainLeague/${id}`))
     })
 })

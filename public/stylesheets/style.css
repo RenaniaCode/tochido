@@ -180,6 +180,7 @@ body {
 
 .circle-image {
   border-radius: 180px;
+  background-size: auto;
 }
 
 .nav-space {
