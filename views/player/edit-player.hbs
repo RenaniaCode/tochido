@@ -8,6 +8,7 @@
     <form
       class="row gy-2 gx-3 align-items-center"
       action="/player/edit-player/{{user._id}}"
+      enctype="multipart/form-data"
       method="POST"
     >
       <div class="col-sm-5">
@@ -99,12 +100,11 @@
         <div class="input-group mb-3">
           <span class="input-group-text" id="basic-addon3">URL</span>
           <input
-            type="text"
+            type="file"
             class="form-control"
             name="profile_pic"
             id="basic-url"
             aria-describedby="basic-addon3"
-            value="{{player.0.profile_pic}}"
           />
         </div>
       </div>

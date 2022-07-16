@@ -18,7 +18,7 @@
     </div>
     <div class="col-sm-5">
       <img
-        src="/images/liga.png"
+        src={{league.league_logo}}
         alt="..."
         class="float-end circle-image"
         width="200"
@@ -61,7 +61,7 @@
   </div>
 
   <div class="row row-cols-1 row-cols-md-3 g-4" style="color: white;">
-    {{#each league._matches}}
+    {{#each match}}
       <div class="col">
         <div
           class="card h-100 text-center border-light"
@@ -69,14 +69,14 @@
         >
           <div class="card-img-container">
             <img
-              src="/images/Screen Shot 2022-07-08 at 19.09.39.png"
+              src={{teamLocal.team_logo}}
               class="card-img-team"
               alt="..."
             />
 
             <span>vs</span>
             <img
-              src="/images/Screen Shot 2022-07-08 at 19.09.39.png"
+              src={{teamVisitor.team_logo}}
               class="card-img-team"
               alt="..."
             />

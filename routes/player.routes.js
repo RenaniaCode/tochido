@@ -3,6 +3,8 @@ const Player = require('../models/Player.model');
 const User = require("../models/User.model");
 const Team = require("../models/Team.model");
 const League = require("../models/League.model");
+const fileUploader = require('../config/cloudinary.config');
+const Match = require("../models/Match.model");
 
 
 router.get('/mainPlayer/:id',(req,res,next)=>{
@@ -24,9 +26,16 @@ router.get('/mainPlayer/:id',(req,res,next)=>{
                 League.findById(leagueId)
                 .populate('_teams _warning _matches')
                 .then((league)=>{
-                    const data = league._teams;
-                    const sorted = data.filter((team)=>team.points).sort((a,b)=>b.points-a.points)
-                    res.render('player/main-player.hbs',{user , player , id , data , sorted , league});
+                    console.log('league._id',league._id)
+                    const ownerLeague = league._id;
+                    Match.find({_owner:ownerLeague})
+                    .populate('teamLocal teamVisitor')
+                    .then((match)=>{
+                        console.log('match',match[0])
+                        const data = league._teams;
+                        const sorted = data.filter((team)=>team.points).sort((a,b)=>b.points-a.points)
+                        res.render('player/main-player.hbs',{user , player , id , data , sorted , league , match});
+                    })
                 })
             }
         }))
@@ -97,13 +106,13 @@ router.get('/edit-player/:id',(req,res,next)=>{
     })
 })
 
-router.post('/edit-player/:id',(req,res,next)=>{
+router.post('/edit-player/:id',fileUploader.single('profile_pic'),(req,res,next)=>{
     const {id} = req.params
-    const {name,surname,profile_pic , number , position , age , height , nickname} = req.body
+    const {name,surname, number , position , age , height , nickname} = req.body
 
     User.findByIdAndUpdate(id,{name,surname},{new:true})
-    .then((user)=>{
-        Player.findOneAndUpdate({_owner:id},{profile_pic , number , position , age , height , nickname},{new:true})
+    .then(()=>{
+        Player.findOneAndUpdate({_owner:id},{profile_pic:req.file.path , number , position , age , height , nickname},{new:true})
         .then(()=>res.redirect(`/player/mainPlayer/${id}`))
     })
 })

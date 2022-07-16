@@ -9,6 +9,7 @@
       class="row gy-2 gx-3 align-items-center"
       action="/league/edit-league/{{user._id}}"
       method="POST"
+      enctype="multipart/form-data"
     >
       <div class="col-sm-5">
         <label for="exampleInputEmail1" class="form-label">Nombre</label>
@@ -45,12 +46,11 @@
         <div class="input-group mb-3">
           <span class="input-group-text" id="basic-addon3">URL</span>
           <input
-            type="text"
+            type="file"
             class="form-control"
             id="basic-url"
             aria-describedby="basic-addon3"
             name="league_logo"
-            value="{{league.0.league_logo}}"
           />
         </div>
       </div>
@@ -62,6 +62,7 @@
           aria-label="Default select example"
           name="country"
         >
+          <option value="MX">MX &#x1F1F2;&#x1F1FD;</option>
           <option value="ALE">DEU &#x1f1e9;&#x1f1ea;</option>
           <option value="ITA">ITA &#x1f1ee;&#x1f1f9; </option>
           <option value="EEUU">USA &#x1f1fa;&#x1f1f8; </option>

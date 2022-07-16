@@ -8,6 +8,7 @@
     <form
       class="row gy-2 gx-3 align-items-center"
       action="/team/edit-team/{{user._id}}"
+      enctype="multipart/form-data"
       method="POST"
     >
       <div class="col-sm-5">
@@ -46,7 +47,7 @@
         <div class="input-group mb-3">
           <span class="input-group-text" id="basic-addon3">URL</span>
           <input
-            type="text"
+            type="file"
             class="form-control"
             name="team_logo"
             id="basic-url"

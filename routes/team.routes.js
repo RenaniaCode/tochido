@@ -4,6 +4,8 @@ const User = require('../models/User.model');
 const Player = require('../models/Player.model');
 const League = require('../models/League.model');
 const isLoggedIn = require("../middleware/isLoggedIn");
+const fileUploader = require('../config/cloudinary.config');
+const Match = require("../models/Match.model");
 
 router.get('/mainTeam/:id',(req,res,next)=>{
     const {id} = req.params;
@@ -22,11 +24,17 @@ router.get('/mainTeam/:id',(req,res,next)=>{
                 League.findById(coach._leagueOwner)
                 .populate('_teams _warning _matches')
                 .then((league)=>{
-                    console.log('data',league._warning);
-                    const data = league._teams;
-                    const numPlayers = coach._players.length;
-                    const sorted = data.filter((team)=>team.points).sort((a,b)=>b.points-a.points)
-                    res.render('team/main-team',{user , coach , id , numPlayers , data , league , sorted});
+                    console.log('league._id',league._id)
+                    const ownerLeague = league._id;
+                    Match.find({_owner:ownerLeague})
+                    .populate('teamLocal teamVisitor')
+                    .then((match)=>{
+                        console.log('coach',coach)
+                        const data = league._teams;
+                        const numPlayers = coach._players.length;
+                        const sorted = data.filter((team)=>team.points).sort((a,b)=>b.points-a.points)
+                        res.render('team/main-team',{user , coach , id , numPlayers , data , sorted , league , match});
+                    })
                 })
             }
         }))
@@ -158,13 +166,13 @@ router.get('/edit-team/:id',(req,res,next)=>{
     })
 })
 
-router.post('/edit-team/:id',(req,res,next)=>{
+router.post('/edit-team/:id',fileUploader.single('team_logo'),(req,res,next)=>{
     const {id} = req.params
-    const {name,surname,team_name,team_logo} = req.body
+    const {name,surname,team_name,} = req.body
 
     User.findByIdAndUpdate(id,{name,surname},{new:true})
     .then((user)=>{
-        Team.findOneAndUpdate({_owner:id},{team_name,team_logo},{new:true})
+        Team.findOneAndUpdate({_owner:id},{team_name,team_logo:req.file.path},{new:true})
         .then(()=>res.redirect(`/team/mainTeam/${id}`))
     })
 })
