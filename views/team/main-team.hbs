@@ -1,7 +1,7 @@
 <div class="body-padding">
 
   <div class="titles">
-    <p>Mi Perfil</p>
+    <p>Mi Equipo</p>
   </div>
 
   <div class="row gy-2 gx-3 align-items-center">
@@ -10,32 +10,6 @@
       <p>
         <b>Nombre: </b><span>{{user.name}}</span><br />
         <b>Apellido: </b><span>{{user.surname}}</span><br />
-      </p>
-    </div>
-    <div class="col-sm-5">
-      <img
-        src="/images/jugador9.png"
-        class="float-end circle-image"
-        alt="..."
-        width="200"
-        height="200"
-      />
-    </div>
-
-    <div class="row">
-      <div class="col"></div>
-      <div class="col"></div>
-    </div>
-  </div>
-
-  <div class="titles">
-    <p>Perfil de mi Equipo</p>
-  </div>
-
-  <div class="row gy-2 gx-3 align-items-center">
-
-    <div class="col-sm-5">
-      <p>
         <b>Nombre del Equipo: </b><span>{{coach.team_name}}</span><br />
         <b>Cantidad de Jugadores: </b><span>{{numPlayers}}</span><br />
         <b>ID: </b><span>{{coach._id}}</span><br />
@@ -74,7 +48,7 @@
             type="button"
             class="btn btn-bd-fourth float-end"
             href="/team/edit-team/{{id}}"
-          >Editar Perfiles</a>
+          >Editar Perfil</a>
         </div>
         <div class="col"></div>
       </div>
