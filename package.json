@@ -1,6 +1,6 @@
 {
   "name": "tochido",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "node server.js",
@@ -14,6 +14,7 @@
     "express": "^4.18.1",
     "express-session": "^1.17.3",
     "hbs": "^4.2.0",
+    "mongodb": "^6.2.0",
     "mongoose": "^6.4.1",
     "morgan": "^1.10.0",
     "serve-favicon": "^2.5.0"
